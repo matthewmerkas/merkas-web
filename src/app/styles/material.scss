@@ -1,0 +1,23 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// See https://material.angular.io/guide/theming
+
+$merkas-primary: mat.define-palette(mat.$yellow-palette, 900);
+$merkas-accent: mat.define-palette(mat.$light-green-palette, 500);
+$merkas-warn: mat.define-palette(mat.$red-palette);
+
+$merkas-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $merkas-primary,
+      accent: $merkas-accent,
+      warn: $merkas-warn
+    ),
+    density: 0
+  )
+);
+
+// Emit theme-dependent styles for all components (will produce unnecessary CSS, but it's easier)
+@include mat.all-component-themes($merkas-dark-theme);

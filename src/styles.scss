@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'app/styles/material.scss';
+
+html,
+body {
+  height: 100%;
+}
+body {
+  background-color: rgb(var(--background-color));
+  color: rgb(var(--color));
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  // Variables
+  --background-color: 21, 21, 21;
+  --border-radius: 18px;
+  --color: 255, 255, 255;
+  --mdc-filled-text-field-container-shape: calc(var(--border-radius) / 2);
+  --mdc-outlined-text-field-container-shape: calc(var(--border-radius) / 2);
+}
+
+.display-none {
+  display: none;
+}
+
+.flex {
+  align-items: center;
+  display: flex;
+}
+
+.mat-mdc-card {
+  border-radius: var(--border-radius) !important;
+}
+
+.mat-mdc-card:not([class*='mat-elevation-z']) {
+  box-shadow: none;
+}
+
+@media screen and (orientation: portrait) and (max-width: 480px) {
+  .mat-expansion-panel-body {
+    padding: 0 0 16px !important;
+  }
+  .mat-mdc-dialog-surface {
+    border-radius: 0 !important;
+  }
+}
+@media not screen and (orientation: portrait) and (max-width: 480px) {
+  .mat-mdc-dialog-surface {
+    border-radius: var(--border-radius) !important;
+  }
+}
+
+.mat-mdc-button-base:not(.mat-mdc-icon-button) {
+  border-radius: calc(var(--border-radius) / 2) !important;
+}
+
+.mdc-text-field--filled {
+  border-radius: var(--mdc-filled-text-field-container-shape) !important;
+}
+
+.hide-subscript .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+.search .mat-mdc-form-field-icon-suffix {
+  padding-right: 4px;
+}

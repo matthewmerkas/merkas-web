@@ -1,0 +1,105 @@
+@use '@angular/material' as mat;
+@import '../../styles/material.scss';
+
+$spacing: 20px;
+
+@media screen and (orientation: portrait) {
+  .centered.container {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .circle > .mat-icon {
+    transform: rotate(-90deg);
+  }
+}
+@media screen and (orientation: portrait) and (max-width: 480px) {
+  .mat-mdc-card {
+    max-width: unset !important;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+h1 {
+  font-size: 25vmax;
+  line-height: 1;
+  margin: 0;
+}
+
+.centered {
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  user-select: none;
+}
+
+.circle {
+  &:hover {
+    background-color: mat.get-color-from-palette($merkas-primary) !important;
+  }
+  > .mat-icon {
+    position: absolute;
+    font-size: 7%;
+    height: auto;
+    width: auto;
+  }
+
+  aspect-ratio: 1;
+  background-color: rgba(var(--color)) !important;
+  border-radius: 50%;
+  bottom: 0.149em;
+  cursor: pointer;
+  justify-content: center;
+  position: absolute;
+  width: 0.11em;
+  right: 0.071em;
+  transition: background-color 100ms ease-in-out;
+}
+
+.mat-mdc-card {
+  max-width: 320px;
+}
+
+.mat-mdc-card-actions {
+  margin: calc($spacing - 8px) !important;
+}
+
+.mat-mdc-card-actions button {
+  height: 36px;
+}
+
+.mat-mdc-card-header,
+.mat-mdc-card-content {
+  padding: $spacing $spacing 0;
+}
+
+.mat-mdc-card-header {
+  .mat-mdc-icon-button {
+    margin: -8px;
+  }
+  justify-content: space-between;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mat-mdc-icon-button {
+  margin-right: 2px;
+}
+
+.mat-mdc-progress-spinner {
+  margin: auto;
+}
+
+//:host ::ng-deep circle {
+//  stroke: rgba(0, 0, 0, 0.26) !important;
+//}
+
+.continue-button {
+  width: 100%;
+}

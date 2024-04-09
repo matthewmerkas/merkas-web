@@ -1,0 +1,13 @@
+{
+  "name": "Merkas",
+  "short_name": "Merkas",
+  "icons": [
+    {
+      "src": "google-touch-icon.png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#212121",
+  "theme_color": "#212121",
+  "display": "fullscreen"
+}

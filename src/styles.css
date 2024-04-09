@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(var(--background-color));
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  --background-color: 245, 245, 245;
+  --border-radius: 18px;
+  --font-color: 0, 0, 0;
+}
+
+.mat-card {
+  border-radius: var(--border-radius) !important;
+  transition: all 100ms;
+}
+
+.mat-card:not([class*='mat-elevation-z']) {
+  box-shadow: none;
+}
+
+.mat-dialog-container {
+  border-radius: var(--border-radius) !important;
+}
+
+.mat-button,
+.mat-flat-button,
+.mat-menu-panel {
+  border-radius: calc(var(--border-radius) / 2) !important;
+}
+
+.mat-form-field-flex {
+  border-radius: calc(var(--border-radius) / 2) calc(var(--border-radius) / 2) 0
+    0 !important;
+}
+
+.scroll {
+  overflow-y: scroll;
+}
+
+/*# sourceMappingURL=styles.css.map */

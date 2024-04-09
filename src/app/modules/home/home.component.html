@@ -1,0 +1,60 @@
+<div class="centered container flex">
+  <h1>
+    Merkas!
+    <div class="circle flex" (click)="openDialog()" matRipple>
+      <mat-icon>login</mat-icon>
+    </div>
+  </h1>
+</div>
+
+<ng-template #loginDialog>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Log In</mat-card-title>
+      <button [disabled]="closeIsDisabled" mat-dialog-close mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-card-header>
+    <mat-card-content [formGroup]="authForm" (keyup.enter)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input formControlName="username" matInput />
+        <mat-error *ngIf="authForm.get('username')?.hasError('required')">
+          Username is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          formControlName="password"
+          matInput
+          type="{{ showPassword ? 'text' : 'password' }}"
+        />
+        <button
+          matSuffix
+          mat-icon-button
+          (click)="showPassword = !showPassword"
+        >
+          <mat-icon>
+            {{ showPassword ? 'visibility' : 'visibility_off' }}
+          </mat-icon>
+        </button>
+        <mat-error *ngIf="authForm.get('password')?.hasError('required')">
+          Password is required
+        </mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        class="continue-button"
+        (click)="onSubmit()"
+        color="primary"
+        [disabled]="authForm.invalid || store.ui.loading"
+        mat-flat-button
+      >
+        <mat-spinner [diameter]="20" *ngIf="store.ui.loading"></mat-spinner>
+        <span *ngIf="!store.ui.loading">Continue</span>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>

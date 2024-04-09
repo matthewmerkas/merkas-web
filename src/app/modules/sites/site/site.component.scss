@@ -1,0 +1,19 @@
+a {
+  all: unset;
+}
+
+.mat-mdc-card {
+  &:hover {
+    background-color: rgba(73, 73, 73);
+    transform: scale(1.03);
+  }
+  cursor: pointer;
+  min-height: 52px;
+  transition: all 100ms ease-in-out;
+  user-select: none;
+  width: 264px;
+}
+
+.mat-mdc-card-avatar {
+  background-color: white;
+}

@@ -1,0 +1,63 @@
+<mat-card>
+  <mat-card-content
+    [class.dragover]="dragover"
+    [class.accent]="target === 'private'"
+    (dragover)="onDragover($event)"
+    (dragleave)="onDragleave($event)"
+    (drop)="onDrop($event)"
+  >
+    <div class="label-container">
+      <span>{{ toTitleCase(target!) + ' file' }}</span>
+    </div>
+    <div class="icon-container">
+      <fa-icon [icon]="dragover ? faFileArrowUp : fileIcon"></fa-icon>
+      <span class="file-name">
+        {{ file?.name && !dragover ? file?.name : 'Drop a file to upload' }}
+      </span>
+      <span class="file-size">
+        {{ file?.size && !dragover ? prettyBytes(file?.size!) : '...' }}
+      </span>
+    </div>
+  </mat-card-content>
+  <mat-progress-bar
+    [color]="target === 'private' ? 'accent' : ''"
+    [value]="progress"
+  ></mat-progress-bar>
+  <mat-button-toggle-group [formControl]="toggleFc">
+    <mat-button-toggle
+      (click)="_upload ? cancel() : fileUpload.click()"
+      [matTooltip]="_upload ? 'Cancel Upload' : 'Upload'"
+      [matTooltipShowDelay]="TOOLTIP_DELAY"
+      value="upload"
+    >
+      <mat-icon>{{ _upload ? 'close' : 'upload' }}</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle
+      (click)="_download ? cancel() : download()"
+      [disabled]="!file?._id"
+      [matTooltip]="_download ? 'Cancel Download' : 'Download'"
+      [matTooltipDisabled]="!file?._id"
+      [matTooltipShowDelay]="TOOLTIP_DELAY"
+      value="download"
+    >
+      <mat-icon>{{ _download ? 'close' : 'download' }}</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle
+      (click)="delete()"
+      [disabled]="!file?._id"
+      matTooltip="Delete"
+      [matTooltipDisabled]="!file?._id"
+      [matTooltipShowDelay]="TOOLTIP_DELAY"
+      value="delete"
+    >
+      <mat-icon>delete</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</mat-card>
+<input
+  #fileUpload
+  (change)="onChange($event)"
+  class="display-none"
+  name="File Upload"
+  type="file"
+/>

@@ -1,0 +1,68 @@
+.mat-toolbar {
+  background-color: transparent;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.container {
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: auto;
+  padding: 64px 0;
+  width: 100%;
+}
+@media screen and (max-width: 840px) {
+  .container {
+    max-width: calc(100% - 32px);
+  }
+}
+@media not screen and (max-width: 840px) {
+  .container {
+    max-width: min(calc(100% - 160px), 1920px);
+  }
+}
+
+.mat-accordion {
+  width: 100%;
+}
+.mat-expansion-panel {
+  background: none;
+  box-shadow: none !important;
+}
+
+.boards {
+  > * {
+    aspect-ratio: 1;
+    flex: 1 1 0px;
+    font-size: 14px;
+    min-width: 320px;
+    max-height: 360px;
+  }
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+}
+
+.header {
+  margin: 24px;
+}
+
+.search-container {
+  --mdc-outlined-text-field-container-shape: 28px;
+  --mdc-filled-text-field-container-shape: 28px;
+  .search {
+    max-width: 640px;
+    width: 100%;
+  }
+  margin: 24px;
+  justify-content: center;
+  width: 100%;
+}
+
+.sites-container {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}

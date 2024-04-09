@@ -1,0 +1,72 @@
+@use '@angular/material' as mat;
+@import '../../../styles/material.scss';
+
+$radius: calc(var(--border-radius) / 2);
+
+.dragover {
+  &.accent {
+    background-color: rgba(mat.get-color-from-palette($merkas-accent), 0.1);
+    outline-color: mat.get-color-from-palette($merkas-accent);
+  }
+  outline: 1px solid mat.get-color-from-palette($merkas-primary);
+  border-top-left-radius: calc(var(--border-radius) * 0.5);
+  border-top-right-radius: calc(var(--border-radius) * 0.5);
+  outline-offset: -1px;
+  background-color: rgba(mat.get-color-from-palette($merkas-primary), 0.1);
+}
+
+.icon-container {
+  fa-icon {
+    font-size: 56px;
+  }
+  span {
+    margin-top: 8px;
+  }
+  .file-name {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .file-size {
+    height: 0;
+    margin-top: 4px;
+    opacity: 0.6;
+  }
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: center;
+}
+
+.label-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 16px;
+  opacity: 0.6;
+}
+
+.mat-button-toggle-group {
+  > * {
+    flex-grow: 1;
+  }
+
+  border-radius: 0 0 $radius $radius;
+  margin: auto 0 -1px -1px;
+  width: 100%;
+}
+
+.mat-mdc-card {
+  border: solid 1px var(--mat-standard-button-toggle-divider-color);
+  border-radius: $radius !important;
+  height: 100%;
+}
+
+.mat-mdc-card-content {
+  // 100% - button toggle group height - padding top - border
+  height: calc(100% - 50px - 16px - 1px);
+}

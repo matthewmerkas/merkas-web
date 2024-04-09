@@ -1,0 +1,44 @@
+<mat-toolbar>
+  <img
+    alt="Merkas Logo"
+    ngSrc="/assets/favicon.svg"
+    priority=""
+    width="48"
+    height="48"
+  />
+  <div>
+    <button mat-icon-button (click)="logout()" color="background">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+<div class="flex container">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>Boards</mat-expansion-panel-header>
+      <div class="flex boards">
+        <app-text-board [target]="'public'"></app-text-board>
+        <app-file-board [target]="'public'"></app-file-board>
+        <app-file-board [target]="'private'"></app-file-board>
+        <app-text-board [target]="'private'"></app-text-board>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <span class="header mat-content">Sites</span>
+  <div class="flex search-container">
+    <mat-form-field class="search">
+      <input matInput [formControl]="searchFc" placeholder="Search" />
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="searchFc.reset('')"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="flex sites-container">
+    <app-site *ngFor="let site of sites" [site]="site"></app-site>
+  </div>
+</div>
