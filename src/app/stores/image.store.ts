@@ -8,7 +8,7 @@ import { Site } from '../functions/types'
 
 export class ImageStore {
   map = new Map<string, string>()
-  url = (environment.apiUrl + apiConfig.images).replace('/api', '')
+  url = environment.apiUrl + apiConfig.images
   constructor(private http: HttpClient) {}
   @action
   get(site?: Site): Observable<string> {
