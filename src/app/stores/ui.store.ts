@@ -6,8 +6,6 @@ import { io, Socket } from 'socket.io-client'
 import { Store } from './store'
 import { getToken } from '../functions/local-storage'
 import { environment } from '../../environments/environment'
-import * as Y from 'yjs'
-import { BoardStore } from './board.store'
 
 export class UiStore {
   @observable loading = false
