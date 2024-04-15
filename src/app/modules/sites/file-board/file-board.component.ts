@@ -55,14 +55,18 @@ export class FileBoardComponent implements OnInit {
   constructor(public store: Store) {}
 
   ngOnInit() {
-    this.store.file.getList(this.target!).subscribe((files) => {
-      this.setFile(files?.at(0))
-    })
     this.toggleFc.valueChanges.subscribe(() => {
       // Toggle buttons should not stay depressed/selected
       this.toggleFc.setValue('', { emitEvent: false })
     })
-    // Listening to events
+    this.setValue()
+    // Page Visibility API
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        this.setValue()
+      }
+    })
+    // Listening to socket events
     this.store.ui.socket.on('file_delete', (data) => {
       if (data?.target === this.target) {
         this.setFile(undefined)
@@ -139,6 +143,12 @@ export class FileBoardComponent implements OnInit {
     } else {
       this.fileIcon = getIcon(file.mimetype)
     }
+  }
+
+  setValue = () => {
+    return this.store.file.getList(this.target!).subscribe((files) => {
+      this.setFile(files?.at(0))
+    })
   }
 
   upload = async (file: File | null) => {

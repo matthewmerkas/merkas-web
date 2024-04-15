@@ -15,13 +15,22 @@ import { Site } from '../../functions/types'
 })
 export class SitesComponent implements OnInit {
   protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
-  constructor(public store: Store, public router: Router) {}
+  constructor(
+    public store: Store,
+    public router: Router
+  ) {
+    // Page Visibility API
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        this.setValue()
+      }
+    })
+  }
 
   searchFc = new FormControl('')
   sites: Site[] = []
 
   ngOnInit() {
-    const opts = { emitEvent: false }
     this.searchFc.valueChanges
       .pipe(debounceTime(environment.DEBOUNCE_TIME))
       .subscribe((query) => {
@@ -40,14 +49,18 @@ export class SitesComponent implements OnInit {
           }
         })
       })
-    this.store.site.getList().subscribe((res) => {
-      this.sites = res
-    })
+    this.setValue()
   }
 
   logout() {
     removeTokens()
     this.store.ui.onLogout()
     return this.router.navigate(['/'])
+  }
+
+  setValue() {
+    return this.store.site.getList().subscribe((res) => {
+      this.sites = res
+    })
   }
 }

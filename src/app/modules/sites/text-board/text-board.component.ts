@@ -31,20 +31,28 @@ export class TextBoardComponent implements OnInit {
   @Input() formControl = new FormControl('')
   @Input() target: 'public' | 'private' = 'public'
 
+  pending = false
+
   protected readonly toTitleCase = toTitleCase
 
   ngOnInit() {
+    this.formControl.valueChanges.subscribe(() => (this.pending = true))
     this.formControl.valueChanges
       .pipe(debounceTime(DEBOUNCE))
       .subscribe((text) => {
         this.store.board.update(this.target, text || '').subscribe((res) => {
           this.formControl.setValue(res, OPTS)
         })
+        this.pending = false
       })
-    this.store.board.getList(this.target).subscribe((res) => {
-      this.formControl.setValue(res, OPTS)
+    this.setValue()
+    // Page Visibility API
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && !this.pending) {
+        this.setValue()
+      }
     })
-    // Listening to events
+    // Listening to socket events
     const doc = this.store.board[this.target]
     this.store.ui.socket.on(this.target + '_board', (res) => {
       const update = new Uint8Array(res)
@@ -52,6 +60,12 @@ export class TextBoardComponent implements OnInit {
     })
     doc.on('update', () => {
       this.formControl.setValue(doc.getText().toString(), OPTS)
+    })
+  }
+
+  setValue() {
+    return this.store.board.getList(this.target).subscribe((res) => {
+      this.formControl.setValue(res, OPTS)
     })
   }
 }
