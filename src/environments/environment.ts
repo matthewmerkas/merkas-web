@@ -10,7 +10,7 @@ export const environment = {
   socketUri: 'http://localhost:3001',
   apiConfig,
   DEBOUNCE_TIME: 200,
-  MAX_FILE_SIZE: 128000000
+  MAX_FILE_SIZE: 100000000
 }
 
 /*

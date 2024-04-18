@@ -6,5 +6,5 @@ export const environment = {
   socketUri: 'https://merkas.com.au',
   apiConfig,
   DEBOUNCE_TIME: 200,
-  MAX_FILE_SIZE: 128000000
+  MAX_FILE_SIZE: 100000000
 }
