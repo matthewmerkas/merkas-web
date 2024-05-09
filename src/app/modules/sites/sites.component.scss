@@ -1,3 +1,5 @@
+$edge-margin: 24px;
+
 .mat-toolbar {
   background-color: transparent;
   justify-content: space-between;
@@ -48,11 +50,11 @@
 .header {
   &.expanded {
     display: block; // Make sure margins collapse
-    margin: 28px 24px;
+    margin: 28px $edge-margin;
   }
   display: inline-block;
-  margin: 14px 24px;
-  width: 100%;
+  margin: 14px $edge-margin;
+  width: calc(100% - $edge-margin * 2);
   // Copy .mat-expansion-panel-header styles
   font-family: var(--mat-expansion-header-text-font);
   font-size: var(--mat-expansion-header-text-size);
@@ -68,9 +70,9 @@
     max-width: 640px;
     width: 100%;
   }
-  margin: 24px;
+  margin: $edge-margin;
   justify-content: center;
-  width: 100%;
+  width: calc(100% - $edge-margin * 2);
 }
 
 .sites-container {
