@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   })
   closeIsDisabled = true
   dialogRef?: MatDialogRef<any>
+  showSplash = false
 
   constructor(
     public dialog: MatDialog,
@@ -34,6 +35,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     if (getToken()) {
       this.router.navigate(['/sites'])
+    } else {
+      this.showSplash = true
     }
   }
 
