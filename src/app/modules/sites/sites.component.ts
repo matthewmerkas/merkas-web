@@ -7,18 +7,25 @@ import { TOOLTIP_DELAY } from '../../functions/constants'
 import { debounceTime } from 'rxjs'
 import { environment } from '../../../environments/environment'
 import { Site } from '../../functions/types'
+import { animations } from '../../functions/animations'
 
 @Component({
   selector: 'app-sites',
   templateUrl: './sites.component.html',
-  styleUrls: ['./sites.component.scss']
+  styleUrls: ['./sites.component.scss'],
+  animations: animations('200ms')
 })
 export class SitesComponent implements OnInit {
   protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
+  useAccordion = false
   constructor(
     public store: Store,
     public router: Router
   ) {
+    // Hack for expanded panel on page load
+    setTimeout(() => {
+      this.useAccordion = true
+    }, 200)
     // Page Visibility API
     document.addEventListener('visibilitychange', () => {
       if (!document.hidden) {

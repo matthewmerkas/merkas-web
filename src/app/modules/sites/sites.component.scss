@@ -46,7 +46,19 @@
 }
 
 .header {
-  margin: 24px;
+  &.expanded {
+    display: block; // Make sure margins collapse
+    margin: 28px 24px;
+  }
+  display: inline-block;
+  margin: 14px 24px;
+  width: 100%;
+  // Copy .mat-expansion-panel-header styles
+  font-family: var(--mat-expansion-header-text-font);
+  font-size: var(--mat-expansion-header-text-size);
+  font-weight: var(--mat-expansion-header-text-weight);
+  line-height: var(--mat-expansion-header-text-line-height);
+  letter-spacing: var(--mat-expansion-header-text-tracking);
 }
 
 .search-container {
