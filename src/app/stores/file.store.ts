@@ -9,7 +9,10 @@ import { Store } from './store'
 
 export class FileStore {
   url = environment.apiUrl + apiConfig.file.base
-  constructor(private http: HttpClient, private store: Store) {}
+  constructor(
+    private http: HttpClient,
+    private store: Store
+  ) {}
 
   @action
   getList(target: 'public' | 'private'): Observable<MerkasFile[]> {
@@ -51,7 +54,7 @@ export class FileStore {
               a.href = url
               const regex = /"(.*?)"/g
               const arr = regex.exec(content)
-              a.download = arr?.at(0) || ''
+              a.download = (arr?.at(0) || '').replace(/^"|"$/g, '')
               a.click()
               window.URL.revokeObjectURL(url)
               a.remove()
