@@ -1,4 +1,5 @@
 @use '@angular/material' as mat;
+@import '../sites.component.scss';
 @import '../../../styles/material.scss';
 
 $radius: calc(var(--border-radius) / 2);
@@ -64,6 +65,7 @@ $radius: calc(var(--border-radius) / 2);
   border: solid 1px var(--mat-standard-button-toggle-divider-color);
   border-radius: $radius !important;
   height: 100%;
+  max-height: $board-max-height;
 }
 
 .mat-mdc-card-content {
