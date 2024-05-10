@@ -9,10 +9,7 @@ import { Store } from './store'
 
 export class FileStore {
   url = environment.apiUrl + apiConfig.file.base
-  constructor(
-    private http: HttpClient,
-    private store: Store
-  ) {}
+  constructor(private http: HttpClient, private store: Store) {}
 
   @action
   getList(target: 'public' | 'private'): Observable<MerkasFile[]> {

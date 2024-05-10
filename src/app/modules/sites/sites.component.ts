@@ -18,10 +18,7 @@ import { animations } from '../../functions/animations'
 export class SitesComponent implements OnInit {
   protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
   useAccordion = false
-  constructor(
-    public store: Store,
-    public router: Router
-  ) {
+  constructor(public store: Store, public router: Router) {
     // Hack for expanded panel on page load
     setTimeout(() => {
       this.useAccordion = true
