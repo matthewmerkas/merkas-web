@@ -1,12 +1,20 @@
 <div [@fadeIn]>
   <mat-toolbar>
-    <img
-      alt="Merkas Logo"
-      ngSrc="/assets/favicon.svg"
-      priority=""
-      width="48"
-      height="48"
-    />
+    <button
+      class="logo-button"
+      mat-icon-button
+      matTooltip="Home"
+      [matTooltipShowDelay]="TOOLTIP_DELAY"
+      routerLink="/sites"
+    >
+      <img
+        alt="Merkas Logo"
+        ngSrc="/assets/favicon.svg"
+        priority=""
+        width="48"
+        height="48"
+      />
+    </button>
     <div>
       <button mat-icon-button (click)="logout()" color="background">
         <mat-icon>logout</mat-icon>
@@ -37,6 +45,8 @@
           mat-icon-button
           aria-label="Clear"
           (click)="searchFc.reset('')"
+          matTooltip="Clear"
+          [matTooltipShowDelay]="TOOLTIP_DELAY"
         >
           <mat-icon>close</mat-icon>
         </button>
