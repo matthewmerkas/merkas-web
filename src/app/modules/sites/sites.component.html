@@ -16,9 +16,25 @@
       />
     </button>
     <div>
-      <button mat-icon-button (click)="logout()" color="background">
-        <mat-icon>logout</mat-icon>
+      <button
+        mat-icon-button
+        color="background"
+        matTooltip="Options"
+        [matTooltipShowDelay]="TOOLTIP_DELAY"
+        [matMenuTriggerFor]="optionsMenu"
+      >
+        <mat-icon>more_vert</mat-icon>
       </button>
+      <mat-menu #optionsMenu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>person</mat-icon>
+          Account
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          Log out
+        </button>
+      </mat-menu>
     </div>
   </mat-toolbar>
   <div class="container">
