@@ -72,8 +72,11 @@ $edge-margin: 24px;
   letter-spacing: var(--mat-expansion-header-text-tracking);
 }
 
-:host ::ng-deep .search-container .mdc-line-ripple::before {
-  border: none;
+:host ::ng-deep .search .mdc-line-ripple {
+  display: none;
+}
+:host ::ng-deep .search .mdc-text-field__input {
+  caret-color: white !important;
 }
 .search-container {
   --mdc-outlined-text-field-container-shape: 28px;
