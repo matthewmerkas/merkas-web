@@ -64,6 +64,9 @@ $edge-margin: 24px;
   letter-spacing: var(--mat-expansion-header-text-tracking);
 }
 
+:host ::ng-deep .search-container .mdc-line-ripple::before {
+  border: none;
+}
 .search-container {
   --mdc-outlined-text-field-container-shape: 28px;
   --mdc-filled-text-field-container-shape: 28px;
