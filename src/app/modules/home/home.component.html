@@ -11,7 +11,11 @@
   <mat-card>
     <mat-card-header>
       <mat-card-title>Log In</mat-card-title>
-      <button [disabled]="closeIsDisabled" mat-dialog-close mat-icon-button>
+      <button
+        [disabled]="closeIsDisabled || loading"
+        mat-dialog-close
+        mat-icon-button
+      >
         <mat-icon>close</mat-icon>
       </button>
     </mat-card-header>
@@ -23,30 +27,13 @@
           Username is required
         </mat-error>
       </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Password</mat-label>
-        <input
-          formControlName="password"
-          matInput
-          type="{{ showPassword ? 'text' : 'password' }}"
-        />
-        <button
-          matSuffix
-          mat-icon-button
-          (click)="showPassword = !showPassword"
-        >
-          <mat-icon>
-            {{ showPassword ? 'visibility' : 'visibility_off' }}
-          </mat-icon>
-        </button>
-        <mat-error *ngIf="authForm.get('password')?.hasError('required')">
-          Password is required
-        </mat-error>
-      </mat-form-field>
+      <app-password-field
+        [fc]="authForm.controls.password"
+      ></app-password-field>
     </mat-card-content>
     <mat-card-actions>
       <button
-        class="continue-button"
+        class="action-button"
         (click)="onSubmit()"
         color="primary"
         [disabled]="authForm.invalid || store.ui.loading"

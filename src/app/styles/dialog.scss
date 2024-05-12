@@ -1,0 +1,49 @@
+$spacing: 20px;
+
+@media screen and (orientation: portrait) and (max-width: 480px) {
+  .mat-mdc-card {
+    max-width: unset !important;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+.mat-mdc-card {
+  max-width: 320px;
+}
+
+.mat-mdc-card-actions {
+  margin: calc($spacing - 8px) !important;
+}
+
+.mat-mdc-card-actions button {
+  height: 36px;
+}
+
+.mat-mdc-card-header,
+.mat-mdc-card-content {
+  padding: $spacing $spacing 0;
+}
+
+.mat-mdc-card-header {
+  .mat-mdc-icon-button {
+    margin: -8px;
+  }
+  justify-content: space-between;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mat-mdc-icon-button {
+  margin-right: 2px;
+}
+
+.mat-mdc-progress-spinner {
+  margin: auto;
+}
+
+.action-button {
+  width: 100%;
+}

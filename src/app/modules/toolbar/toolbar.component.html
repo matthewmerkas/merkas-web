@@ -1,0 +1,38 @@
+<mat-toolbar>
+  <button
+    class="logo-button"
+    mat-icon-button
+    matTooltip="Home"
+    [matTooltipShowDelay]="TOOLTIP_DELAY"
+    routerLink="/sites"
+  >
+    <img
+      alt="Merkas Logo"
+      ngSrc="/assets/favicon.svg"
+      priority=""
+      width="48"
+      height="48"
+    />
+  </button>
+  <div>
+    <button
+      mat-icon-button
+      color="background"
+      matTooltip="Options"
+      [matTooltipShowDelay]="TOOLTIP_DELAY"
+      [matMenuTriggerFor]="optionsMenu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #optionsMenu="matMenu">
+      <button mat-menu-item (click)="openDialog()">
+        <mat-icon>person</mat-icon>
+        Account
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Log out
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

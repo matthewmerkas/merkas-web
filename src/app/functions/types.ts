@@ -35,3 +35,9 @@ export interface User extends SoftDeletes {
   isDeleted?: boolean
   toObject?: () => any
 }
+
+export interface UserUpdate {
+  currentPassword: string
+  newPassword: string
+  confirmPassword?: string
+}

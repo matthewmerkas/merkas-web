@@ -1,0 +1,19 @@
+@use '@angular/material' as mat;
+@import '../../../styles/dialog.scss';
+@import '../../../styles/material.scss';
+
+.avatar {
+  align-items: center;
+  background-color: mat.get-color-from-palette($merkas-primary);
+  border-radius: 50%;
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+  height: 48px;
+  width: 48px;
+}
+
+.username {
+  margin-left: 8px;
+  font-size: 16px;
+}

@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Account Settings</mat-card-title>
+    <button
+      [disabled]="closeIsDisabled || loading"
+      mat-dialog-close
+      mat-icon-button
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content [formGroup]="accountForm" (keyup.enter)="onSubmit()">
+    <div class="flex">
+      <div class="avatar">m</div>
+      <div class="username">matthew</div>
+    </div>
+    <br />
+    <app-password-field
+      [fc]="accountForm.controls.currentPassword"
+      [label]="'Current Password'"
+    ></app-password-field>
+    <app-password-field
+      [fc]="accountForm.controls.newPassword"
+      [label]="'New Password'"
+    ></app-password-field>
+    <app-password-field
+      [fc]="accountForm.controls.confirmPassword"
+      [label]="'Confirm Password'"
+    ></app-password-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      class="action-button"
+      (click)="onSubmit()"
+      color="primary"
+      [disabled]="accountForm.invalid || store.ui.loading"
+      mat-flat-button
+    >
+      <mat-spinner [diameter]="20" *ngIf="store.ui.loading"></mat-spinner>
+      <span *ngIf="!store.ui.loading">Save</span>
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core'
 import { Store } from '../../stores/store'
-import { removeTokens } from '../../functions/local-storage'
 import { Router } from '@angular/router'
 import { FormControl } from '@angular/forms'
 import { TOOLTIP_DELAY } from '../../functions/constants'
@@ -54,12 +53,6 @@ export class SitesComponent implements OnInit {
         })
       })
     this.setValue()
-  }
-
-  logout() {
-    removeTokens()
-    this.store.ui.onLogout()
-    return this.router.navigate(['/'])
   }
 
   setValue() {

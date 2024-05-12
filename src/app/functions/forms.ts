@@ -1,4 +1,10 @@
-import { FormArray, FormGroup } from '@angular/forms'
+import {
+  AbstractControl,
+  FormArray,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn
+} from '@angular/forms'
 
 export function getNestedValue(obj: any, path: string): any {
   return path.split('.').reduce((o, p) => o && o[p], obj)
@@ -29,8 +35,24 @@ export function getFormArraysControls(
   return <FormGroup[]>getFormArrays(formGroup, formArrayName).controls
 }
 
-export function passwordMatchValidator(g: FormGroup): any {
-  return g.get('new_password')?.value === g.get('confirm_new_password')?.value
-    ? null
-    : { mismatch: true }
+export function matchValidator(key1: string, key2: string): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const c1 = control.get(key1)
+    const c2 = control.get(key2)
+    if (!c1 || !c2) {
+      return null
+    }
+    if (c1.value === c2.value) {
+      const errors = c2.errors || {}
+      delete errors['mismatch']
+      c2.setErrors(errors)
+      c2.updateValueAndValidity({ emitEvent: false, onlySelf: true })
+      return null
+    } else {
+      const errors = c2.errors || {}
+      errors['mismatch'] = true
+      c2.setErrors(errors)
+      return { mismatch: true }
+    }
+  }
 }

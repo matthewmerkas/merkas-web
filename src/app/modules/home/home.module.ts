@@ -11,6 +11,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatRipple } from '@angular/material/core'
 import { MatDialogClose } from '@angular/material/dialog'
+import { PasswordFieldComponent } from '../../components/password-field/password-field.component'
 
 @NgModule({
   declarations: [HomeComponent],
@@ -24,7 +25,8 @@ import { MatDialogClose } from '@angular/material/dialog'
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatRipple,
-    MatDialogClose
+    MatDialogClose,
+    PasswordFieldComponent
   ]
 })
 export class HomeModule {}

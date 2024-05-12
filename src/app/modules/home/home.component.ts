@@ -44,6 +44,7 @@ export class HomeComponent implements OnInit {
     this.dialogRef = this.dialog.open(this.loginDialog!, {
       maxWidth: '100vw'
     })
+    // Ensure close button does not get focus on open
     this.dialogRef.afterOpened().subscribe(() => {
       setTimeout(() => {
         this.closeIsDisabled = false

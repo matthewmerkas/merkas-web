@@ -3,7 +3,7 @@ import { action } from 'mobx-angular'
 import { map, Observable } from 'rxjs'
 
 import { getRefreshToken, setTokens } from '../functions/local-storage'
-import { Jwt } from '../functions/types'
+import { Jwt, User, UserUpdate } from '../functions/types'
 import { apiConfig } from '../../environments/api.config'
 import { environment } from '../../environments/environment'
 
@@ -31,5 +31,10 @@ export class UserStore {
         return res
       })
     )
+  }
+
+  @action
+  update(data: UserUpdate): Observable<User> {
+    return this.http.put<User>(this.url + apiConfig.user.update, data)
   }
 }
