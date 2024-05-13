@@ -21,8 +21,8 @@ import { ErrorInterceptor } from './interceptors/error-interceptor'
 import { HttpXsrfInterceptor } from './interceptors/xsrf-interceptor'
 import { LoadingInterceptor } from './interceptors/loading-interceptor'
 import { SitesModule } from './modules/sites/sites.module'
-import { TwentyModule } from './submodules/twenty/twenty.module'
-import { MariahModule } from './submodules/mariah/mariah.module'
+// import { TwentyModule } from './submodules/twenty/twenty.module'
+// import { MariahModule } from './submodules/mariah/mariah.module'
 
 @NgModule({
   declarations: [AppComponent, ToolbarComponent],
@@ -45,9 +45,9 @@ import { MariahModule } from './submodules/mariah/mariah.module'
     MatTooltipModule,
     NgOptimizedImage,
     ReactiveFormsModule,
-    MariahModule,
-    SitesModule,
-    TwentyModule
+    // MariahModule,
+    SitesModule
+    // TwentyModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpXsrfInterceptor, multi: true },
