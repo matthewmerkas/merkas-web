@@ -15,7 +15,9 @@ a {
   width: 264px;
 }
 
-.mat-mdc-card-avatar {
+:not(.placeholder).mat-mdc-card-avatar {
   background-image: url('/assets/white.svg');
   background-color: white;
+  position: absolute;
+  z-index: 1;
 }

@@ -3,15 +3,17 @@ import { Component, Input, OnInit } from '@angular/core'
 import { Site } from '../../../functions/types'
 import { Store } from '../../../stores/store'
 import { getDecoded } from '../../../functions/local-storage'
+import { animations } from '../../../functions/animations'
 
 @Component({
   selector: 'app-site',
   templateUrl: './site.component.html',
-  styleUrl: './site.component.scss'
+  styleUrl: './site.component.scss',
+  animations: animations('200ms')
 })
 export class SiteComponent implements OnInit {
   @Input() site?: Site
-  imageUrl = 'assets/placeholder.svg'
+  imageUrl = ''
   siteUrl = ''
 
   constructor(public store: Store) {}

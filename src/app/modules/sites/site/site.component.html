@@ -3,7 +3,21 @@
     <mat-card-header>
       <mat-card-title>{{ site.title }}</mat-card-title>
       <mat-card-subtitle>{{ site.subtitle }}</mat-card-subtitle>
-      <img [src]="imageUrl" height="40" mat-card-avatar width="40" />
+      <img
+        *ngIf="imageUrl"
+        [@fadeIn]
+        [src]="imageUrl"
+        height="40"
+        mat-card-avatar
+        width="40"
+      />
+      <img
+        class="placeholder"
+        height="40"
+        mat-card-avatar
+        ngSrc="assets/placeholder.svg"
+        width="40"
+      />
     </mat-card-header>
   </mat-card>
 </a>
