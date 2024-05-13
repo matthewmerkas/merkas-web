@@ -1,13 +1,20 @@
 import { NgIf } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms'
-import { MatButtonModule } from '@angular/material/button'
-import { MatCardModule } from '@angular/material/card'
-import { MatDialogModule, MatDialogRef } from '@angular/material/dialog'
-import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatIconModule } from '@angular/material/icon'
-import { MatInputModule } from '@angular/material/input'
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { MatButton, MatIconButton } from '@angular/material/button'
+import {
+  MatCard,
+  MatCardActions,
+  MatCardContent,
+  MatCardHeader,
+  MatCardSubtitle,
+  MatCardTitle
+} from '@angular/material/card'
+import { MatDialogClose, MatDialogRef } from '@angular/material/dialog'
+import { MatError, MatFormField } from '@angular/material/form-field'
+import { MatIcon } from '@angular/material/icon'
+import { MatInput, MatLabel } from '@angular/material/input'
+import { MatProgressSpinner } from '@angular/material/progress-spinner'
 
 import { Router } from '@angular/router'
 import { observable } from 'mobx-angular'
@@ -19,13 +26,21 @@ import { Store } from '../../stores/store'
   selector: 'app-login-dialog',
   standalone: true,
   imports: [
-    MatButtonModule,
-    MatCardModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatProgressSpinnerModule,
+    MatButton,
+    MatCard,
+    MatCardActions,
+    MatCardContent,
+    MatCardHeader,
+    MatCardSubtitle,
+    MatCardTitle,
+    MatDialogClose,
+    MatError,
+    MatFormField,
+    MatIcon,
+    MatIconButton,
+    MatInput,
+    MatLabel,
+    MatProgressSpinner,
     NgIf,
     PasswordFieldComponent,
     ReactiveFormsModule

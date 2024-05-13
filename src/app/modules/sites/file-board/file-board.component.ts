@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { FormControl } from '@angular/forms'
-import { faFileArrowUp } from '@fortawesome/free-solid-svg-icons'
 import prettyBytes from 'pretty-bytes'
 import { Subscription } from 'rxjs'
 
@@ -26,8 +25,8 @@ export class FileBoardComponent implements OnInit {
   _download?: Subscription
   _upload?: Subscription
   // Icons
-  faFileArrowUp = faFileArrowUp
-  fileIcon = faFileArrowUp
+  fileArrowUp = 'file-arrow-up'
+  fileIcon = this.fileArrowUp
   protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
   protected readonly prettyBytes = prettyBytes
   protected readonly toTitleCase = toTitleCase
@@ -91,6 +90,12 @@ export class FileBoardComponent implements OnInit {
     }
   }
 
+  getIcon = (): any => {
+    const iconPrefix = 'fas'
+    const iconName = this.dragover ? this.fileArrowUp : this.fileIcon
+    return [iconPrefix, iconName]
+  }
+
   onChange = (event: Event) => {
     const file: File | null = (event.target as HTMLInputElement).files!.item(0)
     return this.upload(file)
@@ -119,7 +124,7 @@ export class FileBoardComponent implements OnInit {
   setFile = (file?: MerkasFile) => {
     this.file = file
     if (!file?.mimetype) {
-      this.fileIcon = faFileArrowUp
+      this.fileIcon = this.fileArrowUp
     } else {
       this.fileIcon = getIcon(file.mimetype)
     }

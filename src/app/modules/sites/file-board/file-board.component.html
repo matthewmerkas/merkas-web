@@ -10,7 +10,7 @@
       <span>{{ toTitleCase(target!) + ' file' }}</span>
     </div>
     <div class="icon-container">
-      <fa-icon [icon]="dragover ? faFileArrowUp : fileIcon"></fa-icon>
+      <fa-icon [icon]="getIcon()"></fa-icon>
       <span class="file-name">
         {{ file?.name && !dragover ? file?.name : 'Drop a file to upload' }}
       </span>

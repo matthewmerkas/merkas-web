@@ -1,39 +1,28 @@
-import {
-  faFile,
-  faFileAudio,
-  faFileCode,
-  faFileExcel,
-  faFileImage,
-  faFileLines,
-  faFilePdf,
-  faFilePowerpoint,
-  faFileVideo,
-  faFileWord,
-  faFileZipper
-} from '@fortawesome/free-solid-svg-icons'
+import { IconName } from '@fortawesome/fontawesome-common-types'
 
-export const getIcon = (mimetype: string) => {
+// TODO: Replace fontawesome with simple SVG paths
+export const getIcon = (mimetype: string): IconName => {
   // https://www.iana.org/assignments/media-types/media-types.xhtml#text
   if (mimetype === 'application/pdf') {
-    return faFilePdf
+    return 'file-pdf'
   } else if (
     mimetype.includes('msword') ||
     mimetype.includes('ms-word') ||
     mimetype.includes('wordprocessingml')
   ) {
-    return faFileWord
+    return 'file-word'
   } else if (
     mimetype.includes('ms-excel') ||
     mimetype.includes('spreadsheetml')
   ) {
-    return faFileExcel
+    return 'file-excel'
   } else if (
     mimetype.includes('ms-powerpoint') ||
     mimetype.includes('presentationml')
   ) {
-    return faFilePowerpoint
+    return 'file-powerpoint'
   } else if (mimetype.includes('zip') || mimetype.includes('7z-compressed')) {
-    return faFileZipper
+    return 'file-zipper'
   } else if (
     mimetype.includes('css') ||
     mimetype.includes('html') ||
@@ -45,16 +34,16 @@ export const getIcon = (mimetype: string) => {
     mimetype.includes('x-bsh') ||
     mimetype.includes('x-sh')
   ) {
-    return faFileCode
+    return 'file-code'
   } else if (mimetype?.includes('audio/')) {
-    return faFileAudio
+    return 'file-audio'
   } else if (mimetype?.includes('image/')) {
-    return faFileImage
+    return 'file-image'
   } else if (mimetype?.includes('text/')) {
-    return faFileLines
+    return 'file-lines'
   } else if (mimetype?.includes('video/')) {
-    return faFileVideo
+    return 'file-video'
   } else {
-    return faFile
+    return 'file'
   }
 }

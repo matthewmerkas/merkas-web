@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core'
 import { NgOptimizedImage } from '@angular/common'
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
-import { ReactiveFormsModule } from '@angular/forms'
 import { MatIconButton } from '@angular/material/button'
-import { MatIconModule } from '@angular/material/icon'
-import { MatMenuModule } from '@angular/material/menu'
-import { MatSnackBarModule } from '@angular/material/snack-bar'
-import { MatToolbarModule } from '@angular/material/toolbar'
-import { MatTooltipModule } from '@angular/material/tooltip'
+import { MatIcon } from '@angular/material/icon'
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu'
+import { MatToolbar } from '@angular/material/toolbar'
+import { MatTooltip } from '@angular/material/tooltip'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { JwtModule } from '@auth0/angular-jwt'
@@ -37,14 +35,14 @@ import { SitesModule } from './modules/sites/sites.module'
         allowedDomains: [getHost()]
       }
     }),
+    MatIcon,
     MatIconButton,
-    MatIconModule,
-    MatMenuModule,
-    MatSnackBarModule,
-    MatToolbarModule,
-    MatTooltipModule,
+    MatMenu,
+    MatMenuItem,
+    MatMenuTrigger,
+    MatToolbar,
+    MatTooltip,
     NgOptimizedImage,
-    ReactiveFormsModule,
     // MariahModule,
     SitesModule
     // TwentyModule

@@ -1,20 +1,21 @@
 import { NgIf } from '@angular/common'
 import { Component, Input } from '@angular/core'
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormControl, ReactiveFormsModule } from '@angular/forms'
 import { MatIconButton } from '@angular/material/button'
-import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatIconModule } from '@angular/material/icon'
-import { MatInputModule } from '@angular/material/input'
+import { MatError, MatFormField } from '@angular/material/form-field'
+import { MatIcon } from '@angular/material/icon'
+import { MatInput, MatLabel } from '@angular/material/input'
 
 @Component({
   selector: 'app-password-field',
   standalone: true,
   imports: [
-    FormsModule,
-    MatFormFieldModule,
+    MatError,
+    MatFormField,
+    MatIcon,
     MatIconButton,
-    MatIconModule,
-    MatInputModule,
+    MatInput,
+    MatLabel,
     NgIf,
     ReactiveFormsModule
   ],

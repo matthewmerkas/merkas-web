@@ -5,6 +5,7 @@ html,
 body {
   height: 100%;
 }
+
 body {
   background-color: rgb(var(--background-color));
   color: rgb(var(--color));
@@ -43,6 +44,7 @@ body {
     border-radius: 0 !important;
   }
 }
+
 @media not screen and (orientation: portrait) and (max-width: 480px) {
   .mat-mdc-dialog-surface {
     border-radius: var(--border-radius) !important;
