@@ -9,7 +9,9 @@ import { Site } from '../functions/types'
 export class SiteStore {
   @observable array: Site[] = []
   url = environment.apiUrl + apiConfig.site
+
   constructor(private http: HttpClient) {}
+
   @action
   getList(): Observable<Site[]> {
     if (this.array?.length > 0) {

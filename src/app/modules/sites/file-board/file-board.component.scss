@@ -9,6 +9,7 @@ $radius: calc(var(--border-radius) / 2);
     background-color: rgba(mat.get-color-from-palette($merkas-accent), 0.1);
     outline-color: mat.get-color-from-palette($merkas-accent);
   }
+
   outline: 1px solid mat.get-color-from-palette($merkas-primary);
   border-top-left-radius: calc(var(--border-radius) * 0.5);
   border-top-right-radius: calc(var(--border-radius) * 0.5);
@@ -20,15 +21,18 @@ $radius: calc(var(--border-radius) / 2);
   fa-icon {
     font-size: 56px;
   }
+
   span {
     margin-top: 8px;
   }
+
   .file-name {
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+
   .file-size {
     height: 0;
     margin-top: 4px;

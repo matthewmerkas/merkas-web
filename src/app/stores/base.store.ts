@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http'
-import { map, Observable } from 'rxjs'
+import { Observable } from 'rxjs'
 import { action, observable } from 'mobx-angular'
 import { environment } from '../../environments/environment'
 

@@ -1,5 +1,4 @@
 <div [@fadeIn]>
-  <app-toolbar></app-toolbar>
   <div class="container">
     <ng-template #boardsHeader>
       <span class="header mat-content">Boards</span>
@@ -18,21 +17,21 @@
     <span class="expanded header mat-content">Sites</span>
     <div class="flex search-container">
       <mat-form-field class="search">
-        <input matInput [formControl]="searchFc" placeholder="Search" />
+        <input [formControl]="searchFc" matInput placeholder="Search" />
         <button
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
           (click)="searchFc.reset('')"
-          matTooltip="Clear"
           [matTooltipShowDelay]="TOOLTIP_DELAY"
+          aria-label="Clear"
+          mat-icon-button
+          matSuffix
+          matTooltip="Clear"
         >
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
     </div>
     <div class="flex sites-container">
-      <app-site [@fadeIn] *ngFor="let site of sites" [site]="site"></app-site>
+      <app-site *ngFor="let site of sites" [@fadeIn] [site]="site"></app-site>
     </div>
   </div>
 </div>

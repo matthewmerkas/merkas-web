@@ -1,8 +1,8 @@
 <mat-form-field
+  [color]="target === 'private' ? 'accent' : 'primary'"
   appearance="outline"
   class="hide-subscript"
-  [color]="target === 'private' ? 'accent' : 'primary'"
 >
   <mat-label>{{ toTitleCase(target!) }} board</mat-label>
-  <textarea cdkTextareaAutosize [formControl]="formControl" matInput></textarea>
+  <textarea [formControl]="formControl" cdkTextareaAutosize matInput></textarea>
 </mat-form-field>

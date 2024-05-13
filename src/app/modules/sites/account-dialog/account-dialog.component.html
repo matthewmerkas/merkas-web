@@ -9,7 +9,7 @@
       <mat-icon>close</mat-icon>
     </button>
   </mat-card-header>
-  <mat-card-content [formGroup]="accountForm" (keyup.enter)="onSubmit()">
+  <mat-card-content (keyup.enter)="onSubmit()" [formGroup]="accountForm">
     <div class="flex">
       <div class="avatar">m</div>
       <div class="username">matthew</div>
@@ -30,13 +30,13 @@
   </mat-card-content>
   <mat-card-actions>
     <button
-      class="action-button"
       (click)="onSubmit()"
-      color="primary"
       [disabled]="accountForm.invalid || store.ui.loading"
+      class="action-button"
+      color="primary"
       mat-flat-button
     >
-      <mat-spinner [diameter]="20" *ngIf="store.ui.loading"></mat-spinner>
+      <mat-spinner *ngIf="store.ui.loading" [diameter]="20"></mat-spinner>
       <span *ngIf="!store.ui.loading">Save</span>
     </button>
   </mat-card-actions>

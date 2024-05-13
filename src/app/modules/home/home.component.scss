@@ -1,5 +1,4 @@
 @use '@angular/material' as mat;
-@import '../../styles/dialog.scss';
 @import '../../styles/material.scss';
 
 @media screen and (orientation: portrait) {
@@ -33,6 +32,7 @@ h1 {
   &:hover {
     background-color: mat.get-color-from-palette($merkas-primary) !important;
   }
+
   > .mat-icon {
     position: absolute;
     font-size: 7%;

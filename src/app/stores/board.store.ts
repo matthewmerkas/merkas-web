@@ -12,6 +12,7 @@ export class BoardStore {
   public: Y.Doc
   private: Y.Doc
   url = environment.apiUrl + apiConfig.board.base
+
   constructor(private http: HttpClient) {
     this.public = new Y.Doc()
     this.private = new Y.Doc()

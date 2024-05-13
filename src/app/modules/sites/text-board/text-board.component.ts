@@ -1,8 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { CdkTextareaAutosize } from '@angular/cdk/text-field'
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatInputModule } from '@angular/material/input'
+import { FormControl } from '@angular/forms'
 
 import { toTitleCase } from '../../../functions/helpers'
 import { debounceTime } from 'rxjs'
@@ -14,26 +11,16 @@ const OPTS = { emitEvent: false }
 
 @Component({
   selector: 'app-text-board',
-  standalone: true,
-  imports: [
-    CdkTextareaAutosize,
-    FormsModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatFormFieldModule
-  ],
   templateUrl: './text-board.component.html',
   styleUrl: './text-board.component.scss'
 })
 export class TextBoardComponent implements OnInit {
-  constructor(private store: Store) {}
-
   @Input() formControl = new FormControl('')
   @Input() target: 'public' | 'private' = 'public'
-
   pending = false
-
   protected readonly toTitleCase = toTitleCase
+
+  constructor(private store: Store) {}
 
   ngOnInit() {
     this.formControl.valueChanges.subscribe(() => (this.pending = true))

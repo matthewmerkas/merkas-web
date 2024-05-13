@@ -2,6 +2,16 @@ import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
 const routes: Routes = [
+  // {
+  //   path: 'twenty',
+  //   loadChildren: () =>
+  //     import('./submodules/twenty/twenty.module').then((m) => m.TwentyModule)
+  // },
+  // {
+  //   path: 'mariah',
+  //   loadChildren: () =>
+  //     import('./submodules/mariah/mariah.module').then((m) => m.MariahModule)
+  // },
   {
     path: 'sites',
     loadChildren: () =>

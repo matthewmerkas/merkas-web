@@ -1,9 +1,9 @@
 <a [href]="siteUrl">
-  <mat-card class="draw" matRipple *ngIf="site">
+  <mat-card *ngIf="site" class="draw" matRipple>
     <mat-card-header>
       <mat-card-title>{{ site.title }}</mat-card-title>
       <mat-card-subtitle>{{ site.subtitle }}</mat-card-subtitle>
-      <img mat-card-avatar height="40" width="40" [src]="imageUrl" />
+      <img [src]="imageUrl" height="40" mat-card-avatar width="40" />
     </mat-card-header>
   </mat-card>
 </a>

@@ -1,44 +1,13 @@
 import { Component, OnInit } from '@angular/core'
-import { MatButtonModule } from '@angular/material/button'
-import { MatDialogModule, MatDialogRef } from '@angular/material/dialog'
-import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatInputModule } from '@angular/material/input'
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms'
-import {
-  MatCard,
-  MatCardActions,
-  MatCardContent,
-  MatCardHeader,
-  MatCardTitle
-} from '@angular/material/card'
-import { MatIcon } from '@angular/material/icon'
-import { MatProgressSpinner } from '@angular/material/progress-spinner'
-import { NgIf } from '@angular/common'
+import { MatDialogRef } from '@angular/material/dialog'
+import { FormBuilder, Validators } from '@angular/forms'
 import { observable } from 'mobx-angular'
 import { Store } from '../../../stores/store'
-import { PasswordFieldComponent } from '../../../components/password-field/password-field.component'
 import { matchValidator } from '../../../functions/forms'
 import { UserUpdate } from '../../../functions/types'
 
 @Component({
   selector: 'app-account-dialog',
-  standalone: true,
-  imports: [
-    MatButtonModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatCard,
-    MatCardActions,
-    MatCardContent,
-    MatCardHeader,
-    MatCardTitle,
-    MatIcon,
-    MatProgressSpinner,
-    NgIf,
-    PasswordFieldComponent
-  ],
   templateUrl: './account-dialog.component.html',
   styleUrl: './account-dialog.component.scss'
 })

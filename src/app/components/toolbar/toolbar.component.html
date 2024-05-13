@@ -1,0 +1,46 @@
+<mat-toolbar *ngIf="showToolbar" [@fadeIn]>
+  <button
+    [matTooltipShowDelay]="TOOLTIP_DELAY"
+    [routerLink]="getToken() ? DEFAULT_PATH : '/'"
+    class="logo-button"
+    mat-icon-button
+    matTooltip="Home"
+  >
+    <img
+      alt="Merkas Logo"
+      height="48"
+      ngSrc="/assets/favicon.svg"
+      priority=""
+      width="48"
+    />
+  </button>
+  <div>
+    <button
+      [matMenuTriggerFor]="optionsMenu"
+      [matTooltipShowDelay]="TOOLTIP_DELAY"
+      color="background"
+      mat-icon-button
+      matTooltip="Options"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #optionsMenu="matMenu">
+      <ng-container *ngIf="getToken(); else unauthenticated">
+        <button (click)="openDialog(AccountDialogComponent)" mat-menu-item>
+          <mat-icon>person</mat-icon>
+          Account
+        </button>
+        <button (click)="logout()" mat-menu-item>
+          <mat-icon>logout</mat-icon>
+          Log out
+        </button>
+      </ng-container>
+      <ng-template #unauthenticated>
+        <button (click)="openDialog(LoginDialogComponent)" mat-menu-item>
+          <mat-icon>login</mat-icon>
+          Log in
+        </button>
+      </ng-template>
+    </mat-menu>
+  </div>
+</mat-toolbar>

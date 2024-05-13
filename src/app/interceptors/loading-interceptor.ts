@@ -14,6 +14,7 @@ export class LoadingInterceptor implements HttpInterceptor {
   private count = 0
 
   constructor(private store: Store) {}
+
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler

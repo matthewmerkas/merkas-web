@@ -1,12 +1,5 @@
-import { NgIf } from '@angular/common'
 import { Component, Input, OnInit } from '@angular/core'
-import { FormControl, ReactiveFormsModule } from '@angular/forms'
-import { MatButtonToggleModule } from '@angular/material/button-toggle'
-import { MatCardModule } from '@angular/material/card'
-import { MatIconModule } from '@angular/material/icon'
-import { MatProgressBarModule } from '@angular/material/progress-bar'
-import { MatTooltipModule } from '@angular/material/tooltip'
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { FormControl } from '@angular/forms'
 import { faFileArrowUp } from '@fortawesome/free-solid-svg-icons'
 import prettyBytes from 'pretty-bytes'
 import { Subscription } from 'rxjs'
@@ -20,27 +13,11 @@ import { environment } from '../../../../environments/environment'
 
 @Component({
   selector: 'app-file-board',
-  standalone: true,
-  imports: [
-    FontAwesomeModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatIconModule,
-    MatTooltipModule,
-    ReactiveFormsModule,
-    MatProgressBarModule,
-    NgIf
-  ],
   templateUrl: './file-board.component.html',
   styleUrl: './file-board.component.scss'
 })
 export class FileBoardComponent implements OnInit {
-  protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
-  protected readonly prettyBytes = prettyBytes
-  protected readonly toTitleCase = toTitleCase
-
   @Input() target?: 'public' | 'private'
-
   file?: MerkasFile
   toggleFc = new FormControl()
   // State
@@ -51,6 +28,9 @@ export class FileBoardComponent implements OnInit {
   // Icons
   faFileArrowUp = faFileArrowUp
   fileIcon = faFileArrowUp
+  protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
+  protected readonly prettyBytes = prettyBytes
+  protected readonly toTitleCase = toTitleCase
 
   constructor(public store: Store) {}
 

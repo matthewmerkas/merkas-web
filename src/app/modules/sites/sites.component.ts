@@ -15,8 +15,11 @@ import { animations } from '../../functions/animations'
   animations: animations('200ms')
 })
 export class SitesComponent implements OnInit {
-  protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
   useAccordion = false
+  searchFc = new FormControl('')
+  sites: Site[] = []
+  protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
+
   constructor(public store: Store, public router: Router) {
     // Hack for expanded panel on page load
     setTimeout(() => {
@@ -29,9 +32,6 @@ export class SitesComponent implements OnInit {
       }
     })
   }
-
-  searchFc = new FormControl('')
-  sites: Site[] = []
 
   ngOnInit() {
     this.searchFc.valueChanges

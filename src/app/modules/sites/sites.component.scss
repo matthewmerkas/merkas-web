@@ -8,11 +8,13 @@ $edge-margin: 24px;
   padding: 64px 0;
   width: 100%;
 }
+
 @media screen and (max-width: 840px) {
   .container {
     max-width: calc(100% - 32px);
   }
 }
+
 @media not screen and (max-width: 840px) {
   .container {
     max-width: min(calc(100% - 160px), 1920px);
@@ -22,6 +24,7 @@ $edge-margin: 24px;
 .mat-accordion {
   width: 100%;
 }
+
 .mat-expansion-panel {
   background: none;
   box-shadow: none !important;
@@ -35,6 +38,7 @@ $edge-margin: 24px;
     min-width: 320px;
     max-height: $board-max-height;
   }
+
   flex-wrap: wrap;
   gap: 16px;
   width: 100%;
@@ -45,6 +49,7 @@ $edge-margin: 24px;
     display: block; // Make sure margins collapse
     margin: 28px $edge-margin;
   }
+
   display: inline-block;
   margin: 14px $edge-margin;
   width: calc(100% - $edge-margin * 2);
@@ -59,16 +64,20 @@ $edge-margin: 24px;
 :host ::ng-deep .search .mdc-line-ripple {
   display: none;
 }
+
 :host ::ng-deep .search .mdc-text-field__input {
   caret-color: white !important;
 }
+
 .search-container {
   --mdc-outlined-text-field-container-shape: 28px;
   --mdc-filled-text-field-container-shape: 28px;
+
   .search {
     max-width: 640px;
     width: 100%;
   }
+
   margin: $edge-margin;
   justify-content: center;
   width: calc(100% - $edge-margin * 2);

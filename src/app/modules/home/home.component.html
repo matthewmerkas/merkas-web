@@ -1,47 +1,8 @@
-<div *ngIf="showSplash" class="centered container flex">
+<div *ngIf="showSplash" [@fadeIn] class="centered container flex">
   <h1>
     Merkas!
-    <div class="circle flex" (click)="openDialog()" matRipple>
+    <div (click)="openDialog()" class="circle flex" matRipple>
       <mat-icon>login</mat-icon>
     </div>
   </h1>
 </div>
-
-<ng-template #loginDialog>
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Log In</mat-card-title>
-      <button
-        [disabled]="closeIsDisabled || loading"
-        mat-dialog-close
-        mat-icon-button
-      >
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-card-header>
-    <mat-card-content [formGroup]="authForm" (keyup.enter)="onSubmit()">
-      <mat-form-field appearance="fill">
-        <mat-label>Username</mat-label>
-        <input formControlName="username" matInput />
-        <mat-error *ngIf="authForm.get('username')?.hasError('required')">
-          Username is required
-        </mat-error>
-      </mat-form-field>
-      <app-password-field
-        [fc]="authForm.controls.password"
-      ></app-password-field>
-    </mat-card-content>
-    <mat-card-actions>
-      <button
-        class="action-button"
-        (click)="onSubmit()"
-        color="primary"
-        [disabled]="authForm.invalid || store.ui.loading"
-        mat-flat-button
-      >
-        <mat-spinner [diameter]="20" *ngIf="store.ui.loading"></mat-spinner>
-        <span *ngIf="!store.ui.loading">Continue</span>
-      </button>
-    </mat-card-actions>
-  </mat-card>
-</ng-template>
