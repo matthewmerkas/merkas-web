@@ -10,7 +10,12 @@
       <span>{{ toTitleCase(target!) + ' file' }}</span>
     </div>
     <div class="icon-container">
-      <fa-icon [icon]="getIcon()"></fa-icon>
+      <img
+        height="56"
+        [ngSrc]="dragover ? fileArrowUp : fileIcon"
+        priority=""
+        width="56"
+      />
       <span class="file-name">
         {{ file?.name && !dragover ? file?.name : 'Drop a file to upload' }}
       </span>

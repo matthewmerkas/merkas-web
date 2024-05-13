@@ -4,7 +4,7 @@ import prettyBytes from 'pretty-bytes'
 import { Subscription } from 'rxjs'
 
 import { TOOLTIP_DELAY } from '../../../functions/constants'
-import { getIcon } from '../../../functions/files'
+import { getIconName } from '../../../functions/files'
 import { toTitleCase } from '../../../functions/helpers'
 import { MerkasFile } from '../../../functions/types'
 import { Store } from '../../../stores/store'
@@ -25,7 +25,7 @@ export class FileBoardComponent implements OnInit {
   _download?: Subscription
   _upload?: Subscription
   // Icons
-  fileArrowUp = 'file-arrow-up'
+  fileArrowUp = getIconName('upload')
   fileIcon = this.fileArrowUp
   protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
   protected readonly prettyBytes = prettyBytes
@@ -90,12 +90,6 @@ export class FileBoardComponent implements OnInit {
     }
   }
 
-  getIcon = (): any => {
-    const iconPrefix = 'fas'
-    const iconName = this.dragover ? this.fileArrowUp : this.fileIcon
-    return [iconPrefix, iconName]
-  }
-
   onChange = (event: Event) => {
     const file: File | null = (event.target as HTMLInputElement).files!.item(0)
     return this.upload(file)
@@ -126,7 +120,7 @@ export class FileBoardComponent implements OnInit {
     if (!file?.mimetype) {
       this.fileIcon = this.fileArrowUp
     } else {
-      this.fileIcon = getIcon(file.mimetype)
+      this.fileIcon = getIconName(file.mimetype)
     }
   }
 

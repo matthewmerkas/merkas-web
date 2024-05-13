@@ -18,8 +18,8 @@ $radius: calc(var(--border-radius) / 2);
 }
 
 .icon-container {
-  fa-icon {
-    font-size: 56px;
+  img {
+    filter: brightness(0) invert(1);
   }
 
   span {

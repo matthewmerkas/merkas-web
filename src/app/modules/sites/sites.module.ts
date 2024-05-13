@@ -7,7 +7,6 @@ import { SiteComponent } from './site/site.component'
 import { SitesComponent } from './sites.component'
 import { SitesRoutingModule } from './sites-routing.module'
 import { TextBoardComponent } from './text-board/text-board.component'
-import { IconsModule } from '../icons/icons.module'
 import { PasswordFieldComponent } from '../../components/password-field/password-field.component'
 import { AuthGuard } from '../../guards/auth-guard.service'
 
@@ -42,7 +41,6 @@ import {
 } from '@angular/material/button-toggle'
 import { MatProgressBar } from '@angular/material/progress-bar'
 import { MatProgressSpinner } from '@angular/material/progress-spinner'
-import { FaIconComponent } from '@fortawesome/angular-fontawesome'
 import { MatDialogClose } from '@angular/material/dialog'
 import { MatRipple } from '@angular/material/core'
 
@@ -57,8 +55,6 @@ import { MatRipple } from '@angular/material/core'
   imports: [
     CommonModule,
     CdkTextareaAutosize,
-    FaIconComponent,
-    IconsModule,
     MatAccordion,
     MatButton,
     MatButtonToggle,

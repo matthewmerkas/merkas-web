@@ -1,9 +1,12 @@
-import { IconName } from '@fortawesome/fontawesome-common-types'
+export const getIconName = (mimetype: string): string => {
+  return '/assets/fa/' + _getIconName(mimetype) + '-solid.svg'
+}
 
-// TODO: Replace fontawesome with simple SVG paths
-export const getIcon = (mimetype: string): IconName => {
+export const _getIconName = (mimetype: string): string => {
   // https://www.iana.org/assignments/media-types/media-types.xhtml#text
-  if (mimetype === 'application/pdf') {
+  if (mimetype === 'upload') {
+    return 'file-arrow-up'
+  } else if (mimetype === 'application/pdf') {
     return 'file-pdf'
   } else if (
     mimetype.includes('msword') ||
