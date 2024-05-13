@@ -4,7 +4,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms'
 import { MatIconButton } from '@angular/material/button'
 import { MatError, MatFormField } from '@angular/material/form-field'
 import { MatIcon } from '@angular/material/icon'
-import { MatInput, MatLabel } from '@angular/material/input'
+import { MatInput, MatLabel, MatSuffix } from '@angular/material/input'
 
 @Component({
   selector: 'app-password-field',
@@ -16,6 +16,7 @@ import { MatInput, MatLabel } from '@angular/material/input'
     MatIconButton,
     MatInput,
     MatLabel,
+    MatSuffix,
     NgIf,
     ReactiveFormsModule
   ],

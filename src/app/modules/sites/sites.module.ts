@@ -20,7 +20,12 @@ import {
 } from '@angular/material/expansion'
 import { MatButton, MatIconButton } from '@angular/material/button'
 import { MatIcon } from '@angular/material/icon'
-import { MatFormField, MatInput, MatLabel } from '@angular/material/input'
+import {
+  MatFormField,
+  MatInput,
+  MatLabel,
+  MatSuffix
+} from '@angular/material/input'
 import { MatTooltip } from '@angular/material/tooltip'
 import {
   MatCard,
@@ -76,6 +81,7 @@ import { MatRipple } from '@angular/material/core'
     MatProgressBar,
     MatProgressSpinner,
     MatRipple,
+    MatSuffix,
     MatTooltip,
     NgOptimizedImage,
     PasswordFieldComponent,
