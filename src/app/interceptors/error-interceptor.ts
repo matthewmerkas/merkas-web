@@ -24,7 +24,10 @@ const formatError = (str: string) => {
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private router: Router, private store: Store) {}
+  constructor(
+    private router: Router,
+    private store: Store
+  ) {}
 
   // Source: https://stackoverflow.com/a/53379715
   intercept(
@@ -58,6 +61,10 @@ export class ErrorInterceptor implements HttpInterceptor {
                 })
                 return next.handle(clone)
               })
+            )
+          } else if (err.status === 521) {
+            this.openSnackbar(
+              "Cloudflare can't connect to our server. Try again in a few minutes"
             )
           } else {
             // The response body may contain clues as to what went wrong,
