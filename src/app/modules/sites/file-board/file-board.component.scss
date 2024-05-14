@@ -75,4 +75,9 @@ $radius: calc(var(--border-radius) / 2);
 .mat-mdc-card-content {
   // 100% - button toggle group height - padding top - border
   height: calc(100% - 50px - 16px - 1px);
+  user-select: none;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
 }

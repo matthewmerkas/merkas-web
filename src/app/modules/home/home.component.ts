@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog'
 import { DEFAULT_PATH } from '../../functions/constants'
 import { animations } from '../../functions/animations'
 import { LoginDialogComponent } from '../../components/login-dialog/login-dialog.component'
+import { DialogComponent } from '../../components/dialog/dialog.component'
 
 @Component({
   selector: 'app-home',
@@ -34,7 +35,9 @@ export class HomeComponent implements OnInit {
   }
 
   openDialog = () => {
-    this.dialog.open(LoginDialogComponent, {
+    const component = LoginDialogComponent
+    this.dialog.open(DialogComponent, {
+      data: { component, ...component.getData() },
       maxWidth: '100vw'
     })
   }

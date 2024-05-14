@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ title }}</mat-card-title>
+    <button
+      [disabled]="closeIsDisabled || loading"
+      [matTooltipShowDelay]="TOOLTIP_DELAY"
+      mat-dialog-close
+      mat-icon-button
+      matTooltip="Close"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content (keyup.enter)="onSubmit()">
+    <ndc-dynamic #dynamic [ndcDynamicComponent]="data.component"></ndc-dynamic>
+  </mat-card-content>
+  <mat-card-actions>
+    <div
+      [matTooltipDisabled]="valid"
+      class="action-button"
+      matTooltip="Correct errors in the form"
+    >
+      <button
+        (click)="onSubmit()"
+        [disabled]="!valid || store.ui.loading"
+        color="primary"
+        mat-flat-button
+      >
+        <mat-spinner *ngIf="store.ui.loading" [diameter]="20"></mat-spinner>
+        <span *ngIf="!store.ui.loading">
+          {{ buttonLabel }}
+        </span>
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

@@ -1,4 +1,3 @@
-import { ComponentType } from '@angular/cdk/overlay'
 import { Component, OnInit } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { NavigationEnd, Router } from '@angular/router'
@@ -10,6 +9,7 @@ import { getToken, removeTokens } from '../../functions/local-storage'
 import { AccountDialogComponent } from '../../modules/sites/account-dialog/account-dialog.component'
 import { Store } from '../../stores/store'
 import { animations } from '../../functions/animations'
+import { DialogComponent } from '../dialog/dialog.component'
 
 @Component({
   selector: 'app-toolbar',
@@ -49,10 +49,9 @@ export class ToolbarComponent implements OnInit {
     return this.router.navigate(['/'])
   }
 
-  openDialog = (
-    component: ComponentType<AccountDialogComponent | LoginDialogComponent>
-  ) => {
-    this.dialog.open(component, {
+  openDialog = (component: any) => {
+    this.dialog.open(DialogComponent, {
+      data: { component, ...component.getData() },
       maxWidth: '100vw'
     })
   }

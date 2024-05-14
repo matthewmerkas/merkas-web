@@ -1,43 +1,19 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Account Settings</mat-card-title>
-    <button
-      [disabled]="closeIsDisabled || loading"
-      mat-dialog-close
-      mat-icon-button
-    >
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-card-header>
-  <mat-card-content (keyup.enter)="onSubmit()" [formGroup]="accountForm">
-    <div class="flex">
-      <div class="avatar">m</div>
-      <div class="username">matthew</div>
-    </div>
-    <br />
-    <app-password-field
-      [fc]="accountForm.controls.currentPassword"
-      [label]="'Current Password'"
-    ></app-password-field>
-    <app-password-field
-      [fc]="accountForm.controls.newPassword"
-      [label]="'New Password'"
-    ></app-password-field>
-    <app-password-field
-      [fc]="accountForm.controls.confirmPassword"
-      [label]="'Confirm Password'"
-    ></app-password-field>
-  </mat-card-content>
-  <mat-card-actions>
-    <button
-      (click)="onSubmit()"
-      [disabled]="accountForm.invalid || store.ui.loading"
-      class="action-button"
-      color="primary"
-      mat-flat-button
-    >
-      <mat-spinner *ngIf="store.ui.loading" [diameter]="20"></mat-spinner>
-      <span *ngIf="!store.ui.loading">Save</span>
-    </button>
-  </mat-card-actions>
-</mat-card>
+<div [formGroup]="formGroup">
+  <div class="flex">
+    <div class="avatar">m</div>
+    <div class="username">matthew</div>
+  </div>
+  <br />
+  <app-password-field
+    [fc]="formGroup.controls.currentPassword"
+    [label]="'Current Password'"
+  ></app-password-field>
+  <app-password-field
+    [fc]="formGroup.controls.newPassword"
+    [label]="'New Password'"
+  ></app-password-field>
+  <app-password-field
+    [fc]="formGroup.controls.confirmPassword"
+    [label]="'Confirm Password'"
+  ></app-password-field>
+</div>

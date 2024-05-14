@@ -1,34 +1,10 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Log In</mat-card-title>
-    <button
-      [disabled]="closeIsDisabled || loading"
-      mat-dialog-close
-      mat-icon-button
-    >
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-card-header>
-  <mat-card-content (keyup.enter)="onSubmit()" [formGroup]="authForm">
-    <mat-form-field appearance="fill">
-      <mat-label>Username</mat-label>
-      <input formControlName="username" matInput />
-      <mat-error *ngIf="authForm.get('username')?.hasError('required')">
-        Username is required
-      </mat-error>
-    </mat-form-field>
-    <app-password-field [fc]="authForm.controls.password"></app-password-field>
-  </mat-card-content>
-  <mat-card-actions>
-    <button
-      (click)="onSubmit()"
-      [disabled]="authForm.invalid || store.ui.loading"
-      class="action-button"
-      color="primary"
-      mat-flat-button
-    >
-      <mat-spinner *ngIf="store.ui.loading" [diameter]="20"></mat-spinner>
-      <span *ngIf="!store.ui.loading">Continue</span>
-    </button>
-  </mat-card-actions>
-</mat-card>
+<div [formGroup]="formGroup">
+  <mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input formControlName="username" matInput />
+    <mat-error *ngIf="formGroup.get('username')?.hasError('required')">
+      Username is required
+    </mat-error>
+  </mat-form-field>
+  <app-password-field [fc]="formGroup.controls.password"></app-password-field>
+</div>
