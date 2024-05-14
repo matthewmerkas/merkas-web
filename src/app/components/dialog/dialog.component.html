@@ -17,8 +17,9 @@
   <mat-card-actions>
     <div
       [matTooltipDisabled]="valid"
+      [matTooltipShowDelay]="TOOLTIP_DELAY"
       class="action-button"
-      matTooltip="Correct errors in the form"
+      matTooltip="Correct the errors in the form"
     >
       <button
         (click)="onSubmit()"
