@@ -1,0 +1,6 @@
+[submodule "src/app/submodules/twenty"]
+	path = src/app/submodules/twenty
+	url = personal:matthewmerkas/twenty-web
+[submodule "src/app/submodules/mariah"]
+	path = src/app/submodules/mariah
+	url = personal:matthewmerkas/mariah-web
