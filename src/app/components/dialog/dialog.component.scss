@@ -9,11 +9,14 @@ $spacing: 20px;
 }
 
 .mat-mdc-card {
-  max-width: 320px;
+  max-height: 80vh;
 }
 
 .mat-mdc-card-actions {
+  flex-wrap: wrap;
   margin: calc($spacing - 8px) !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0;
 }
 
 .mat-mdc-card-actions button {
@@ -50,5 +53,10 @@ $spacing: 20px;
     width: 100%;
   }
 
+  width: 100%;
+}
+
+.action-padding {
+  height: $spacing;
   width: 100%;
 }

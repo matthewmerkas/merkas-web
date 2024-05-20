@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card [style.max-width]="maxWidth">
   <mat-card-header>
     <mat-card-title>{{ title }}</mat-card-title>
     <button
@@ -33,5 +33,6 @@
         </span>
       </button>
     </div>
+    <div class="action-padding"></div>
   </mat-card-actions>
 </mat-card>

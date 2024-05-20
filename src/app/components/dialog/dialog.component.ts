@@ -22,6 +22,7 @@ export class DialogComponent implements OnInit {
   @observable closeIsDisabled = true
   @observable loading = false
   @observable buttonLabel = ''
+  @observable maxWidth = ''
   @observable title = ''
   @observable valid = false
   @observable validChange = new EventEmitter<boolean>()
@@ -32,7 +33,8 @@ export class DialogComponent implements OnInit {
     private dialogRef: MatDialogRef<any>,
     public store: Store
   ) {
-    this.buttonLabel = data.buttonLabel
+    this.buttonLabel = data.buttonLabel || 'Save'
+    this.maxWidth = data.maxWidth || '320px'
     this.title = data.title
     this.valid = false
   }
@@ -40,6 +42,7 @@ export class DialogComponent implements OnInit {
   @ViewChild('dynamic') set set(dynamic: any) {
     const component = dynamic.componentRef.instance
     this.onSubmit = component.onSubmit
+    setTimeout(() => (this.valid = component?.formGroup.valid))
     component?.formGroup.statusChanges.subscribe((status: FormControlStatus) =>
       this.validChange.emit(status === 'VALID')
     )
