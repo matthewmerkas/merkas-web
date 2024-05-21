@@ -9,7 +9,11 @@ import {
   MatCardHeader,
   MatCardTitle
 } from '@angular/material/card'
-import { MatDialogClose } from '@angular/material/dialog'
+import {
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent
+} from '@angular/material/dialog'
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatFormField } from '@angular/material/form-field'
 import { MatIcon } from '@angular/material/icon'
@@ -34,8 +38,6 @@ import { SitesModule } from './modules/sites/sites.module'
 import { PasswordFieldComponent } from './components/password-field/password-field.component'
 import { MatProgressSpinner } from '@angular/material/progress-spinner'
 import { DynamicModule } from 'ng-dynamic-component'
-// import { TwentyModule } from './submodules/twenty/twenty.module'
-// import { MariahModule } from './submodules/mariah/mariah.module'
 
 @NgModule({
   declarations: [AppComponent, DialogComponent, ToolbarComponent],
@@ -71,9 +73,9 @@ import { DynamicModule } from 'ng-dynamic-component'
     MatCardActions,
     MatButton,
     MatProgressSpinner,
-    PasswordFieldComponent
-    // MariahModule,
-    // TwentyModule
+    PasswordFieldComponent,
+    MatDialogContent,
+    MatDialogActions
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpXsrfInterceptor, multi: true },

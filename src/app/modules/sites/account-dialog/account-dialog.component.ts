@@ -29,8 +29,7 @@ export class AccountDialogComponent {
 
   static getData = () => {
     return {
-      title: 'Account Settings',
-      buttonLabel: 'Save'
+      title: 'Account Settings'
     }
   }
 
