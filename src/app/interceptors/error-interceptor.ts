@@ -12,7 +12,7 @@ import { Router } from '@angular/router'
 import { removeTokens } from '../functions/local-storage'
 import { Store } from '../stores/store'
 
-interface HttpError extends HttpErrorResponse {
+export interface HttpError extends HttpErrorResponse {
   code: string
 }
 
@@ -24,7 +24,10 @@ const formatError = (str: string) => {
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private router: Router, private store: Store) {}
+  constructor(
+    private router: Router,
+    private store: Store
+  ) {}
 
   // Source: https://stackoverflow.com/a/53379715
   intercept(
