@@ -1,3 +1,11 @@
+import { ComponentType } from '@angular/cdk/overlay'
+
+export interface ExtraOption {
+  icon: string
+  label: string
+  component: ComponentType<any>
+}
+
 export interface Jwt {
   token: string
   refreshToken: string

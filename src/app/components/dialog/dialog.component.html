@@ -1,4 +1,7 @@
-<mat-card [style.max-width]="maxWidth">
+<mat-card
+  [style.max-width]="maxWidth"
+  [style.min-width]="'min(100vw, ' + minWidth + ')'"
+>
   <mat-card-header>
     <mat-card-title>{{ title }}</mat-card-title>
     <button

@@ -23,3 +23,11 @@ export function setTokens(res: Jwt): void {
   localStorage.setItem('access_token', res.token)
   localStorage.setItem('refresh_token', res.refreshToken)
 }
+
+export function getItem(key: string) {
+  return JSON.parse(localStorage.getItem(key)!)
+}
+
+export function setItem(key: string, item: any) {
+  return localStorage.setItem(key, JSON.stringify(item))
+}

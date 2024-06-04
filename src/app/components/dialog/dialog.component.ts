@@ -23,6 +23,7 @@ export class DialogComponent implements OnInit {
   @observable loading = false
   @observable buttonLabel = ''
   @observable maxWidth = ''
+  @observable minWidth = '0'
   @observable title = ''
   @observable valid = false
   @observable validChange = new EventEmitter<boolean>()
@@ -35,6 +36,7 @@ export class DialogComponent implements OnInit {
   ) {
     this.buttonLabel = data.buttonLabel || 'Save'
     this.maxWidth = data.maxWidth || '320px'
+    this.minWidth = data.minWidth || '0'
     this.title = data.title
     this.valid = false
   }

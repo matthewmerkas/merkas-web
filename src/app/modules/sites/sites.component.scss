@@ -1,26 +1,6 @@
 $board-max-height: 360px;
 $edge-margin: 24px;
 
-.container {
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin: auto;
-  padding: 64px 0;
-  width: 100%;
-}
-
-@media screen and (max-width: 840px) {
-  .container {
-    max-width: calc(100% - 32px);
-  }
-}
-
-@media not screen and (max-width: 840px) {
-  .container {
-    max-width: min(calc(100% - 160px), 1920px);
-  }
-}
-
 .mat-accordion {
   width: 100%;
 }

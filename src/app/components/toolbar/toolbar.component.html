@@ -25,18 +25,27 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #optionsMenu="matMenu">
-      <ng-container *ngIf="getToken(); else unauthenticated">
-        <button (click)="openDialog(AccountDialogComponent)" mat-menu-item>
-          <mat-icon>person</mat-icon>
-          Account
-        </button>
-        <ng-container *ngFor="let entry of []"></ng-container>
-        <button (click)="logout()" mat-menu-item>
-          <mat-icon>logout</mat-icon>
-          Log out
-        </button>
-      </ng-container>
-      <ng-template #unauthenticated>
+      <button
+        *ngIf="getToken()"
+        (click)="openDialog(AccountDialogComponent)"
+        mat-menu-item
+      >
+        <mat-icon>person</mat-icon>
+        Account
+      </button>
+      <button
+        *ngFor="let option of extraOptions"
+        (click)="openDialog(option.component)"
+        mat-menu-item
+      >
+        <mat-icon>{{ option.icon }}</mat-icon>
+        {{ option.label }}
+      </button>
+      <button *ngIf="getToken(); else logIn" (click)="logout()" mat-menu-item>
+        <mat-icon>logout</mat-icon>
+        Log out
+      </button>
+      <ng-template #logIn>
         <button (click)="openDialog(LoginDialogComponent)" mat-menu-item>
           <mat-icon>login</mat-icon>
           Log in

@@ -42,6 +42,38 @@ export function animations(speed = '150ms'): any[] {
         )
       )
     ]),
+    trigger('fadeUp', [
+      transition(
+        ':enter',
+        animate(
+          `500ms cubic-bezier(0.76, 0, 0.24, 1)`,
+          keyframes([
+            style({
+              opacity: 0,
+              transform: 'translateY(-16px)'
+            }),
+            style({
+              opacity: 1,
+              transform: 'translateY(0)'
+            })
+          ])
+        )
+      ),
+      transition(
+        ':leave',
+        animate(
+          `500ms cubic-bezier(0.76, 0, 0.24, 1)`,
+          keyframes([
+            style({
+              opacity: 1
+            }),
+            style({
+              opacity: 0
+            })
+          ])
+        )
+      )
+    ]),
     trigger('rotate', [
       transition(
         '* => *',

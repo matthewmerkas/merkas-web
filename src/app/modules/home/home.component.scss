@@ -2,7 +2,7 @@
 @import '../../styles/material.scss';
 
 @media screen and (orientation: portrait) {
-  .centered.container {
+  .centered.home-container {
     transform: translate(-50%, -50%) rotate(90deg);
   }
   .circle > .mat-icon {
@@ -24,7 +24,7 @@ h1 {
   transform: translate(-50%, -50%);
 }
 
-.container {
+.home-container {
   user-select: none;
 }
 
@@ -43,11 +43,11 @@ h1 {
   aspect-ratio: 1;
   background-color: rgba(var(--color)) !important;
   border-radius: 50%;
-  bottom: 0.149em;
+  bottom: 0.144em;
   cursor: pointer;
   justify-content: center;
   position: absolute;
-  width: 0.11em;
-  right: 0.071em;
+  width: 0.12em;
+  right: 0.066em;
   transition: background-color 100ms ease-in-out;
 }

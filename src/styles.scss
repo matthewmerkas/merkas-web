@@ -17,6 +17,26 @@ body {
   --color: 255, 255, 255;
   --mdc-filled-text-field-container-shape: calc(var(--border-radius) / 2);
   --mdc-outlined-text-field-container-shape: calc(var(--border-radius) / 2);
+  --padding-vertical: 64px;
+}
+@media screen and (max-width: 840px) {
+  body {
+    --padding-horizontal: 16px;
+  }
+}
+@media not screen and (max-width: 840px) {
+  body {
+    --padding-horizontal: 80px;
+  }
+}
+
+.container {
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: min(calc(100% - calc(var(--padding-horizontal) * 2)), 1920px);
+  padding: var(--padding-vertical) 0;
+  width: 100%;
 }
 
 .display-none {
