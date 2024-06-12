@@ -12,6 +12,7 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
   // Variables
+  --app-max-width: 1920px;
   --background-color: 21, 21, 21;
   --border-radius: 18px;
   --color: 255, 255, 255;
@@ -34,7 +35,7 @@ body {
   justify-content: space-around;
   flex-wrap: wrap;
   margin: auto;
-  max-width: min(calc(100% - calc(var(--padding-horizontal) * 2)), 1920px);
+  max-width: min(calc(100% - calc(var(--padding-horizontal) * 2)), var(--app-max-width));
   padding: var(--padding-vertical) 0;
   width: 100%;
 }
