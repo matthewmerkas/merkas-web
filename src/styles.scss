@@ -13,6 +13,7 @@ body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
   // Variables
   --app-max-width: 1920px;
+  --app-mobile-width: 400px;
   --background-color: 21, 21, 21;
   --border-radius: 18px;
   --color: 255, 255, 255;
@@ -74,7 +75,7 @@ body {
   box-shadow: none;
 }
 
-@media screen and (orientation: portrait) and (max-width: 480px) {
+@media screen and (orientation: portrait) and (max-width: 400px) {
   .mat-expansion-panel-body {
     padding: 0 0 16px !important;
   }
@@ -83,7 +84,7 @@ body {
   }
 }
 
-@media not screen and (orientation: portrait) and (max-width: 480px) {
+@media not screen and (orientation: portrait) and (max-width: 400px) {
   .mat-mdc-dialog-surface {
     border-radius: var(--border-radius) !important;
   }
