@@ -50,6 +50,11 @@ body {
   display: flex;
 }
 
+.hint {
+  cursor: help;
+  text-decoration-style: dotted;
+}
+
 // Copied from .material-symbols-outlined class
 .material-icons {
   font-family: 'Material Symbols Outlined';
