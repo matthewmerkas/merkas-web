@@ -5,6 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms'
 import { Store } from '../../../stores/store'
 import { matchValidator } from '../../../functions/forms'
 import { UserUpdate } from '../../../functions/types'
+import { getDecoded } from '../../../functions/local-storage'
 
 @Component({
   selector: 'app-account-dialog',
@@ -20,6 +21,7 @@ export class AccountDialogComponent {
     },
     { validators: matchValidator('newPassword', 'confirmPassword') }
   )
+  user = getDecoded()
 
   constructor(
     private dialogRef: MatDialogRef<AccountDialogComponent>,

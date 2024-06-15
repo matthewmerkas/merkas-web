@@ -1,7 +1,7 @@
 <div [formGroup]="formGroup">
-  <div class="flex">
-    <div class="avatar">m</div>
-    <div class="username">matthew</div>
+  <div *ngIf="user?.username" class="flex">
+    <div class="avatar">{{ user!.username![0] }}</div>
+    <div class="username">{{ user!.username }}</div>
   </div>
   <br />
   <app-password-field
