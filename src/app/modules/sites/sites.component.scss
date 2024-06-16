@@ -46,7 +46,7 @@ $edge-margin: 24px;
 }
 
 :host ::ng-deep .search .mdc-text-field__input {
-  caret-color: white !important;
+  caret-color: var(--color) !important;
 }
 
 .search-container {
