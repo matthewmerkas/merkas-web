@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
 @import 'app/styles/material.scss';
 
 html,
@@ -17,6 +18,8 @@ body {
   --background-color: 21, 21, 21;
   --border-radius: 18px;
   --color: 255, 255, 255;
+  --color-primary: #{mat.get-color-from-palette($merkas-primary)};
+  --color-accent: #{mat.get-color-from-palette($merkas-accent)};
   --mdc-filled-text-field-container-shape: calc(var(--border-radius) / 2);
   --mdc-outlined-text-field-container-shape: calc(var(--border-radius) / 2);
   --padding-vertical: 64px;
@@ -36,7 +39,10 @@ body {
   justify-content: space-around;
   flex-wrap: wrap;
   margin: auto;
-  max-width: min(calc(100% - calc(var(--padding-horizontal) * 2)), var(--app-max-width));
+  max-width: min(
+    calc(100% - calc(var(--padding-horizontal) * 2)),
+    var(--app-max-width)
+  );
   padding: var(--padding-vertical) 0;
   width: 100%;
 }

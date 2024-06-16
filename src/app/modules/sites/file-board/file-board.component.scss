@@ -1,20 +1,18 @@
-@use '@angular/material' as mat;
 @import '../sites.component.scss';
-@import '../../../styles/material.scss';
 
 $radius: calc(var(--border-radius) / 2);
 
 .dragover {
   &.accent {
-    background-color: rgba(mat.get-color-from-palette($merkas-accent), 0.1);
-    outline-color: mat.get-color-from-palette($merkas-accent);
+    background-color: rgba(var(--color-accent), 0.1);
+    outline-color: var(--color-accent);
   }
 
-  outline: 1px solid mat.get-color-from-palette($merkas-primary);
+  outline: 1px solid var(--color-primary);
   border-top-left-radius: calc(var(--border-radius) * 0.5);
   border-top-right-radius: calc(var(--border-radius) * 0.5);
   outline-offset: -1px;
-  background-color: rgba(mat.get-color-from-palette($merkas-primary), 0.1);
+  background-color: rgba(var(--color-primary), 0.1);
 }
 
 .icon-container {

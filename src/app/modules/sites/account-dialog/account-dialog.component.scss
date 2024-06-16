@@ -1,9 +1,6 @@
-@use '@angular/material' as mat;
-@import '../../../styles/material.scss';
-
 .avatar {
   align-items: center;
-  background-color: mat.get-color-from-palette($merkas-primary);
+  background-color: var(--color-primary);
   border-radius: 50%;
   display: flex;
   font-size: 24px;
