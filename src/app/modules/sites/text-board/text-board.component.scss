@@ -1,5 +1,9 @@
 @import '../sites.component.scss';
 
+textarea {
+  overflow: hidden;
+}
+
 .mat-mdc-form-field {
   height: 100%;
   max-height: $board-max-height;
