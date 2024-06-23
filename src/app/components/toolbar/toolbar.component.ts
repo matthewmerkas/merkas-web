@@ -58,7 +58,7 @@ export class ToolbarComponent implements OnInit {
   openDialog = (component: any) => {
     this.dialog.open(DialogComponent, {
       data: { component, ...component.getData() },
-      maxWidth: '100vw'
+      maxWidth: '100dvw'
     })
   }
 }

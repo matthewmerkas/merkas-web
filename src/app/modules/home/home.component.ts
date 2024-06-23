@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
     const component = LoginDialogComponent
     this.dialog.open(DialogComponent, {
       data: { component, ...component.getData() },
-      maxWidth: '100vw'
+      maxWidth: '100dvw'
     })
   }
 }
