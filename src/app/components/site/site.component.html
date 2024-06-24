@@ -1,0 +1,35 @@
+<a
+  (click)="app && dialogRef?.close()"
+  [href]="siteUrl"
+  [routerLink]="app?.routerLink"
+>
+  <mat-card
+    *ngIf="app || site"
+    [appearance]="appearance"
+    [ngClass]="appearance"
+    class="draw"
+    matRipple
+  >
+    <mat-card-header>
+      <mat-card-title>{{ app?.title || site!.title }}</mat-card-title>
+      <mat-card-subtitle>
+        {{ app?.subtitle || site!.subtitle }}
+      </mat-card-subtitle>
+      <img
+        *ngIf="app?.imageUrl || imageUrl"
+        [@fadeIn]
+        [src]="app?.imageUrl || imageUrl"
+        height="40"
+        mat-card-avatar
+        width="40"
+      />
+      <img
+        class="placeholder"
+        height="40"
+        mat-card-avatar
+        ngSrc="../../../assets/icons/placeholder.svg"
+        width="40"
+      />
+    </mat-card-header>
+  </mat-card>
+</a>

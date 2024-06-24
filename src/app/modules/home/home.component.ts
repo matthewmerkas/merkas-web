@@ -8,6 +8,7 @@ import { DEFAULT_PATH } from '../../functions/constants'
 import { animations } from '../../functions/animations'
 import { LoginDialogComponent } from '../../components/login-dialog/login-dialog.component'
 import { DialogComponent } from '../../components/dialog/dialog.component'
+import { AppsDialogComponent } from '../../components/apps-dialog/apps-dialog.component'
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,9 @@ export class HomeComponent implements OnInit {
   @observable appName = '...'
   @observable title = '...'
   showSplash = false
+
+  protected readonly AppsDialogComponent = AppsDialogComponent
+  protected readonly LoginDialogComponent = LoginDialogComponent
 
   constructor(
     public dialog: MatDialog,
@@ -34,8 +38,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  openDialog = () => {
-    const component = LoginDialogComponent
+  openDialog = (component: { getData: () => any }) => {
     this.dialog.open(DialogComponent, {
       data: { component, ...component.getData() },
       maxWidth: '100dvw'

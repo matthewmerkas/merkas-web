@@ -1,5 +1,12 @@
 import { ComponentType } from '@angular/cdk/overlay'
 
+export interface App {
+  title: string
+  routerLink: string
+  imageUrl?: string
+  subtitle?: string
+}
+
 export interface ExtraOption {
   icon: string
   label: string

@@ -1,7 +1,16 @@
 <div *ngIf="showSplash" [@fadeIn] class="centered home-container flex">
   <h1>
-    Merkas!
-    <div (click)="openDialog()" class="circle flex" matRipple>
+    Merk
+    <div class="apps">
+      <div (click)="openDialog(AppsDialogComponent)" matRipple></div>
+      a
+    </div>
+    s!
+    <div
+      (click)="openDialog(LoginDialogComponent)"
+      class="circle flex"
+      matRipple
+    >
       <mat-icon>login</mat-icon>
     </div>
   </h1>

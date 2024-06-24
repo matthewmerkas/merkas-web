@@ -11,6 +11,7 @@ import { DialogComponent } from '../dialog/dialog.component'
 import { animations } from '../../functions/animations'
 import { ExtraOption } from '../../functions/types'
 import { Store } from '../../stores/store'
+import { AppsDialogComponent } from '../apps-dialog/apps-dialog.component'
 
 @Component({
   selector: 'app-toolbar',
@@ -25,6 +26,7 @@ export class ToolbarComponent implements OnInit {
   protected readonly DEFAULT_PATH = DEFAULT_PATH
   protected readonly getToken = getToken
   protected readonly AccountDialogComponent = AccountDialogComponent
+  protected readonly AppsDialogComponent = AppsDialogComponent
   protected readonly LoginDialogComponent = LoginDialogComponent
 
   constructor(

@@ -33,6 +33,10 @@
         <mat-icon>person</mat-icon>
         Account
       </button>
+      <button (click)="openDialog(AppsDialogComponent)" mat-menu-item>
+        <mat-icon>apps</mat-icon>
+        Apps
+      </button>
       <button
         *ngFor="let option of extraOptions"
         (click)="openDialog(option.component)"

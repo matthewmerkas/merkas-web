@@ -17,7 +17,7 @@
   <mat-dialog-content (keyup.enter)="onSubmit()">
     <ndc-dynamic #dynamic [ndcDynamicComponent]="data.component"></ndc-dynamic>
   </mat-dialog-content>
-  <mat-dialog-actions>
+  <mat-dialog-actions *ngIf="buttonLabel">
     <div
       [matTooltipDisabled]="valid"
       [matTooltipShowDelay]="TOOLTIP_DELAY"

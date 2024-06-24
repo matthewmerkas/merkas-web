@@ -3,7 +3,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common'
 
 import { AccountDialogComponent } from './account-dialog/account-dialog.component'
 import { FileBoardComponent } from './file-board/file-board.component'
-import { SiteComponent } from './site/site.component'
+import { SiteComponent } from '../../components/site/site.component'
 import { SitesComponent } from './sites.component'
 import { SitesRoutingModule } from './sites-routing.module'
 import { TextBoardComponent } from './text-board/text-board.component'
@@ -84,7 +84,7 @@ import { MatRipple } from '@angular/material/core'
     ReactiveFormsModule,
     SitesRoutingModule
   ],
-  exports: [],
+  exports: [SiteComponent],
   providers: [AuthGuard]
 })
 export class SitesModule {}

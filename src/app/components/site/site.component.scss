@@ -4,9 +4,12 @@ a {
 
 .mat-mdc-card {
   &:hover {
+    &:not(.outlined) {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      transform: scale(1.03);
+    }
     background-color: rgba(73, 73, 73);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transform: scale(1.03);
   }
 
   cursor: pointer;
@@ -17,7 +20,7 @@ a {
 }
 
 :not(.placeholder).mat-mdc-card-avatar {
-  background-image: url('/assets/white.svg');
+  background-image: url('/assets/icons/white.svg');
   background-color: white;
   position: absolute;
   z-index: 1;

@@ -8,9 +8,26 @@
 }
 
 h1 {
+  display: flex;
   font-size: 25vmax;
   line-height: 1;
   margin: 0;
+}
+
+.apps {
+  &:has(.mat-ripple:hover) {
+    color: var(--color-accent) !important;
+  }
+  .mat-ripple {
+    pointer-events: auto;
+    position: absolute;
+    height: 0.7em;
+    width: 0.7em;
+    transform: translate(-11%, 33%);
+    border-radius: 50%;
+  }
+  cursor: pointer;
+  transition: color 100ms ease-in-out;
 }
 
 .centered {

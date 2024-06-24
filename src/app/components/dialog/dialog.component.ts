@@ -34,7 +34,7 @@ export class DialogComponent implements OnInit {
     private dialogRef: MatDialogRef<any>,
     public store: Store
   ) {
-    this.buttonLabel = data.buttonLabel || 'Save'
+    this.buttonLabel = data.buttonLabel
     this.maxWidth = data.maxWidth || '320px'
     this.minWidth = data.minWidth || '0'
     this.title = data.title
@@ -44,8 +44,8 @@ export class DialogComponent implements OnInit {
   @ViewChild('dynamic') set set(dynamic: any) {
     const component = dynamic.componentRef.instance
     this.onSubmit = component.onSubmit
-    setTimeout(() => (this.valid = component?.formGroup.valid))
-    component?.formGroup.statusChanges.subscribe((status: FormControlStatus) =>
+    setTimeout(() => (this.valid = component?.formGroup?.valid))
+    component?.formGroup?.statusChanges.subscribe((status: FormControlStatus) =>
       this.validChange.emit(status === 'VALID')
     )
     this.validChange.subscribe((value) => (this.valid = value))
