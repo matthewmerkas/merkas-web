@@ -1,10 +1,11 @@
-<a
-  (click)="app && dialogRef?.close()"
-  [href]="siteUrl"
-  [routerLink]="app?.routerLink"
->
+<a *ngIf="app" (click)="dialogRef?.close()" [routerLink]="app.routerLink">
+  <ng-container *ngTemplateOutlet="card"></ng-container>
+</a>
+<a *ngIf="!app && site" [href]="siteUrl">
+  <ng-container *ngTemplateOutlet="card"></ng-container>
+</a>
+<ng-template #card>
   <mat-card
-    *ngIf="app || site"
     [appearance]="appearance"
     [ngClass]="appearance"
     class="draw"
@@ -32,4 +33,4 @@
       />
     </mat-card-header>
   </mat-card>
-</a>
+</ng-template>
