@@ -15,7 +15,7 @@ export class AppStore {
 
   constructor() {
     if (getToken()) {
-      this.array.push({
+      this.array.splice(0, 0, {
         title: 'Sites',
         subtitle: 'Text & file sharing, links',
         imageUrl: '/assets/icons/sites-touch.svg',
