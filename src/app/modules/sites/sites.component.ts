@@ -56,8 +56,10 @@ export class SitesComponent implements OnInit {
   }
 
   setValue() {
+    this.store.ui.setSpinner(true)
     return this.store.site.getList().subscribe((res) => {
       this.sites = res
+      this.store.ui.setSpinner(false)
     })
   }
 }

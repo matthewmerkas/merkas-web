@@ -1,2 +1,8 @@
 <app-toolbar></app-toolbar>
+<mat-spinner
+  [@fade]
+  class="centered"
+  *ngIf="store.ui.spinner"
+  [diameter]="64"
+></mat-spinner>
 <router-outlet></router-outlet>

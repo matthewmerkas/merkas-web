@@ -10,6 +10,7 @@ import { environment } from '../../environments/environment'
 
 export class UiStore {
   @observable loading = false
+  @observable spinner = false
   @observable name = 'Merkas'
   @observable socket: Socket
 
@@ -48,6 +49,11 @@ export class UiStore {
   @action
   setLoading(loading: boolean) {
     this.loading = loading
+  }
+
+  @action
+  setSpinner(spinner: boolean) {
+    this.spinner = spinner
   }
 
   openSnackbar(message?: string, action = 'Close', duration = 3000) {
