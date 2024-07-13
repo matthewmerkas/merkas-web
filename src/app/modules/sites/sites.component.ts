@@ -20,7 +20,10 @@ export class SitesComponent implements OnInit {
   sites: Site[] = []
   protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
 
-  constructor(public store: Store, public router: Router) {
+  constructor(
+    public store: Store,
+    public router: Router
+  ) {
     // Hack for expanded panel on page load
     setTimeout(() => {
       this.useAccordion = true
@@ -56,10 +59,10 @@ export class SitesComponent implements OnInit {
   }
 
   setValue() {
-    this.store.ui.setSpinner(true)
+    setTimeout(() => this.store.ui.setSpinner(true))
     return this.store.site.getList().subscribe((res) => {
       this.sites = res
-      this.store.ui.setSpinner(false)
+      setTimeout(() => this.store.ui.setSpinner(false))
     })
   }
 }
