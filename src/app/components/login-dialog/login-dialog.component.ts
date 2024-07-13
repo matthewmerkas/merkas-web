@@ -75,6 +75,7 @@ export class LoginDialogComponent {
     } else {
       const data = this.formGroup.getRawValue()
       this.store.user.login(data).subscribe(() => {
+        this.store.ui.onLogin()
         this.dialogRef?.close()
         this.dialogRef?.afterClosed().subscribe(() => {
           return this.router.navigate([DEFAULT_PATH])

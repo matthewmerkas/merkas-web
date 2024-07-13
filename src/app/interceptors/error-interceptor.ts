@@ -8,8 +8,6 @@ import {
 } from '@angular/common/http'
 import { catchError, mergeMap } from 'rxjs/operators'
 import { Observable, throwError } from 'rxjs'
-import { Router } from '@angular/router'
-import { removeTokens } from '../functions/local-storage'
 import { Store } from '../stores/store'
 
 export interface HttpError extends HttpErrorResponse {
@@ -24,7 +22,7 @@ const formatError = (str: string) => {
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private router: Router, private store: Store) {}
+  constructor(private store: Store) {}
 
   // Source: https://stackoverflow.com/a/53379715
   intercept(
@@ -49,8 +47,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             return this.store.user.refresh().pipe(
               catchError((err) => {
                 this.openSnackbar(err)
-                removeTokens()
-                return this.router.navigate(['/auth'])
+                return this.store.ui.onLogout()
               }),
               mergeMap((res) => {
                 const clone = req.clone({

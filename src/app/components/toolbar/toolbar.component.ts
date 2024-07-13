@@ -5,7 +5,7 @@ import { map } from 'rxjs'
 
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component'
 import { DEFAULT_PATH, TOOLTIP_DELAY } from '../../functions/constants'
-import { getToken, removeTokens } from '../../functions/local-storage'
+import { getToken } from '../../functions/local-storage'
 import { AccountDialogComponent } from '../../modules/sites/account-dialog/account-dialog.component'
 import { DialogComponent } from '../dialog/dialog.component'
 import { animations } from '../../functions/animations'
@@ -51,11 +51,7 @@ export class ToolbarComponent implements OnInit {
       .subscribe()
   }
 
-  logout = () => {
-    removeTokens()
-    this.store.ui.onLogout()
-    return this.router.navigate(['/'])
-  }
+  logout = () => this.store.ui.onLogout()
 
   openDialog = (component: any) => {
     this.dialog.open(DialogComponent, {

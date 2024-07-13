@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { Router } from '@angular/router'
 import { observable } from 'mobx-angular'
 
 import { AppStore } from './app.store'
@@ -23,18 +24,24 @@ export class Store {
   @observable ui: UiStore
   @observable user: UserStore
 
-  constructor(private http: HttpClient, private snackbar: MatSnackBar) {
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private snackbar: MatSnackBar
+  ) {
     this.app = new AppStore()
     this.board = new BoardStore(http)
     this.image = new ImageStore(http)
     this.site = new SiteStore(http)
-    this.ui = new UiStore(snackbar, this)
+    this.ui = new UiStore(router, snackbar, this)
     this.file = new FileStore(http, this)
     this.user = new UserStore(http)
   }
 
   recreate(name: string) {
-    if (name === 'board') {
+    if (name === 'app') {
+      this.app = new AppStore()
+    } else if (name === 'board') {
       this.board = new BoardStore(this.http)
     }
   }
