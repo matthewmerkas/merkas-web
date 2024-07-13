@@ -53,6 +53,11 @@ $edge-margin: 24px;
   --mdc-outlined-text-field-container-shape: 28px;
   --mdc-filled-text-field-container-shape: 28px;
 
+  .clear-button {
+    padding: 16px;
+    height: 56px;
+    width: 56px;
+  }
   .search {
     max-width: 640px;
     width: 100%;
