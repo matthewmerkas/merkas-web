@@ -44,7 +44,7 @@ export class DialogComponent implements OnInit {
   @ViewChild('dynamic') set set(dynamic: any) {
     const component = dynamic.componentRef.instance
     this.onSubmit = component.onSubmit
-    setTimeout(() => (this.valid = component?.formGroup?.valid))
+    window.setTimeout(() => (this.valid = component?.formGroup?.valid))
     component?.formGroup?.statusChanges.subscribe((status: FormControlStatus) =>
       this.validChange.emit(status === 'VALID')
     )

@@ -1,4 +1,4 @@
-import * as diff from 'fast-diff'
+import diff from 'fast-diff'
 import * as Y from 'yjs'
 import { HttpClient } from '@angular/common/http'
 import { Buffer } from 'buffer/'

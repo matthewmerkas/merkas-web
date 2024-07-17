@@ -22,7 +22,7 @@ export class SiteComponent implements OnInit {
 
   constructor(
     public store: Store,
-    @Optional() public dialogRef: MatDialogRef<any>
+    @Optional() public dialogRef?: MatDialogRef<any>
   ) {}
 
   ngOnInit() {
