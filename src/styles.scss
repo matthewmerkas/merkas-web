@@ -18,8 +18,8 @@ body {
   --background-color: 21, 21, 21;
   --border-radius: 18px;
   --color: 255, 255, 255;
-  --color-primary: #{mat.get-color-from-palette($merkas-primary)};
-  --color-accent: #{mat.get-color-from-palette($merkas-accent)};
+  --color-primary: #{mat.m2-get-color-from-palette($merkas-primary)};
+  --color-accent: #{mat.m2-get-color-from-palette($merkas-accent)};
   --mdc-filled-text-field-container-shape: calc(var(--border-radius) / 2);
   --mdc-outlined-text-field-container-shape: calc(var(--border-radius) / 2);
   --padding-vertical: 64px;
