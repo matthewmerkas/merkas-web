@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core'
 import { NgOptimizedImage } from '@angular/common'
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
+import {
+  HTTP_INTERCEPTORS,
+  provideHttpClient,
+  withInterceptorsFromDi
+} from '@angular/common/http'
 import { MatButton, MatIconButton } from '@angular/material/button'
 import {
   MatCard,
@@ -41,12 +45,12 @@ import { DynamicModule } from 'ng-dynamic-component'
 
 @NgModule({
   declarations: [AppComponent, DialogComponent, ToolbarComponent],
+  bootstrap: [AppComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     DynamicModule,
-    HttpClientModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: getToken,
@@ -80,8 +84,8 @@ import { DynamicModule } from 'ng-dynamic-component'
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpXsrfInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
-  ],
-  bootstrap: [AppComponent]
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    provideHttpClient(withInterceptorsFromDi())
+  ]
 })
 export class AppModule {}
