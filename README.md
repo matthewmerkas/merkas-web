@@ -16,7 +16,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-Run `ng build --stats-json` to get a `stats.json` file for `webpack-bundle-analyzer stats.json`
+Run `ng build --stats-json` to get a `stats.json` file for [esbuild](https://esbuild.github.io/analyze/)
 
 ## Running unit tests
 
