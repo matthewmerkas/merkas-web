@@ -15,10 +15,16 @@ export interface HttpError extends HttpErrorResponse {
 }
 
 const formatError = (str: string) => {
-  return str
-    .replace(/jwt/g, (match) => match.toUpperCase()) // jwt
-    .replace(/\.+$/, '') // remove trailing full stop
+  return truncate(
+    str
+      .replace(/jwt/g, (match) => match.toUpperCase()) // jwt
+      .replace(/\.+$/, ''), // remove trailing full stop
+    56
+  )
 }
+
+const truncate = (str: string, max: number) =>
+  str.length > max ? str.substring(0, max) + '…' : str
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
