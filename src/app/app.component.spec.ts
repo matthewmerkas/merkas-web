@@ -16,10 +16,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy()
   })
 
-  it(`should have as title 'menu-web'`, () => {
+  it(`should have as title 'merkas-web'`, () => {
     const fixture = TestBed.createComponent(AppComponent)
     const app = fixture.componentInstance
-    expect(app.title).toEqual('menu-web')
+    expect(app.title).toEqual('merkas-web')
   })
 
   it('should render title', () => {
@@ -27,7 +27,7 @@ describe('AppComponent', () => {
     fixture.detectChanges()
     const compiled = fixture.nativeElement as HTMLElement
     expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'menu-web app is running!'
+      'merkas-web app is running!'
     )
   })
 })
