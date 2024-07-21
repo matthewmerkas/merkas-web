@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core'
+import { NgModule, isDevMode } from '@angular/core'
 import { NgOptimizedImage } from '@angular/common'
 import {
   HTTP_INTERCEPTORS,
@@ -42,6 +42,7 @@ import { SitesModule } from './modules/sites/sites.module'
 import { PasswordFieldComponent } from './components/password-field/password-field.component'
 import { MatProgressSpinner } from '@angular/material/progress-spinner'
 import { DynamicModule } from 'ng-dynamic-component'
+import { ServiceWorkerModule } from '@angular/service-worker'
 
 @NgModule({
   declarations: [AppComponent, DialogComponent, ToolbarComponent],
@@ -79,7 +80,13 @@ import { DynamicModule } from 'ng-dynamic-component'
     MatProgressSpinner,
     PasswordFieldComponent,
     MatDialogContent,
-    MatDialogActions
+    MatDialogActions,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpXsrfInterceptor, multi: true },

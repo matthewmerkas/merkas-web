@@ -1,1 +1,53 @@
-<svg id="M" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><defs><style>.cls-1{fill:#151515;}.cls-2{fill:none;stroke:#ccc;stroke-miterlimit:10;stroke-width:5px;}.cls-3{fill:#fff;}</style></defs><circle class="cls-1" cx="40" cy="40" r="40"/><path class="cls-2" d="M14.4,64.5c0-2,11.28-3.6,25.2-3.6s25.2,1.61,25.2,3.6"/><path class="cls-3" d="M18.78,67.28v-59h9.44L39.44,41.86h.08l11-33.55h9.83v59H54V15.37l-.08,0L42.29,51.54H36L24.31,16.6l-.08,0V67.28Z"/><path class="cls-2" d="M64.8,64.5c0,2-11.28,3.6-25.2,3.6s-25.2-1.61-25.2-3.6"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="M"
+   viewBox="0 0 80 80"
+   version="1.1"
+   sodipodi:docname="favicon.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="8.5012831"
+     inkscape:cx="39.69989"
+     inkscape:cy="39.641075"
+     inkscape:window-width="1680"
+     inkscape:window-height="997"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="M" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">.cls-1{fill:#151515;}.cls-2{fill:none;stroke:#ccc;stroke-miterlimit:10;stroke-width:5px;}.cls-3{fill:#fff;}</style>
+  </defs>
+  <circle
+     class="cls-1"
+     cx="40"
+     cy="40"
+     r="40"
+     id="circle1" />
+  <path
+     class="cls-2"
+     d="m 14.4,64.54 c 0,-2 11.28,-3.6 25.2,-3.6 13.92,0 25.2,1.61 25.2,3.6"
+     id="path1" />
+  <path
+     class="cls-3"
+     d="M18.78,67.28v-59h9.44L39.44,41.86h.08l11-33.55h9.83v59H54V15.37l-.08,0L42.29,51.54H36L24.31,16.6l-.08,0V67.28Z"
+     id="path2" />
+  <path
+     class="cls-2"
+     d="M64.8,64.5c0,2-11.28,3.6-25.2,3.6s-25.2-1.61-25.2-3.6"
+     id="path3" />
+</svg>
