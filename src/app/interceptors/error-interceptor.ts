@@ -97,5 +97,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     } else {
       this.store.ui.openSnackbar(formatError(err.message))
     }
+    this.store.ui.setLoading(false)
+    this.store.ui.setSpinner(false)
   }
 }

@@ -43,6 +43,7 @@ export class UiStore {
     this.store.recreate('app')
     this.store.recreate('board')
     this.setLoading(false)
+    this.setSpinner(false)
     return this.router.navigate(['/'])
   }
 
