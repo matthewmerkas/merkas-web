@@ -29,7 +29,7 @@ export class ToolbarComponent implements OnInit {
   protected readonly AccountDialogComponent = AccountDialogComponent
   protected readonly AppsDialogComponent = AppsDialogComponent
   protected readonly LoginDialogComponent = LoginDialogComponent
-  protected readonly ThemeDialogComponent = ThemeDialogComponent
+  // protected readonly ThemeDialogComponent = ThemeDialogComponent
 
   constructor(
     private dialog: MatDialog,
