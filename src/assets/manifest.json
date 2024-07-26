@@ -4,8 +4,8 @@
   "theme_color": "#151515",
   "background_color": "#151515",
   "display": "fullscreen",
-  "scope": "./",
-  "start_url": "./",
+  "scope": "../",
+  "start_url": "../",
   "icons": [
     {
       "src": "assets/pwa/icons/icon-72x72.png",
