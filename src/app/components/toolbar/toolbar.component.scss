@@ -16,21 +16,21 @@
 }
 
 .contrast {
-  @include mat.all-component-colors(merkas-theme.$light-theme);
+  @include mat.icon-button-color(merkas-theme.$light-theme);
   @include mat.system-level-colors(merkas-theme.$light-theme);
 }
 @media (prefers-color-scheme: light) {
   .contrast {
-    @include mat.all-component-colors(merkas-theme.$dark-theme);
+    @include mat.icon-button-color(merkas-theme.$dark-theme);
     @include mat.system-level-colors(merkas-theme.$dark-theme);
   }
 }
 .dark {
-  @include mat.all-component-colors(merkas-theme.$dark-theme);
+  @include mat.icon-button-color(merkas-theme.$dark-theme);
   @include mat.system-level-colors(merkas-theme.$dark-theme);
 }
 .light {
-  @include mat.all-component-colors(merkas-theme.$light-theme);
+  @include mat.icon-button-color(merkas-theme.$light-theme);
   @include mat.system-level-colors(merkas-theme.$light-theme);
 }
 
