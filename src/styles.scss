@@ -8,8 +8,6 @@ body {
 }
 
 body {
-  background-color: rgb(var(--background-color));
-  color: rgb(var(--color));
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
   // Variables
@@ -17,12 +15,28 @@ body {
   --app-mobile-width: 400px;
   --background-color: 21, 21, 21;
   --border-radius: 18px;
-  --color: 255, 255, 255;
-  --color-primary: #{mat.m2-get-color-from-palette($merkas-primary)};
-  --color-accent: #{mat.m2-get-color-from-palette($merkas-accent)};
-  --mdc-filled-text-field-container-shape: calc(var(--border-radius) / 2);
-  --mdc-outlined-text-field-container-shape: calc(var(--border-radius) / 2);
+  --color: var(--sys-on-background);
+  --color-primary: var(--sys-primary);
+  --color-secondary: var(--sys-secondary);
+  --color-tertiary: var(--sys-tertiary);
   --padding-vertical: 64px;
+  // Material overrides
+  --mdc-filled-text-field-container-shape: calc(var(--border-radius) / 2);
+  --mdc-filled-text-field-container-color: color-mix(
+    in srgb,
+    var(--sys-on-surface-variant) 8%,
+    var(--sys-surface-variant)
+  );
+  --mdc-icon-button-state-layer-size: 48px;
+  --mdc-elevated-card-container-color: var(--sys-surface-variant);
+  --mdc-outlined-card-container-color: var(--sys-surface-variant);
+  --mdc-outlined-card-outline-color: var(--sys-outline);
+  --mdc-outlined-text-field-container-shape: calc(var(--border-radius) / 2);
+}
+@media (prefers-color-scheme: light) {
+  body {
+    --mdc-outlined-card-outline-color: var(--sys-outline-variant);
+  }
 }
 @media screen and (max-width: 840px) {
   body {
@@ -87,11 +101,21 @@ body {
 }
 
 .mat-mdc-card {
+  --mat-standard-button-toggle-selected-state-text-color: var(
+    --sys-on-secondary
+  );
+  --mat-standard-button-toggle-selected-state-background-color: var(
+    --sys-secondary
+  );
   border-radius: var(--border-radius) !important;
 }
 
 .mat-mdc-card:not([class*='mat-elevation-z']) {
   box-shadow: none;
+}
+
+.mat-mdc-card-subtitle {
+  color: var(--sys-on-surface-variant) !important;
 }
 
 @media screen and (orientation: portrait) and (max-width: 400px) {
@@ -110,6 +134,10 @@ body {
 }
 
 .mat-mdc-button-base:not(.mat-mdc-icon-button) {
+  border-radius: calc(var(--border-radius) / 2) !important;
+}
+
+.mat-mdc-menu-panel {
   border-radius: calc(var(--border-radius) / 2) !important;
 }
 

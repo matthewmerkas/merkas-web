@@ -1,4 +1,10 @@
-<mat-toolbar *ngIf="showToolbar" [@fadeIn]>
+<mat-toolbar
+  *ngIf="showToolbar"
+  [@fadeIn]
+  [class.contrast]="store.ui.toolbarTheme === 'contrast'"
+  [class.dark]="store.ui.toolbarTheme === 'dark'"
+  [class.light]="store.ui.toolbarTheme === 'light'"
+>
   <button
     [matTooltipShowDelay]="TOOLTIP_DELAY"
     [routerLink]="getToken() ? DEFAULT_PATH : '/'"
@@ -6,13 +12,40 @@
     mat-icon-button
     matTooltip="Home"
   >
-    <img
-      alt="Merkas Logo"
-      height="48"
-      ngSrc="/assets/icon.svg"
-      priority=""
-      width="48"
-    />
+    <svg
+      id="M"
+      viewBox="0 0 80 80"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:svg="http://www.w3.org/2000/svg"
+    >
+      <defs id="defs1">
+        <style id="style1">
+          .cls-1 {
+            fill: none;
+            stroke-miterlimit: 10;
+            stroke-width: 5px;
+          }
+        </style>
+      </defs>
+      <path
+        class="cls-1"
+        d="m 14.4,64.54 c 0,-2 11.28,-3.6 25.2,-3.6 13.92,0 25.2,1.61 25.2,3.6"
+        id="path1"
+        stroke="currentColor"
+      />
+      <path
+        class="cls-2"
+        d="M18.78,67.28v-59h9.44L39.44,41.86h.08l11-33.55h9.83v59H54V15.37l-.08,0L42.29,51.54H36L24.31,16.6l-.08,0V67.28Z"
+        id="path2"
+      />
+      <path
+        class="cls-1"
+        d="M64.8,64.5c0,2-11.28,3.6-25.2,3.6s-25.2-1.61-25.2-3.6"
+        id="path3"
+        stroke="currentColor"
+      />
+    </svg>
   </button>
   <div>
     <button

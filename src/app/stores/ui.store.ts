@@ -13,6 +13,7 @@ export class UiStore {
   @observable spinner = false
   @observable name = 'Merkas'
   @observable socket: Socket
+  @observable toolbarTheme?: 'contrast' | 'dark' | 'light'
 
   constructor(
     private router: Router,
@@ -55,6 +56,11 @@ export class UiStore {
   @action
   setSpinner(spinner: boolean) {
     this.spinner = spinner
+  }
+
+  @action
+  setToolbarTheme(theme?: 'contrast' | 'dark' | 'light') {
+    this.toolbarTheme = theme
   }
 
   openSnackbar(message?: string, action = 'Close', duration = 3000) {

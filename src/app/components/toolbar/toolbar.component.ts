@@ -4,14 +4,15 @@ import { ActivationStart, NavigationEnd, Router } from '@angular/router'
 import { map } from 'rxjs'
 
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component'
+import { AccountDialogComponent } from '../../modules/sites/account-dialog/account-dialog.component'
+import { AppsDialogComponent } from '../apps-dialog/apps-dialog.component'
+import { ThemeDialogComponent } from '../theme-dialog/theme-dialog.component'
 import { DEFAULT_PATH, TOOLTIP_DELAY } from '../../functions/constants'
 import { getToken } from '../../functions/local-storage'
-import { AccountDialogComponent } from '../../modules/sites/account-dialog/account-dialog.component'
 import { DialogComponent } from '../dialog/dialog.component'
 import { animations } from '../../functions/animations'
 import { ExtraOption } from '../../functions/types'
 import { Store } from '../../stores/store'
-import { AppsDialogComponent } from '../apps-dialog/apps-dialog.component'
 
 @Component({
   selector: 'app-toolbar',
@@ -28,10 +29,11 @@ export class ToolbarComponent implements OnInit {
   protected readonly AccountDialogComponent = AccountDialogComponent
   protected readonly AppsDialogComponent = AppsDialogComponent
   protected readonly LoginDialogComponent = LoginDialogComponent
+  protected readonly ThemeDialogComponent = ThemeDialogComponent
 
   constructor(
     private dialog: MatDialog,
-    private store: Store,
+    public store: Store,
     private router: Router
   ) {}
 

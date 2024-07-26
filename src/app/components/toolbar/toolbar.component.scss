@@ -1,3 +1,6 @@
+@use '@angular/material' as mat;
+@use '../../styles/merkas-theme';
+
 .mat-toolbar {
   background-color: transparent;
   justify-content: space-between;
@@ -12,10 +15,30 @@
   }
 }
 
+.contrast {
+  @include mat.all-component-colors(merkas-theme.$light-theme);
+  @include mat.system-level-colors(merkas-theme.$light-theme);
+}
+@media (prefers-color-scheme: light) {
+  .contrast {
+    @include mat.all-component-colors(merkas-theme.$dark-theme);
+    @include mat.system-level-colors(merkas-theme.$dark-theme);
+  }
+}
+.dark {
+  @include mat.all-component-colors(merkas-theme.$dark-theme);
+  @include mat.system-level-colors(merkas-theme.$dark-theme);
+}
+.light {
+  @include mat.all-component-colors(merkas-theme.$light-theme);
+  @include mat.system-level-colors(merkas-theme.$light-theme);
+}
+
 .logo-button {
-  > img {
-    min-width: 48px;
-    min-height: 48px;
+  > svg {
+    fill: var(--sys-on-background);
+    width: 48px;
+    height: 48px;
   }
 
   padding: 0;

@@ -1,23 +1,34 @@
+@use '@angular/material' as mat;
+@use '../../../styles/merkas-theme';
+
 @import '../sites.component.scss';
 
 $radius: calc(var(--border-radius) / 2);
 
 .dragover {
-  &.accent {
-    background-color: rgba(var(--color-accent), 0.1);
-    outline-color: var(--color-accent);
+  &.tertiary {
+    background-color: color-mix(
+      in srgb,
+      var(--color-tertiary) 10%,
+      var(--sys-surface-variant)
+    );
+    outline-color: var(--color-tertiary);
   }
 
   outline: 1px solid var(--color-primary);
   border-top-left-radius: calc(var(--border-radius) * 0.5);
   border-top-right-radius: calc(var(--border-radius) * 0.5);
   outline-offset: -1px;
-  background-color: rgba(var(--color-primary), 0.1);
+  background-color: color-mix(
+    in srgb,
+    var(--color-primary) 10%,
+    var(--sys-surface-variant)
+  );
 }
 
 .icon-container {
   img {
-    filter: brightness(0) invert(1);
+    filter: invert(1) brightness(0.9);
   }
 
   span {
@@ -44,22 +55,30 @@ $radius: calc(var(--border-radius) / 2);
   height: 100%;
   justify-content: center;
 }
+@media (prefers-color-scheme: light) {
+  .icon-container img {
+    filter: invert(1) brightness(0.1);
+  }
+}
 
 .label-container {
+  color: var(--sys-on-surface-variant) !important;
   position: absolute;
   top: 0;
   left: 0;
   margin: 16px;
-  opacity: 0.6;
 }
 
 .mat-button-toggle-group {
+  --mat-standard-button-toggle-height: 52px;
+
   > * {
     flex-grow: 1;
   }
 
   border-radius: 0 0 $radius $radius;
   margin: auto 0 -1px -1px;
+  min-height: 52px;
   width: 100%;
 }
 
@@ -71,11 +90,19 @@ $radius: calc(var(--border-radius) / 2);
 }
 
 .mat-mdc-card-content {
-  // 100% - button toggle group height - padding top - border
-  height: calc(100% - 50px - 16px - 1px);
+  height: 100%;
   user-select: none;
 }
 
 .mat-mdc-form-field {
   width: 100%;
+}
+
+.mat-mdc-progress-bar {
+  &.tertiary {
+    @include mat.progress-bar-color(
+      merkas-theme.$dark-theme,
+      $color-variant: tertiary
+    );
+  }
 }

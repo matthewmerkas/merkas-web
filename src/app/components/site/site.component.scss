@@ -7,16 +7,25 @@ a {
     &:not(.outlined) {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      transform: scale(1.03);
+      @media (prefers-color-scheme: light) {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05),
+        0 6px 20px 0 rgba(0, 0, 0, 0.0475);
+      }
+      transform: scale(1.02);
     }
-    background-color: rgba(73, 73, 73);
+    background-color: color-mix(
+      in srgb,
+      var(--sys-on-surface) 8%,
+      var(--sys-surface-variant)
+    );
   }
 
+  --mat-card-subtitle-text-weight: var(--sys-title-large-weight);
   cursor: pointer;
   min-height: 52px;
-  transition: all 100ms ease-in-out;
+  transition: box-shadow 100ms ease-in-out, transform 100ms ease-in-out;
   user-select: none;
-  width: 264px;
+  width: 288px;
 }
 
 :not(.placeholder).mat-mdc-card-avatar {

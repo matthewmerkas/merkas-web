@@ -3,8 +3,8 @@
     (dragleave)="onDragleave($event)"
     (dragover)="onDragover($event)"
     (drop)="onDrop($event)"
-    [class.accent]="target === 'private'"
     [class.dragover]="dragover"
+    [class.tertiary]="target === 'private'"
   >
     <div class="label-container">
       <span>{{ toTitleCase(target!) + ' file' }}</span>
@@ -26,7 +26,7 @@
     </div>
   </mat-card-content>
   <mat-progress-bar
-    [color]="target === 'private' ? 'accent' : ''"
+    [class.tertiary]="target === 'private'"
     [value]="progress"
   ></mat-progress-bar>
   <mat-button-toggle-group [formControl]="toggleFc">

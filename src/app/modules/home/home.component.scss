@@ -10,13 +10,14 @@
 h1 {
   display: flex;
   font-size: 25vmax;
+  font-weight: 400;
   line-height: 1;
   margin: 0;
 }
 
 .apps {
   &:has(.mat-ripple:hover) {
-    color: var(--color-accent) !important;
+    color: var(--color-tertiary) !important;
   }
   .mat-ripple {
     pointer-events: auto;
