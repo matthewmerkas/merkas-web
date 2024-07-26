@@ -20,6 +20,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "allowedCommonJsDependencies": [
+              "buffer/",
+              "fast-deep-equal",
+              "fast-diff",
+              "nosleep.js"
+            ],
             "outputPath": {
               "base": "dist/merkas-web"
             },
