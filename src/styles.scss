@@ -111,7 +111,7 @@ body {
   --mat-standard-button-toggle-selected-state-background-color: var(
     --sys-secondary
   );
-  border-radius: var(--border-radius) !important;
+  --mdc-elevated-card-container-shape: var(--border-radius);
 }
 
 .mat-mdc-card:not([class*='mat-elevation-z']) {
@@ -127,13 +127,13 @@ body {
     padding: 0 0 16px !important;
   }
   .mat-mdc-dialog-surface {
-    border-radius: 0 !important;
+    --mdc-dialog-container-shape: 0;
   }
 }
 
 @media not screen and (orientation: portrait) and (max-width: 400px) {
   .mat-mdc-dialog-surface {
-    border-radius: var(--border-radius) !important;
+    --mdc-dialog-container-shape: var(--border-radius);
   }
 }
 
