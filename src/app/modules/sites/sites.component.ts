@@ -20,7 +20,10 @@ export class SitesComponent implements OnInit {
   sites: Site[] = []
   protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
 
-  constructor(public store: Store, public router: Router) {
+  constructor(
+    public store: Store,
+    public router: Router
+  ) {
     // Hack for expanded panel on page load
     setTimeout(() => {
       this.useAccordion = true
@@ -45,7 +48,7 @@ export class SitesComponent implements OnInit {
             for (const site of res) {
               const index = `${site.title} ${site.subtitle} ${
                 site.url
-              } ${site.tags?.join(',')}`
+              } ${site.tags?.join(' ')}`
               if (index.search(new RegExp(query, 'i')) >= 0) {
                 sites.push(site)
               }
