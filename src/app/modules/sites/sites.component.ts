@@ -43,7 +43,9 @@ export class SitesComponent implements OnInit {
           } else {
             const sites = []
             for (const site of res) {
-              const index = `${site.title} ${site.subtitle} ${site.url}`
+              const index = `${site.title} ${site.subtitle} ${
+                site.url
+              } ${site.tags?.join(',')}`
               if (index.search(new RegExp(query, 'i')) >= 0) {
                 sites.push(site)
               }
