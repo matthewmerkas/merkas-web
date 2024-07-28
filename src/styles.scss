@@ -30,7 +30,11 @@ body {
   --mdc-icon-button-state-layer-size: 48px;
   --mdc-elevated-card-container-color: var(--sys-surface-variant);
   --mdc-outlined-card-container-color: var(--sys-surface-variant);
-  --mdc-outlined-card-outline-color: var(--sys-outline);
+  --mdc-outlined-card-outline-color: color-mix(
+    in srgb,
+    var(--sys-outline) 50%,
+    transparent
+  );
   --mdc-outlined-text-field-container-shape: calc(var(--border-radius) / 2);
 }
 @media (prefers-color-scheme: light) {
