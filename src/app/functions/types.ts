@@ -34,6 +34,7 @@ export interface Site {
   imageName?: string
   roles?: string[]
   subtitle?: string
+  tags?: string[]
   isDeleted?: boolean
 }
 
