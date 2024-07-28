@@ -6,6 +6,12 @@ import { getToken } from '../functions/local-storage'
 export class AppStore {
   @observable array: App[] = [
     {
+      title: 'Event Logger',
+      subtitle: 'Log recurring events',
+      imageUrl: '/assets/icons/apps/light/mariah-touch.svg',
+      routerLink: '/mariah'
+    },
+    {
       title: 'File Converter',
       subtitle: 'Convert any file locally',
       imageUrl: '/assets/icons/apps/light/converter-touch.svg',
