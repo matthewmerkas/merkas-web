@@ -1,6 +1,12 @@
-[submodule "src/app/submodules/twenty"]
-	path = src/app/submodules/twenty
-	url = personal:matthewmerkas/twenty-web
+[submodule "src/app/submodules/converter"]
+	path = src/app/submodules/converter
+	url = personal:matthewmerkas/converter-web
 [submodule "src/app/submodules/mariah"]
 	path = src/app/submodules/mariah
 	url = personal:matthewmerkas/mariah-web
+[submodule "src/app/submodules/plotter"]
+	path = src/app/submodules/plotter
+	url = personal:matthewmerkas/plotter-web
+[submodule "src/app/submodules/twenty"]
+	path = src/app/submodules/twenty
+	url = personal:matthewmerkas/twenty-web
