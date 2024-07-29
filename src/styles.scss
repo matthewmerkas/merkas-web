@@ -113,6 +113,9 @@ body {
   );
   --mdc-elevated-card-container-shape: var(--border-radius);
 }
+.mat-mdc-dialog-surface {
+  --mdc-dialog-container-shape: var(--border-radius);
+}
 
 .mat-mdc-card:not([class*='mat-elevation-z']) {
   box-shadow: none;
@@ -126,14 +129,11 @@ body {
   .mat-expansion-panel-body {
     padding: 0 0 16px !important;
   }
+  .mat-mdc-card {
+    --mdc-elevated-card-container-shape: 0;
+  }
   .mat-mdc-dialog-surface {
     --mdc-dialog-container-shape: 0;
-  }
-}
-
-@media not screen and (orientation: portrait) and (max-width: 400px) {
-  .mat-mdc-dialog-surface {
-    --mdc-dialog-container-shape: var(--border-radius);
   }
 }
 
