@@ -129,10 +129,10 @@ body {
   .mat-expansion-panel-body {
     padding: 0 0 16px !important;
   }
-  .mat-mdc-card {
-    --mdc-elevated-card-container-shape: 0;
-  }
   .mat-mdc-dialog-surface {
+    .mat-mdc-card {
+      --mdc-elevated-card-container-shape: 0;
+    }
     --mdc-dialog-container-shape: 0;
   }
 }
