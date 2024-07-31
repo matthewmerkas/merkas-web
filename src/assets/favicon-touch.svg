@@ -12,13 +12,13 @@
     <style
        id="style1">.cls-1{fill:#151515;}.cls-2{fill:none;stroke:#ccc;stroke-miterlimit:10;stroke-width:5px;}.cls-3{fill:#fff;}</style>
   </defs>
-  <circle
-     class="cls-1"
-     cx="12"
-     cy="12"
-     id="circle1"
-     style="stroke-width:0.3"
-     r="12" />
+  <rect
+     id="rect1"
+     width="24"
+     height="24"
+     x="0"
+     y="0"
+     style="fill:#151515;fill-opacity:1" />
   <path
      class="cls-2"
      d="m 5.1709078,18.081987 c 0,-0.718256 3.0568316,-1.292857 6.8290922,-1.292857 3.772261,0 6.829092,0.578194 6.829092,1.292857"
