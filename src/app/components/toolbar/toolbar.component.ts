@@ -6,7 +6,7 @@ import { map } from 'rxjs'
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component'
 import { AccountDialogComponent } from '../../modules/sites/account-dialog/account-dialog.component'
 import { AppsDialogComponent } from '../apps-dialog/apps-dialog.component'
-import { ThemeDialogComponent } from '../theme-dialog/theme-dialog.component'
+// import { ThemeDialogComponent } from '../theme-dialog/theme-dialog.component'
 import { DEFAULT_PATH, TOOLTIP_DELAY } from '../../functions/constants'
 import { getToken } from '../../functions/local-storage'
 import { DialogComponent } from '../dialog/dialog.component'
@@ -29,7 +29,7 @@ export class ToolbarComponent implements OnInit {
   protected readonly AccountDialogComponent = AccountDialogComponent
   protected readonly AppsDialogComponent = AppsDialogComponent
   protected readonly LoginDialogComponent = LoginDialogComponent
-  protected readonly ThemeDialogComponent = ThemeDialogComponent
+  // protected readonly ThemeDialogComponent = ThemeDialogComponent
 
   constructor(
     private dialog: MatDialog,
