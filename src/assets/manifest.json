@@ -8,115 +8,118 @@
   "start_url": "../",
   "icons": [
     {
-      "src": "/assets/favicon.svg",
-      "type": "any",
-      "sizes": "any"
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
     },
     {
-      "src": "/assets/pwa/any/icon-72x72.png",
+      "src": "pwa/any/icon-72x72.png",
       "sizes": "72x72",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/pwa/any/icon-96x96.png",
+      "src": "pwa/any/icon-96x96.png",
       "sizes": "96x96",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/pwa/any/icon-128x128.png",
+      "src": "pwa/any/icon-128x128.png",
       "sizes": "128x128",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/pwa/any/icon-144x144.png",
+      "src": "pwa/any/icon-144x144.png",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/pwa/any/icon-152x152.png",
+      "src": "pwa/any/icon-152x152.png",
       "sizes": "152x152",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/pwa/any/icon-192x192.png",
+      "src": "pwa/any/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/pwa/any/icon-384x384.png",
+      "src": "pwa/any/icon-384x384.png",
       "sizes": "384x384",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/pwa/any/icon-512x512.png",
+      "src": "pwa/any/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/favicon-touch.svg",
-      "type": "maskable",
-      "sizes": "any"
+      "src": "favicon-touch.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
     },
     {
-      "src": "/assets/pwa/maskable/icon-72x72.png",
+      "src": "pwa/maskable/icon-72x72.png",
       "sizes": "72x72",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/assets/pwa/maskable/icon-96x96.png",
+      "src": "pwa/maskable/icon-96x96.png",
       "sizes": "96x96",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/assets/pwa/maskable/icon-128x128.png",
+      "src": "pwa/maskable/icon-128x128.png",
       "sizes": "128x128",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/assets/pwa/maskable/icon-144x144.png",
+      "src": "pwa/maskable/icon-144x144.png",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/assets/pwa/maskable/icon-152x152.png",
+      "src": "pwa/maskable/icon-152x152.png",
       "sizes": "152x152",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/assets/pwa/maskable/icon-192x192.png",
+      "src": "pwa/maskable/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/assets/pwa/maskable/icon-384x384.png",
+      "src": "pwa/maskable/icon-384x384.png",
       "sizes": "384x384",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/assets/pwa/maskable/icon-512x512.png",
+      "src": "pwa/maskable/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/assets/mask-icon.svg",
-      "type": "monochrome",
-      "sizes": "any"
+      "src": "mask-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "monochrome"
     }
   ]
 }
