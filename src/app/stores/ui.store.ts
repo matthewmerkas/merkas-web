@@ -22,7 +22,7 @@ export class UiStore {
   ) {
     // Require Bearer Token
     const socket = (this.socket = io(environment.socketUri, {
-      auth: { token: `Bearer ${getToken()}` }
+      extraHeaders: { Authorization: `Bearer ${getToken()}` }
     }))
     // Handling token expiration
     socket.on('connect_error', (error) => {
