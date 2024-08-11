@@ -12,13 +12,10 @@ $radius: calc(var(--border-radius) / 2);
       var(--color-tertiary) 10%,
       var(--sys-surface-variant)
     );
-    outline-color: var(--color-tertiary);
   }
 
-  outline: 1px solid var(--color-primary);
   border-top-left-radius: calc(var(--border-radius) * 0.5);
   border-top-right-radius: calc(var(--border-radius) * 0.5);
-  outline-offset: -1px;
   background-color: color-mix(
     in srgb,
     var(--color-primary) 10%,
@@ -83,6 +80,7 @@ $radius: calc(var(--border-radius) / 2);
 }
 
 .mat-mdc-card {
+  background-color: transparent;
   border: solid 1px var(--mat-standard-button-toggle-divider-color);
   border-radius: $radius !important;
   height: 100%;

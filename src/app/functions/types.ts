@@ -7,6 +7,12 @@ export interface App {
   subtitle?: string
 }
 
+export interface Colors {
+  primary: string
+  tertiary?: string
+  secondary?: string
+}
+
 export interface ExtraOption {
   icon: string
   label: string
@@ -49,7 +55,13 @@ export interface User extends SoftDeletes {
   boards?: string[]
   files?: MerkasFile[]
   isDeleted?: boolean
+  colors?: Colors
+  tokens?: Jwt
   toObject?: () => any
+}
+
+export interface UserPatch {
+  colors: Colors
 }
 
 export interface UserUpdate {

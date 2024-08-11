@@ -5,8 +5,15 @@ import { action, observable } from 'mobx-angular'
 
 import { io, Socket } from 'socket.io-client'
 import { Store } from './store'
-import { getToken, removeTokens } from '../functions/local-storage'
+import {
+  getDecoded,
+  getItem,
+  getToken,
+  removeItem
+} from '../functions/local-storage'
 import { environment } from '../../environments/environment'
+import { applyTheme } from '../functions/colors'
+import { DEFAULT_COLORS } from '../functions/constants'
 
 export class UiStore {
   @observable loading = false
@@ -31,21 +38,33 @@ export class UiStore {
         this.store.user.refresh().subscribe()
       }
     })
+    // Set theme
+    this._setTheme()
   }
 
   @action
   onLogin() {
+    removeItem('colors')
+    this._setTheme()
     this.store.recreate('app')
   }
 
   @action
   onLogout() {
-    removeTokens()
+    localStorage.clear()
+    applyTheme(DEFAULT_COLORS.primary)
     this.store.recreate('app')
     this.store.recreate('board')
     this.setLoading(false)
     this.setSpinner(false)
     return this.router.navigate(['/'])
+  }
+
+  @action
+  openSnackbar(message?: string, action = 'Close', duration = 3000) {
+    if (message) {
+      this.snackbar.open(message, action, { duration })
+    }
   }
 
   @action
@@ -63,10 +82,9 @@ export class UiStore {
     this.toolbarTheme = theme
   }
 
-  openSnackbar(message?: string, action = 'Close', duration = 3000) {
-    if (message) {
-      this.snackbar.open(message, action, { duration })
-    }
+  _setTheme() {
+    const colors = getDecoded()?.colors || getItem('colors')
+    colors && applyTheme(colors.primary, colors.tertiary, colors.secondary)
   }
 }
 

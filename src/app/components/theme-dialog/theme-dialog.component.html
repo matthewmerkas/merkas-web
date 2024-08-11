@@ -1,0 +1,17 @@
+<div class="theme-container">
+  <ng-container
+    *ngFor="let colors of colorsArray"
+    [ngTemplateOutlet]="colorButton"
+    [ngTemplateOutletContext]="{ colors }"
+  ></ng-container>
+</div>
+
+<ng-template #colorButton let-colors="colors">
+  <button
+    mat-flat-button
+    class="color-button"
+    (click)="onSelect(colors)"
+    [class.selected]="colors.selected"
+    [style]="colors.style || 'background: ' + colors.primary"
+  ></button>
+</ng-template>

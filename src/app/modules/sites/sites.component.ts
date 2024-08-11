@@ -20,10 +20,7 @@ export class SitesComponent implements OnInit {
   sites: Site[] = []
   protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
 
-  constructor(
-    public store: Store,
-    public router: Router
-  ) {
+  constructor(public store: Store, public router: Router) {
     // Hack for expanded panel on page load
     setTimeout(() => {
       this.useAccordion = true

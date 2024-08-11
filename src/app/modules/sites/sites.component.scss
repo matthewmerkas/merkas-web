@@ -13,7 +13,7 @@ $edge-margin: 24px;
 .boards {
   > * {
     aspect-ratio: 1;
-    flex: 1 1 0px;
+    flex: 1 1 0;
     font-size: 14px;
     min-width: 320px;
     max-height: $board-max-height;
@@ -31,7 +31,7 @@ $edge-margin: 24px;
   }
 
   display: inline-block;
-  margin: 14px $edge-margin;
+  margin: 12px $edge-margin;
   width: calc(100% - $edge-margin * 2);
   // Copy .mat-expansion-panel-header styles
   font-family: var(--mat-expansion-header-text-font);

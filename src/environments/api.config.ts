@@ -16,6 +16,7 @@ export const apiConfig = {
   user: {
     base: '/user',
     login: '/login',
+    patch: '/me/patch',
     refresh: '/refresh',
     update: '/me'
   }

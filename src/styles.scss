@@ -13,21 +13,20 @@ body {
   // Variables
   --app-max-width: 1920px;
   --app-mobile-width: 400px;
-  --background-color: 21, 21, 21;
+  --dialog-spacing: 20px;
   --border-radius: 18px;
+  --padding-vertical: 64px;
+  // Colours
   --color: var(--sys-on-background);
   --color-primary: var(--sys-primary);
   --color-secondary: var(--sys-secondary);
   --color-tertiary: var(--sys-tertiary);
-  --padding-vertical: 64px;
-  // Material overrides
-  --mdc-filled-text-field-container-shape: calc(var(--border-radius) / 2);
+  // Material colour overrides
   --mdc-filled-text-field-container-color: color-mix(
     in srgb,
     var(--sys-on-surface-variant) 8%,
     var(--sys-surface-variant)
   );
-  --mdc-icon-button-state-layer-size: 48px;
   --mdc-elevated-card-container-color: var(--sys-surface-variant);
   --mdc-outlined-card-container-color: var(--sys-surface-variant);
   --mdc-outlined-card-outline-color: color-mix(
@@ -35,6 +34,9 @@ body {
     var(--sys-outline) 50%,
     transparent
   );
+  // Material geometry overrides
+  --mdc-filled-text-field-container-shape: calc(var(--border-radius) / 2);
+  --mdc-icon-button-state-layer-size: 48px;
   --mdc-outlined-text-field-container-shape: calc(var(--border-radius) / 2);
 }
 @media (prefers-color-scheme: light) {

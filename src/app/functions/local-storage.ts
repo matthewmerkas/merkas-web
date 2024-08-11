@@ -20,12 +20,17 @@ export function removeTokens(): void {
 }
 
 export function setTokens(res: Jwt): void {
+  if (!res) return
   localStorage.setItem('access_token', res.token)
   localStorage.setItem('refresh_token', res.refreshToken)
 }
 
 export function getItem(key: string) {
   return JSON.parse(localStorage.getItem(key)!)
+}
+
+export function removeItem(key: string) {
+  return localStorage.removeItem(key)
 }
 
 export function setItem(key: string, item: any) {

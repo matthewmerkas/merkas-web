@@ -1,5 +1,3 @@
-$spacing: 20px;
-
 @media screen and (orientation: portrait) and (max-width: 400px) {
   .mat-mdc-card {
     min-height: 100dvh;
@@ -16,12 +14,13 @@ $spacing: 20px;
 
 .mat-mdc-card-header,
 .mat-mdc-dialog-actions {
-  padding: $spacing;
+  padding: var(--dialog-spacing);
 }
 
 .mat-mdc-dialog-content {
   color: rgb(var(--color));
-  padding: 0 $spacing;
+  //overflow: visible;
+  padding: 0 var(--dialog-spacing);
 }
 
 .mat-mdc-card-header {
@@ -53,6 +52,6 @@ $spacing: 20px;
 }
 
 .action-padding {
-  height: $spacing;
+  height: var(--dialog-spacing);
   width: 100%;
 }
