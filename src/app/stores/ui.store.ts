@@ -20,7 +20,7 @@ export class UiStore {
   @observable spinner = false
   @observable name = 'Merkas'
   @observable socket: Socket
-  @observable toolbarTheme?: 'contrast' | 'dark' | 'light'
+  @observable toolbarTheme?: 'inverse' | 'dark' | 'light'
 
   constructor(
     private router: Router,
@@ -78,7 +78,7 @@ export class UiStore {
   }
 
   @action
-  setToolbarTheme(theme?: 'contrast' | 'dark' | 'light') {
+  setToolbarTheme(theme?: 'inverse' | 'dark' | 'light') {
     this.toolbarTheme = theme
   }
 

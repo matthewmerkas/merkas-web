@@ -15,12 +15,12 @@
   }
 }
 
-.contrast {
+.inverse {
   @include mat.icon-button-color(merkas-theme.$light-theme);
   @include mat.system-level-colors(merkas-theme.$light-theme);
 }
 @media (prefers-color-scheme: light) {
-  .contrast {
+  .inverse {
     @include mat.icon-button-color(merkas-theme.$dark-theme);
     @include mat.system-level-colors(merkas-theme.$dark-theme);
   }
