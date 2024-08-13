@@ -47,6 +47,11 @@ export class ToolbarComponent implements OnInit {
           } else if (e instanceof NavigationEnd) {
             // Don't show the toolbar on the "Merkas!" splash screen
             this.showToolbar = e.urlAfterRedirects !== '/'
+            // Reset toolbar to default color
+            const exempt = ['/twenty']
+            if (!exempt.includes(e.url)) {
+              this.store.ui.setToolbarTheme()
+            }
           }
         })
       )
