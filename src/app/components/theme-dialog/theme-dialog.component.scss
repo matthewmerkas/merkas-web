@@ -5,10 +5,15 @@ $container-max-width: 272px;
     outline: solid 2px var(--color-primary);
     outline-offset: 4px;
   }
-  background-origin: border-box !important;
-  border: solid 2px rgba(0,0,0,0.1);
   min-height: 56px;
   min-width: 56px;
+}
+
+@media (prefers-color-scheme: light) {
+  .color-button {
+    background-origin: border-box !important;
+    border: solid 2px rgba(0,0,0,0.1);
+  }
 }
 
 .theme-container {
