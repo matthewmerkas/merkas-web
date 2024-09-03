@@ -1,5 +1,6 @@
 import { jwtDecode } from 'jwt-decode'
 import { Jwt, User } from './types'
+import store from 'store2'
 
 export function getDecoded(): User | null {
   const token = getToken()
@@ -7,32 +8,32 @@ export function getDecoded(): User | null {
 }
 
 export function getToken(): string | null {
-  return localStorage.getItem('access_token')
+  return store.get('access_token')
 }
 
 export function getRefreshToken(): string | null {
-  return localStorage.getItem('refresh_token')
+  return store.get('refresh_token')
 }
 
 export function removeTokens(): void {
-  localStorage.removeItem('access_token')
-  localStorage.removeItem('refresh_token')
+  store.remove('access_token')
+  store.remove('refresh_token')
 }
 
 export function setTokens(res: Jwt): void {
   if (!res) return
-  localStorage.setItem('access_token', res.token)
-  localStorage.setItem('refresh_token', res.refreshToken)
+  store.set('access_token', res.token)
+  store.set('refresh_token', res.refreshToken)
 }
 
 export function getItem(key: string) {
-  return JSON.parse(localStorage.getItem(key)!)
+  return JSON.parse(store.get(key)!)
 }
 
 export function removeItem(key: string) {
-  return localStorage.removeItem(key)
+  return store.remove(key)
 }
 
 export function setItem(key: string, item: any) {
-  return localStorage.setItem(key, JSON.stringify(item))
+  return store.set(key, JSON.stringify(item))
 }

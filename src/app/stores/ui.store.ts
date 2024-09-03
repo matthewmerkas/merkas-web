@@ -14,6 +14,7 @@ import {
 import { environment } from '../../environments/environment'
 import { applyTheme } from '../functions/colors'
 import { DEFAULT_COLORS } from '../functions/constants'
+import store from 'store2'
 
 export class UiStore {
   @observable loading = false
@@ -51,7 +52,7 @@ export class UiStore {
 
   @action
   onLogout() {
-    localStorage.clear()
+    store.clearAll()
     applyTheme(DEFAULT_COLORS.primary)
     this.store.recreate('app')
     this.store.recreate('board')

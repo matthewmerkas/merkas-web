@@ -25,7 +25,10 @@ import { MatInput } from '@angular/material/input'
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu'
 import { MatToolbar } from '@angular/material/toolbar'
 import { MatTooltip } from '@angular/material/tooltip'
-import { BrowserModule } from '@angular/platform-browser'
+import {
+  BrowserModule,
+  provideClientHydration
+} from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { JwtModule } from '@auth0/angular-jwt'
 
@@ -92,7 +95,8 @@ import { ServiceWorkerModule } from '@angular/service-worker'
     { provide: HTTP_INTERCEPTORS, useClass: HttpXsrfInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-    provideHttpClient(withInterceptorsFromDi())
+    provideHttpClient(withInterceptorsFromDi()),
+    provideClientHydration()
   ]
 })
 export class AppModule {}
