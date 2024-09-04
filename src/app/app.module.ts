@@ -3,6 +3,7 @@ import { NgOptimizedImage } from '@angular/common'
 import {
   HTTP_INTERCEPTORS,
   provideHttpClient,
+  withFetch,
   withInterceptorsFromDi
 } from '@angular/common/http'
 import { MatButton, MatIconButton } from '@angular/material/button'
@@ -95,7 +96,7 @@ import { ServiceWorkerModule } from '@angular/service-worker'
     { provide: HTTP_INTERCEPTORS, useClass: HttpXsrfInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withFetch(), withInterceptorsFromDi()),
     provideClientHydration()
   ]
 })
