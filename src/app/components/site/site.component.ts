@@ -8,6 +8,7 @@ import {
 import {
   MatCard,
   MatCardAppearance,
+  MatCardAvatar,
   MatCardHeader,
   MatCardSubtitle,
   MatCardTitle
@@ -28,6 +29,7 @@ import { animations } from '../../functions/animations'
   styleUrl: './site.component.scss',
   imports: [
     MatCard,
+    MatCardAvatar,
     MatCardHeader,
     MatCardSubtitle,
     MatCardTitle,
