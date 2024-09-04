@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Merkas</title>
+    <base href="/" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <!-- Favicons, etc. -->
+    <link rel="icon" href="assets/favicon.svg" />
+    <meta name="theme-color" content="#212121" />
+    <style>
+      @media screen and (orientation: portrait) {
+        .centered.home-container {
+          transform: translate(-50%, -50%) rotate(90deg);
+        }
+      }
+      @media (prefers-color-scheme: light) {
+        .mat-app-background {
+          background-color: #fefbff !important;
+        }
+        .mat-typography {
+          color: #1b1b1f !important;
+        }
+      }
+      h1 {
+        display: flex;
+        font-size: 25vmax;
+        font-weight: 400;
+        line-height: 1;
+        margin: 0;
+      }
+      .centered {
+        margin: auto;
+        position: absolute !important;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+      }
+      .flex {
+        align-items: center;
+        display: flex;
+      }
+      .mat-app-background {
+        background-color: #1b1b1f;
+      }
+      .mat-typography {
+        color: #e3e2e6;
+        font-family: Roboto, 'Helvetica Neue', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="mat-app-background mat-typography">
+    <div class="centered home-container flex">
+      <h1>Merkas!</h1>
+    </div>
+  </body>
+</html>
