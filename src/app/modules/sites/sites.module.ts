@@ -48,7 +48,6 @@ import { MatRipple } from '@angular/material/core'
   declarations: [
     AccountDialogComponent,
     FileBoardComponent,
-    SiteComponent,
     SitesComponent,
     TextBoardComponent
   ],
@@ -82,9 +81,9 @@ import { MatRipple } from '@angular/material/core'
     NgOptimizedImage,
     PasswordFieldComponent,
     ReactiveFormsModule,
+    SiteComponent,
     SitesRoutingModule
   ],
-  exports: [SiteComponent],
   providers: [AuthGuard]
 })
 export class SitesModule {}

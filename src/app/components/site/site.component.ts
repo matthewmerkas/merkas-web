@@ -1,16 +1,43 @@
 import { Component, Input, OnInit, Optional } from '@angular/core'
-import { MatCardAppearance } from '@angular/material/card'
+import {
+  NgClass,
+  NgIf,
+  NgOptimizedImage,
+  NgTemplateOutlet
+} from '@angular/common'
+import {
+  MatCard,
+  MatCardAppearance,
+  MatCardHeader,
+  MatCardSubtitle,
+  MatCardTitle
+} from '@angular/material/card'
+import { MatRipple } from '@angular/material/core'
+import { MatDialogRef } from '@angular/material/dialog'
+import { RouterLink } from '@angular/router'
 
 import { App, Site } from '../../functions/types'
 import { Store } from '../../stores/store'
 import { getDecoded } from '../../functions/local-storage'
 import { animations } from '../../functions/animations'
-import { MatDialogRef } from '@angular/material/dialog'
 
 @Component({
   selector: 'app-site',
+  standalone: true,
   templateUrl: './site.component.html',
   styleUrl: './site.component.scss',
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardSubtitle,
+    MatCardTitle,
+    MatRipple,
+    NgClass,
+    NgIf,
+    NgOptimizedImage,
+    NgTemplateOutlet,
+    RouterLink
+  ],
   animations: animations('200ms')
 })
 export class SiteComponent implements OnInit {
