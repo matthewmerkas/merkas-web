@@ -22,9 +22,12 @@
           "options": {
             "allowedCommonJsDependencies": [
               "buffer/",
+              "debug",
               "fast-deep-equal",
               "fast-diff",
-              "nosleep.js"
+              "nosleep.js",
+              "store2",
+              "xmlhttprequest-ssl"
             ],
             "outputPath": {
               "base": "dist/merkas-web"
@@ -38,7 +41,10 @@
             "scripts": ["./node_modules/odometer/odometer.js"],
             "browser": "src/main.ts",
             "server": "src/main.server.ts",
-            "prerender": true,
+            "prerender": {
+              "discoverRoutes": false,
+              "routesFile": "src/ssg.routes"
+            },
             "ssr": {
               "entry": "server.ts"
             }
