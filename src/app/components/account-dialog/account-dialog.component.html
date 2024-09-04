@@ -1,9 +1,8 @@
-<div [formGroup]="formGroup">
-  <div *ngIf="user?.username" class="flex">
+<div class="dialog-container" [formGroup]="formGroup">
+  <div *ngIf="user?.username" class="flex user">
     <div class="avatar">{{ user!.username![0] }}</div>
-    <div class="username">{{ user!.username }}</div>
+    <div class="name">{{ user!.username }}</div>
   </div>
-  <br />
   <app-password-field
     [fc]="formGroup.controls.currentPassword"
     [label]="'Current Password'"

@@ -11,13 +11,14 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
   // Variables
-  --app-max-width: 1920px;
-  --app-mobile-width: 400px;
   --box-shadow-soft: 0 4px 8px 0 rgba(0, 0, 0, 0.05),
     0 6px 20px 0 rgba(0, 0, 0, 0.0475);
+  --dialog-max-width: 320px;
   --dialog-spacing: 20px;
   --border-radius: 18px;
   --padding-vertical: 64px;
+  --window-max: 1920px;
+  --window-compact: 600px;
   // Colours
   --color: var(--sys-on-background);
   --color-primary: var(--sys-primary);
@@ -46,14 +47,17 @@ body {
     --mdc-outlined-card-outline-color: var(--sys-outline-variant);
   }
 }
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 600px) {
   body {
     --padding-horizontal: 16px;
   }
+  app-dialog > .mat-mdc-card {
+    min-width: 100vw !important;
+  }
 }
-@media not screen and (max-width: 840px) {
+@media not screen and (max-width: 600px) {
   body {
-    --padding-horizontal: 80px;
+    --padding-horizontal: 24px;
   }
 }
 
@@ -71,10 +75,20 @@ body {
   margin: auto;
   max-width: min(
     calc(100% - calc(var(--padding-horizontal) * 2)),
-    var(--app-max-width)
+    var(--window-max)
   );
   padding: var(--padding-vertical) 0;
   width: 100%;
+}
+
+.dialog-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  max-width: var(--dialog-max-width);
+  margin: auto;
+  padding: 6px 0;
 }
 
 .display-none {
@@ -129,7 +143,14 @@ body {
   color: var(--sys-on-surface-variant) !important;
 }
 
-@media screen and (orientation: portrait) and (max-width: 400px) {
+@media screen and (orientation: portrait) and (max-width: 600px) {
+  .dialog-container {
+    // Calculate margin-top to match horizontal margins (auto)
+    margin-top: calc(
+      (100vw - min(100vw, var(--dialog-max-width) + var(--dialog-spacing) * 2)) *
+        0.5
+    );
+  }
   .mat-expansion-panel-body {
     padding: 0 0 16px !important;
   }

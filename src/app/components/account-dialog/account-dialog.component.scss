@@ -1,0 +1,25 @@
+.dialog-container {
+  > * {
+    width: 100%;
+  }
+  gap: 4px;
+}
+
+.user {
+  .avatar {
+    align-items: center;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    color: var(--sys-on-primary);
+    display: flex;
+    font-size: 24px;
+    justify-content: center;
+    height: 48px;
+    width: 48px;
+  }
+  .name {
+    margin-left: 8px;
+    font-size: 16px;
+  }
+  margin-bottom: 16px;
+}

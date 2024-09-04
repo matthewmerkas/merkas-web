@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core'
 import { CommonModule, NgOptimizedImage } from '@angular/common'
 
-import { AccountDialogComponent } from './account-dialog/account-dialog.component'
 import { FileBoardComponent } from './file-board/file-board.component'
 import { SiteComponent } from '../../components/site/site.component'
 import { SitesComponent } from './sites.component'
@@ -45,12 +44,7 @@ import { MatDialogClose } from '@angular/material/dialog'
 import { MatRipple } from '@angular/material/core'
 
 @NgModule({
-  declarations: [
-    AccountDialogComponent,
-    FileBoardComponent,
-    SitesComponent,
-    TextBoardComponent
-  ],
+  declarations: [FileBoardComponent, SitesComponent, TextBoardComponent],
   imports: [
     CommonModule,
     CdkTextareaAutosize,

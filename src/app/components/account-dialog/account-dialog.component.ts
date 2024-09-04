@@ -1,15 +1,19 @@
 import { Component } from '@angular/core'
 import { MatDialogRef } from '@angular/material/dialog'
-import { FormBuilder, Validators } from '@angular/forms'
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms'
 
-import { Store } from '../../../stores/store'
-import { matchValidator } from '../../../functions/forms'
-import { UserUpdate } from '../../../functions/types'
-import { getDecoded } from '../../../functions/local-storage'
+import { Store } from '../../stores/store'
+import { matchValidator } from '../../functions/forms'
+import { UserUpdate } from '../../functions/types'
+import { getDecoded } from '../../functions/local-storage'
+import { NgIf } from '@angular/common'
+import { PasswordFieldComponent } from '../password-field/password-field.component'
 
 @Component({
   selector: 'app-account-dialog',
+  standalone: true,
   templateUrl: './account-dialog.component.html',
+  imports: [ReactiveFormsModule, NgIf, PasswordFieldComponent],
   styleUrl: './account-dialog.component.scss'
 })
 export class AccountDialogComponent {

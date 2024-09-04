@@ -4,7 +4,7 @@ import { ActivationStart, NavigationEnd, Router } from '@angular/router'
 import { map } from 'rxjs'
 
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component'
-import { AccountDialogComponent } from '../../modules/sites/account-dialog/account-dialog.component'
+import { AccountDialogComponent } from '../account-dialog/account-dialog.component'
 import { AppsDialogComponent } from '../apps-dialog/apps-dialog.component'
 import { ThemeDialogComponent } from '../theme-dialog/theme-dialog.component'
 import { DEFAULT_PATH, TOOLTIP_DELAY } from '../../functions/constants'

@@ -1,4 +1,7 @@
-@media screen and (orientation: portrait) and (max-width: 400px) {
+@media screen and (orientation: portrait) and (max-width: 600px) {
+  .close-button {
+    display: block !important;
+  }
   .mat-mdc-card {
     min-height: 100dvh;
     min-width: 100dvw;
@@ -43,15 +46,16 @@
   margin: auto;
 }
 
-.action-button {
+.action-buttons {
   > * {
+    flex: 1;
     width: 100%;
   }
 
+  display: flex;
   width: 100%;
 }
 
-.action-padding {
-  height: var(--dialog-spacing);
-  width: 100%;
+.close-button {
+  display: none;
 }
