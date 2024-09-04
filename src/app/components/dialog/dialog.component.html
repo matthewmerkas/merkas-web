@@ -24,9 +24,6 @@
       class="action-buttons"
       matTooltip="Correct the errors in the form"
     >
-      <button class="close-button" color="primary" mat-dialog-close mat-button>
-        Close
-      </button>
       <button
         (click)="onSubmit()"
         [disabled]="!valid || store.ui.loading"
