@@ -6,7 +6,11 @@ import {
   withFetch,
   withInterceptorsFromDi
 } from '@angular/common/http'
-import { MatButton, MatIconButton } from '@angular/material/button'
+import {
+  MatButton,
+  MatFabButton,
+  MatIconButton
+} from '@angular/material/button'
 import {
   MatCard,
   MatCardActions,
@@ -67,6 +71,7 @@ import { ServiceWorkerModule } from '@angular/service-worker'
     MatCardHeader,
     MatCardTitle,
     MatDialogClose,
+    MatFabButton,
     MatFormField,
     MatIcon,
     MatIconButton,

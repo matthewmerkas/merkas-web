@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs'
+import { map, Observable } from 'rxjs'
 import { action, observable } from 'mobx-angular'
 import { environment } from '../../environments/environment'
 
@@ -25,10 +25,10 @@ export class BaseStore {
   getList(filter?: any, sort?: string): Observable<any> {
     const queryParams = new URLSearchParams({ ...filter, sort })
     return this.http.get<any>(this.url + '?' + queryParams).pipe(
-      `map((res: any) => {
+      map((res: any) => {
         this.array = res
         return res
-      })`
+      })
     )
   }
 

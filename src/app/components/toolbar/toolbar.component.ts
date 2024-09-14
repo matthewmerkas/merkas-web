@@ -5,7 +5,6 @@ import { map } from 'rxjs'
 
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component'
 import { AccountDialogComponent } from '../account-dialog/account-dialog.component'
-import { AppsDialogComponent } from '../apps-dialog/apps-dialog.component'
 import { ThemeDialogComponent } from '../theme-dialog/theme-dialog.component'
 import { DEFAULT_PATH, TOOLTIP_DELAY } from '../../functions/constants'
 import { getToken } from '../../functions/local-storage'
@@ -27,7 +26,6 @@ export class ToolbarComponent implements OnInit {
   protected readonly DEFAULT_PATH = DEFAULT_PATH
   protected readonly getToken = getToken
   protected readonly AccountDialogComponent = AccountDialogComponent
-  protected readonly AppsDialogComponent = AppsDialogComponent
   protected readonly LoginDialogComponent = LoginDialogComponent
   protected readonly ThemeDialogComponent = ThemeDialogComponent
 

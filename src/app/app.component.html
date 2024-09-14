@@ -5,4 +5,13 @@
   *ngIf="store.ui.spinner"
   [diameter]="64"
 ></mat-spinner>
+<button
+  (click)="openDialog(AppsDialogComponent)"
+  mat-fab
+  matTooltip="Apps"
+  matTooltipPosition="above"
+  [matTooltipShowDelay]="TOOLTIP_DELAY"
+>
+  <mat-icon>apps</mat-icon>
+</button>
 <router-outlet></router-outlet>
