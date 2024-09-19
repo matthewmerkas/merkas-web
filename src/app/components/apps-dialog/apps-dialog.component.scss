@@ -2,3 +2,24 @@
   --dialog-max-width: 288px;
   margin-bottom: 24px;
 }
+.close-button {
+  .mat-icon {
+    color: var(--color);
+    font-size: 24px;
+    height: 24px;
+    width: 24px;
+    margin: 0;
+  }
+  padding: 0;
+  position: absolute;
+  height: 56px;
+  min-width: 56px;
+  width: 56px;
+  bottom: 16px;
+  right: 16px;
+}
+@media not screen and (max-width: 600px) {
+  .close-button {
+    display: none;
+  }
+}

@@ -4,4 +4,14 @@
     [app]="app"
     [appearance]="'outlined'"
   ></app-site>
+  <button
+    class="close-button"
+    mat-dialog-close
+    mat-stroked-button
+    matTooltip="Close"
+    matTooltipPosition="above"
+    [matTooltipShowDelay]="TOOLTIP_DELAY"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
 </div>
