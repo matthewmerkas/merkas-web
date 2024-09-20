@@ -119,8 +119,8 @@
 
 <button
   (click)="openDialog(AppsDialogComponent)"
-  *ngIf="showToolbar"
-  [@fadeIn]
+  *ngIf="store.ui.fab && showToolbar"
+  [@fade]
   mat-fab
   matTooltip="Apps"
   matTooltipPosition="above"

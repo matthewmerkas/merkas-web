@@ -17,6 +17,7 @@ import { DEFAULT_COLORS } from '../functions/constants'
 import store from 'store2'
 
 export class UiStore {
+  @observable fab = true
   @observable loading = false
   @observable spinner = false
   @observable name = 'Merkas'
@@ -66,6 +67,11 @@ export class UiStore {
     if (message) {
       this.snackbar.open(message, action, { duration })
     }
+  }
+
+  @action
+  setFab(shown: boolean) {
+    this.fab = shown
   }
 
   @action
