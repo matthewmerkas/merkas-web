@@ -101,7 +101,7 @@ import { ServiceWorkerModule } from '@angular/service-worker'
     { provide: HTTP_INTERCEPTORS, useClass: HttpXsrfInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-    provideHttpClient(withFetch(), withInterceptorsFromDi()),
+    provideHttpClient(withInterceptorsFromDi()), // withFetch()
     provideClientHydration()
   ]
 })
