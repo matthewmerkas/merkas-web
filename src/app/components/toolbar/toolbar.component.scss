@@ -7,7 +7,7 @@
     right: 16px;
   }
 }
-@media screen and (min-width: 1199px) {
+@media screen and (min-width: 1200px) {
   .mat-mdc-fab {
     // Large FAB
     font-size: 36px !important;
@@ -17,7 +17,7 @@
     width: 96px;
   }
 }
-@media screen and (max-width: 1920px) {
+@media screen and (min-width: 601px) and (max-width: 1920px) {
   .mat-mdc-fab {
     bottom: 48px;
     right: 48px;
