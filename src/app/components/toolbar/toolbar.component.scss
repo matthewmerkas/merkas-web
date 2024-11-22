@@ -7,10 +7,16 @@
     right: 16px;
   }
 }
-@media not screen and (max-width: 600px) {
+@media screen and (max-width: 1920px) {
   .mat-mdc-fab {
     bottom: 48px;
     right: 48px;
+  }
+}
+@media screen and (min-width: 1920px) {
+  .mat-mdc-fab {
+    bottom: 48px;
+    right: calc((100vw - var(--window-max)) * 0.5 + 48px);
   }
 }
 .mat-mdc-fab {
