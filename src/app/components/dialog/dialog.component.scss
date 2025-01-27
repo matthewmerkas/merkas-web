@@ -24,11 +24,10 @@
 }
 
 .mat-mdc-card-header {
+  justify-content: space-between;
   .mat-mdc-icon-button {
     margin: -8px;
   }
-
-  justify-content: space-between;
 }
 
 .mat-mdc-form-field {
@@ -44,11 +43,10 @@
 }
 
 .action-buttons {
+  display: flex;
+  width: 100%;
   > * {
     flex: 1;
     width: 100%;
   }
-
-  display: flex;
-  width: 100%;
 }

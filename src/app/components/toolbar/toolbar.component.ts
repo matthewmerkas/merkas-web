@@ -18,7 +18,8 @@ import { Store } from '../../stores/store'
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.scss',
-  animations: animations('200ms')
+  animations: animations('200ms'),
+  standalone: false
 })
 export class ToolbarComponent implements OnInit {
   extraOptions: ExtraOption[] = []

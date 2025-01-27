@@ -1,19 +1,11 @@
 @use '@angular/material' as mat;
 @use '../../../styles/merkas-theme';
 
-@import '../sites.component.scss';
+@use './../sites.component' as sites;
 
 $radius: calc(var(--border-radius) / 2);
 
 .dragover {
-  &.tertiary {
-    background-color: color-mix(
-      in srgb,
-      var(--color-tertiary) 10%,
-      var(--sys-surface-variant)
-    );
-  }
-
   border-top-left-radius: calc(var(--border-radius) * 0.5);
   border-top-right-radius: calc(var(--border-radius) * 0.5);
   background-color: color-mix(
@@ -21,36 +13,39 @@ $radius: calc(var(--border-radius) / 2);
     var(--color-primary) 10%,
     var(--sys-surface-variant)
   );
+  &.tertiary {
+    background-color: color-mix(
+      in srgb,
+      var(--color-tertiary) 10%,
+      var(--sys-surface-variant)
+    );
+  }
 }
 
 .icon-container {
-  img {
-    filter: invert(1) brightness(0.9);
-  }
-
-  span {
-    margin-top: 8px;
-  }
-
-  .file-name {
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .file-size {
-    height: 0;
-    margin-top: 4px;
-    opacity: 0.6;
-  }
-
   align-items: center;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   height: 100%;
   justify-content: center;
+  img {
+    filter: invert(1) brightness(0.9);
+  }
+  span {
+    margin-top: 8px;
+  }
+  .file-name {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .file-size {
+    height: 0;
+    margin-top: 4px;
+    opacity: 0.6;
+  }
 }
 @media (prefers-color-scheme: light) {
   .icon-container img {
@@ -69,14 +64,13 @@ $radius: calc(var(--border-radius) / 2);
 .mat-button-toggle-group {
   --mat-standard-button-toggle-height: 52px;
 
-  > * {
-    flex-grow: 1;
-  }
-
   border-radius: 0 0 $radius $radius;
   margin: auto 0 -1px -1px;
   min-height: 52px;
   width: 100%;
+  > * {
+    flex-grow: 1;
+  }
 }
 
 .mat-mdc-card {
@@ -84,7 +78,7 @@ $radius: calc(var(--border-radius) / 2);
   border: solid 1px var(--mat-standard-button-toggle-divider-color);
   border-radius: $radius !important;
   height: 100%;
-  max-height: $board-max-height;
+  max-height: sites.$board-max-height;
 }
 
 .mat-mdc-card-content {

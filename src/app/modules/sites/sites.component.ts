@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, inject, OnInit } from '@angular/core'
 import { Store } from '../../stores/store'
 import { Router } from '@angular/router'
 import { FormControl } from '@angular/forms'
@@ -7,14 +7,17 @@ import { debounceTime } from 'rxjs'
 import { environment } from '../../../environments/environment'
 import { Site } from '../../functions/types'
 import { animations } from '../../functions/animations'
+import { DOCUMENT } from '@angular/common'
 
 @Component({
   selector: 'app-sites',
   templateUrl: './sites.component.html',
   styleUrls: ['./sites.component.scss'],
-  animations: animations('200ms')
+  animations: animations('200ms'),
+  standalone: false
 })
 export class SitesComponent implements OnInit {
+  document = inject(DOCUMENT)
   useAccordion = false
   searchFc = new FormControl('')
   sites: Site[] = []
@@ -26,8 +29,8 @@ export class SitesComponent implements OnInit {
       this.useAccordion = true
     }, 200)
     // Page Visibility API
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden) {
+    this.document.addEventListener('visibilitychange', () => {
+      if (!this.document.hidden) {
         this.setValue()
       }
     })

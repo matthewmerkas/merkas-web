@@ -41,12 +41,9 @@
             "scripts": ["./node_modules/odometer/odometer.js"],
             "browser": "src/main.ts",
             "server": "src/main.server.ts",
-            "prerender": {
-              "discoverRoutes": false,
-              "routesFile": "src/ssg.routes"
-            },
+            "prerender": true,
             "ssr": {
-              "entry": "server.ts"
+              "entry": "src/server.ts"
             }
           },
           "configurations": {

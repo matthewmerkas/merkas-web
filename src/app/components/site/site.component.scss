@@ -3,28 +3,27 @@ a {
 }
 
 .mat-mdc-card {
-  &:hover {
-    &:not(.outlined) {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      @media (prefers-color-scheme: light) {
-        box-shadow: var(--box-shadow-soft);
-      }
-      transform: scale(1.02);
-    }
-    background-color: color-mix(
-      in srgb,
-      var(--sys-on-surface) 8%,
-      var(--sys-surface-variant)
-    );
-  }
-
   --mat-card-subtitle-text-weight: var(--sys-title-large-weight);
   cursor: pointer;
   min-height: 52px;
   transition: box-shadow 100ms ease-in-out, transform 100ms ease-in-out;
   user-select: none;
   width: 288px;
+  &:hover {
+    background-color: color-mix(
+      in srgb,
+      var(--sys-on-surface) 8%,
+      var(--sys-surface-variant)
+    );
+    &:not(.outlined) {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      transform: scale(1.02);
+      @media (prefers-color-scheme: light) {
+        box-shadow: var(--box-shadow-soft);
+      }
+    }
+  }
 }
 
 :not(.placeholder).mat-mdc-card-avatar {

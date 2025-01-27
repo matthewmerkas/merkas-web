@@ -3,7 +3,8 @@
 @use '@angular/material' as mat;
 @use 'merkas-theme';
 
-@include mat.core();
+@include mat.elevation-classes();
+@include mat.app-background();
 
 // Emit theme-dependent styles for all components (will produce unnecessary CSS, but it's easier)
 html {

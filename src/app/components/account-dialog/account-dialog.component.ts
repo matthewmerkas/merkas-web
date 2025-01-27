@@ -11,7 +11,6 @@ import { PasswordFieldComponent } from '../password-field/password-field.compone
 
 @Component({
   selector: 'app-account-dialog',
-  standalone: true,
   templateUrl: './account-dialog.component.html',
   imports: [ReactiveFormsModule, NgIf, PasswordFieldComponent],
   styleUrl: './account-dialog.component.scss'

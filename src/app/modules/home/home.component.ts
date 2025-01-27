@@ -14,7 +14,8 @@ import { AppsDialogComponent } from '../../components/apps-dialog/apps-dialog.co
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  animations: animations('200ms')
+  animations: animations('200ms'),
+  standalone: false
 })
 export class HomeComponent implements OnInit {
   @observable appName = '...'

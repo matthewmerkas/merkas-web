@@ -24,7 +24,6 @@ import { animations } from '../../functions/animations'
 
 @Component({
   selector: 'app-site',
-  standalone: true,
   templateUrl: './site.component.html',
   styleUrl: './site.component.scss',
   imports: [

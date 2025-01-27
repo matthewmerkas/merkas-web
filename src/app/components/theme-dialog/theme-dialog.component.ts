@@ -34,7 +34,6 @@ const minify = (colors: Colors) => {
 
 @Component({
   selector: 'app-theme-dialog',
-  standalone: true,
   templateUrl: './theme-dialog.component.html',
   imports: [MatButton, NgTemplateOutlet, NgForOf],
   styleUrl: './theme-dialog.component.scss'

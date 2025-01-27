@@ -16,7 +16,8 @@ import { animations } from '../../functions/animations'
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
   styleUrl: './dialog.component.scss',
-  animations: animations('100ms')
+  animations: animations('100ms'),
+  standalone: false
 })
 export class DialogComponent implements OnInit {
   @observable closeIsDisabled = true

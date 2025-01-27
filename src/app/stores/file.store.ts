@@ -6,11 +6,17 @@ import { apiConfig } from '../../environments/api.config'
 import { environment } from '../../environments/environment'
 import { MerkasFile } from '../functions/types'
 import { Store } from './store'
+import { inject } from '@angular/core'
+import { DOCUMENT } from '@angular/common'
 
 export class FileStore {
+  document = inject(DOCUMENT)
   url = environment.apiUrl + apiConfig.file.base
 
-  constructor(private http: HttpClient, private store: Store) {}
+  constructor(
+    private http: HttpClient,
+    private store: Store
+  ) {}
 
   @action
   getList(target: 'public' | 'private'): Observable<MerkasFile[]> {

@@ -21,14 +21,16 @@ export class UiStore {
   @observable loading = false
   @observable spinner = false
   @observable name = 'Merkas'
-  @observable socket: Socket
+  @observable socket!: Socket
   @observable toolbarTheme?: 'inverse' | 'dark' | 'light'
 
   constructor(
+    private isBrowser: boolean,
     private router: Router,
     private snackbar: MatSnackBar,
     private store: Store
   ) {
+    if (!isBrowser) return
     // Require Bearer Token
     const socket = (this.socket = io(environment.socketUri, {
       auth: { token: `Bearer ${getToken()}` }
