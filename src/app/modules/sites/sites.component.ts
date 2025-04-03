@@ -18,16 +18,14 @@ import { DOCUMENT } from '@angular/common'
 })
 export class SitesComponent implements OnInit {
   document = inject(DOCUMENT)
-  useAccordion = false
   searchFc = new FormControl('')
   sites: Site[] = []
   protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
 
-  constructor(public store: Store, public router: Router) {
-    // Hack for expanded panel on page load
-    setTimeout(() => {
-      this.useAccordion = true
-    }, 200)
+  constructor(
+    public store: Store,
+    public router: Router
+  ) {
     // Page Visibility API
     this.document.addEventListener('visibilitychange', () => {
       if (!this.document.hidden) {

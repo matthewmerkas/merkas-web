@@ -1,9 +1,6 @@
 <div [@fadeIn]>
   <div class="container">
-    <ng-template #boardsHeader>
-      <span class="header mat-content">Boards</span>
-    </ng-template>
-    <mat-accordion *ngIf="useAccordion; else boardsHeader">
+    <mat-accordion>
       <mat-expansion-panel>
         <mat-expansion-panel-header>Boards</mat-expansion-panel-header>
         <div class="flex boards">
