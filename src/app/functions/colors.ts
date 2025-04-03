@@ -4,6 +4,7 @@ import {
   themeFromSourceColor,
   TonalPalette
 } from '@material/material-color-utilities'
+import { isStatic } from './helpers'
 
 interface Color {
   hex: string
@@ -58,7 +59,7 @@ const createCustomProperties = (
   colorPalette: ColorPalette,
   paletteKey: 'p' | 't'
 ) => {
-  if (!document) return
+  if (isStatic()) return
   let styleString = ':root,:host{'
   for (const [key, palette] of Object.entries(colorPalette)) {
     ;(palette as Array<Color>).forEach(({ hex, tone }) => {

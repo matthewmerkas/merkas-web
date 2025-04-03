@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { Store } from '../../stores/store'
 import { observable } from 'mobx-angular'
-import { getToken } from '../../functions/local-storage'
+import { getRealToken } from '../../functions/local-storage'
 import { MatDialog } from '@angular/material/dialog'
 import { DEFAULT_PATH } from '../../functions/constants'
 import { animations } from '../../functions/animations'
@@ -32,7 +32,8 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    if (getToken()) {
+    if (getRealToken()) {
+      // Don't flash protected content in static renders
       this.router.navigate([DEFAULT_PATH])
     } else {
       this.showSplash = true

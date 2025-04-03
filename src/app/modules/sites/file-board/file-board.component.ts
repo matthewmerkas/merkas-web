@@ -49,12 +49,12 @@ export class FileBoardComponent implements OnInit {
       }
     })
     // Listening to socket events
-    this.store.ui.socket.on('file_delete', (data) => {
+    this.store.ui.socket?.on('file_delete', (data) => {
       if (data?.target === this.target) {
         this.setFile(undefined)
       }
     })
-    this.store.ui.socket.on('file_upload', (data) => {
+    this.store.ui.socket?.on('file_upload', (data) => {
       if (data?.target === this.target) {
         this.setFile(data.files?.at(0))
       }

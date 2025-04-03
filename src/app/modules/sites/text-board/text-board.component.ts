@@ -44,7 +44,7 @@ export class TextBoardComponent implements OnInit {
     })
     // Listening to socket events
     const doc = this.store.board[this.target]
-    this.store.ui.socket.on(this.target + '_board', (res) => {
+    this.store.ui.socket?.on(this.target + '_board', (res) => {
       const update = new Uint8Array(res)
       Y.applyUpdate(doc, update)
     })

@@ -15,6 +15,7 @@ import { environment } from '../../environments/environment'
 import { applyTheme } from '../functions/colors'
 import { DEFAULT_COLORS } from '../functions/constants'
 import store from 'store2'
+import { isStatic } from '../functions/helpers'
 
 export class UiStore {
   @observable fab = true
@@ -55,6 +56,9 @@ export class UiStore {
 
   @action
   onLogout() {
+    if (isStatic()) {
+      return Promise.resolve(false)
+    }
     store.clearAll()
     applyTheme(DEFAULT_COLORS.primary)
     this.store.recreate('app')
@@ -83,6 +87,7 @@ export class UiStore {
 
   @action
   setSpinner(spinner: boolean) {
+    if (isStatic()) return
     this.spinner = spinner
   }
 
