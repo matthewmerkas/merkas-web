@@ -4,8 +4,8 @@
   "theme_color": "#151515",
   "background_color": "#151515",
   "display": "fullscreen",
-  "scope": "../",
-  "start_url": "../",
+  "scope": "/",
+  "start_url": "/sites",
   "icons": [
     {
       "src": "favicon.svg",
