@@ -46,7 +46,7 @@ export class UiStore {
     // Set theme
     this._setTheme()
     // Set flag to enable some animations after page load
-    setTimeout(() => (this.init = true))
+    setTimeout(() => (this.init = true), 100)
   }
 
   @action
