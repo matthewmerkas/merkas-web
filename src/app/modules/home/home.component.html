@@ -1,4 +1,9 @@
-<div *ngIf="showSplash" [@fadeIn] class="centered home-container flex">
+<div
+  *ngIf="showSplash"
+  [@.disabled]="!store.ui.init"
+  [@fadeIn]
+  class="centered home-container flex"
+>
   <h1>
     Merk
     <div class="apps">

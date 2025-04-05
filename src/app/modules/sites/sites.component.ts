@@ -22,10 +22,7 @@ export class SitesComponent implements OnInit {
   sites: Site[] = []
   protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
 
-  constructor(
-    public store: Store,
-    public router: Router
-  ) {
+  constructor(public store: Store, public router: Router) {
     // Page Visibility API
     this.document.addEventListener('visibilitychange', () => {
       if (!this.document.hidden) {

@@ -2,6 +2,7 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 import { Router } from '@angular/router'
 import { isUnauthorizedError } from '@thream/socketio-jwt/build/UnauthorizedError.js'
 import { action, observable } from 'mobx-angular'
+import store from 'store2'
 
 import { io, Socket } from 'socket.io-client'
 import { Store } from './store'
@@ -14,11 +15,11 @@ import {
 import { environment } from '../../environments/environment'
 import { applyTheme } from '../functions/colors'
 import { DEFAULT_COLORS } from '../functions/constants'
-import store from 'store2'
 import { isStatic } from '../functions/helpers'
 
 export class UiStore {
   @observable fab = true
+  @observable init = false
   @observable loading = false
   @observable spinner = false
   @observable name = 'Merkas'
@@ -26,12 +27,11 @@ export class UiStore {
   @observable toolbarTheme?: 'inverse' | 'dark' | 'light'
 
   constructor(
-    private isBrowser: boolean,
     private router: Router,
     private snackbar: MatSnackBar,
     private store: Store
   ) {
-    if (!isBrowser) return
+    if (isStatic()) return
     // Require Bearer Token
     const socket = (this.socket = io(environment.socketUri, {
       auth: { token: `Bearer ${getToken()}` }
@@ -45,6 +45,8 @@ export class UiStore {
     })
     // Set theme
     this._setTheme()
+    // Set flag to enable some animations after page load
+    setTimeout(() => (this.init = true))
   }
 
   @action

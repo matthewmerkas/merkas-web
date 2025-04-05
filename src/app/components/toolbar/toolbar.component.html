@@ -1,5 +1,6 @@
 <mat-toolbar
   *ngIf="showToolbar"
+  [@.disabled]="!store.ui.init"
   [@fadeIn]
   [class.inverse]="store.ui.toolbarTheme === 'inverse'"
   [class.dark]="store.ui.toolbarTheme === 'dark'"
@@ -120,6 +121,7 @@
 <button
   (click)="openDialog(AppsDialogComponent)"
   *ngIf="store.ui.fab && showToolbar"
+  [@.disabled]="!store.ui.init"
   [@fade]
   mat-fab
   matTooltip="Apps"
