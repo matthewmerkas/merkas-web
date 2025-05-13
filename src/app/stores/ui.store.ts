@@ -52,7 +52,6 @@ export class UiStore {
     this.document.addEventListener('visibilitychange', () =>
       this.hidden.emit(this.document.hidden)
     )
-    this.hidden.subscribe((hidden) => console.log(hidden))
     // Set theme
     this._setTheme()
     // Set flag to enable some animations after page load
