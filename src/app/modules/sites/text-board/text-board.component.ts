@@ -1,11 +1,10 @@
-import { Component, inject, Input, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { FormControl } from '@angular/forms'
 
 import { toTitleCase } from '../../../functions/helpers'
 import { debounceTime } from 'rxjs'
 import { Store } from '../../../stores/store'
 import * as Y from 'yjs'
-import { DOCUMENT } from '@angular/common'
 
 const DEBOUNCE = 1000
 const OPTS = { emitEvent: false }
@@ -19,7 +18,6 @@ const OPTS = { emitEvent: false }
 export class TextBoardComponent implements OnInit {
   @Input() formControl = new FormControl('')
   @Input() target: 'public' | 'private' = 'public'
-  document = inject(DOCUMENT)
   pending = false
   protected readonly toTitleCase = toTitleCase
 
@@ -36,12 +34,10 @@ export class TextBoardComponent implements OnInit {
         this.pending = false
       })
     this.setValue()
-    // Page Visibility API
-    this.document.addEventListener('visibilitychange', () => {
-      if (!this.document.hidden && !this.pending) {
-        this.setValue()
-      }
-    })
+    // Listening to page visibility
+    this.store.ui.hidden.subscribe(
+      (hidden) => !hidden && !this.pending && this.setValue()
+    )
     // Listening to socket events
     const doc = this.store.board[this.target]
     this.store.ui.socket?.on(this.target + '_board', (res) => {

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { Store } from '../../stores/store'
 import { Router } from '@angular/router'
 import { FormControl } from '@angular/forms'
@@ -7,7 +7,6 @@ import { debounceTime } from 'rxjs'
 import { environment } from '../../../environments/environment'
 import { Site } from '../../functions/types'
 import { animations } from '../../functions/animations'
-import { DOCUMENT } from '@angular/common'
 
 @Component({
   selector: 'app-sites',
@@ -17,18 +16,16 @@ import { DOCUMENT } from '@angular/common'
   standalone: false
 })
 export class SitesComponent implements OnInit {
-  document = inject(DOCUMENT)
   searchFc = new FormControl('')
   sites: Site[] = []
   protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
 
-  constructor(public store: Store, public router: Router) {
-    // Page Visibility API
-    this.document.addEventListener('visibilitychange', () => {
-      if (!this.document.hidden) {
-        this.setValue()
-      }
-    })
+  constructor(
+    public store: Store,
+    public router: Router
+  ) {
+    // Listening to page visibility
+    this.store.ui.hidden.subscribe((hidden) => !hidden && this.setValue())
   }
 
   ngOnInit() {

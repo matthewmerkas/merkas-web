@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { FormControl } from '@angular/forms'
 import prettyBytes from 'pretty-bytes'
 import { Subscription } from 'rxjs'
@@ -9,7 +9,6 @@ import { toTitleCase } from '../../../functions/helpers'
 import { MerkasFile } from '../../../functions/types'
 import { Store } from '../../../stores/store'
 import { environment } from '../../../../environments/environment'
-import { DOCUMENT } from '@angular/common'
 
 @Component({
   selector: 'app-file-board',
@@ -19,7 +18,6 @@ import { DOCUMENT } from '@angular/common'
 })
 export class FileBoardComponent implements OnInit {
   @Input() target?: 'public' | 'private'
-  document = inject(DOCUMENT)
   file?: MerkasFile
   toggleFc = new FormControl()
   // State
@@ -42,12 +40,8 @@ export class FileBoardComponent implements OnInit {
       this.toggleFc.setValue('', { emitEvent: false })
     })
     this.setValue()
-    // Page Visibility API
-    this.document.addEventListener('visibilitychange', () => {
-      if (!this.document.hidden) {
-        this.setValue()
-      }
-    })
+    // Listening to page visibility
+    this.store.ui.hidden.subscribe((hidden) => !hidden && this.setValue())
     // Listening to socket events
     this.store.ui.socket?.on('file_delete', (data) => {
       if (data?.target === this.target) {

@@ -16,9 +16,14 @@ import { environment } from '../../environments/environment'
 import { applyTheme } from '../functions/colors'
 import { DEFAULT_COLORS } from '../functions/constants'
 import { isStatic } from '../functions/helpers'
+import { EventEmitter, inject } from '@angular/core'
+import { DOCUMENT } from '@angular/common'
 
 export class UiStore {
+  document = inject(DOCUMENT)
+
   @observable fab = true
+  @observable hidden = new EventEmitter<boolean>()
   @observable init = false
   @observable loading = false
   @observable spinner = false
@@ -43,6 +48,11 @@ export class UiStore {
         this.store.user.refresh().subscribe()
       }
     })
+    // Page Visibility API
+    this.document.addEventListener('visibilitychange', () =>
+      this.hidden.emit(this.document.hidden)
+    )
+    this.hidden.subscribe((hidden) => console.log(hidden))
     // Set theme
     this._setTheme()
     // Set flag to enable some animations after page load
