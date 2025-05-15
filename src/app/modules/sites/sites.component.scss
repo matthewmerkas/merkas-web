@@ -57,8 +57,9 @@ $edge-margin: 24px;
   --mdc-outlined-text-field-container-shape: 28px;
   --mdc-filled-text-field-container-shape: 28px;
 
-  margin: $edge-margin;
+  margin: $edge-margin auto;
   justify-content: center;
+  min-width: 288px;
   width: calc(100% - $edge-margin * 2);
   .clear-button {
     padding: 16px;
