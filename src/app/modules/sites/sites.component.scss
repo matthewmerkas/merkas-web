@@ -19,6 +19,7 @@ $edge-margin: 24px;
     flex: 1 1 0;
     font-size: 14px;
     min-width: 320px;
+    min-height: 0;
     max-height: $board-max-height;
   }
 }
