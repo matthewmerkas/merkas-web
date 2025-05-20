@@ -59,7 +59,6 @@ $edge-margin: 24px;
 
   margin: $edge-margin auto;
   justify-content: center;
-  min-width: 288px;
   width: calc(100% - $edge-margin * 2);
   .clear-button {
     padding: 16px;
@@ -68,6 +67,7 @@ $edge-margin: 24px;
   }
   .search {
     max-width: 640px;
+    min-width: 294px;
     width: 100%;
   }
 }
