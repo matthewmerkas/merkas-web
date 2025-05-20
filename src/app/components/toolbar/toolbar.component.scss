@@ -9,12 +9,12 @@
 }
 @media screen and (min-width: 1200px) {
   .mat-mdc-fab {
-    // Large FAB
-    font-size: 36px !important;
-    line-height: 96px !important;
-    border-radius: 28px !important;
-    height: 96px;
-    width: 96px;
+    // Medium FAB
+    font-size: 28px !important;
+    line-height: 80px !important;
+    border-radius: 20px !important;
+    height: 80px;
+    width: 80px;
   }
 }
 @media screen and (min-width: 601px) and (max-width: 1920px) {
