@@ -1,9 +1,11 @@
-import { Component } from '@angular/core'
+import { Location } from '@angular/common'
+import { Component, HostListener } from '@angular/core'
 import { Store } from './stores/store'
 import { animations } from './functions/animations'
 import {
   ActivatedRoute,
   NavigationEnd,
+  NavigationStart,
   RouteConfigLoadEnd,
   RouteConfigLoadStart,
   Router
@@ -23,10 +25,12 @@ import { map, Subscription } from 'rxjs'
   standalone: false
 })
 export class AppComponent {
+  private loading = false
   protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
 
   constructor(
     private dialog: MatDialog,
+    private location: Location,
     private route: ActivatedRoute,
     private router: Router,
     public store: Store
@@ -66,9 +70,9 @@ export class AppComponent {
           .open(DialogComponent, config)
           .afterClosed()
           .subscribe(() => {
-            const { [param]: removed, ...newParams } = params
             this.router.navigate([], {
-              queryParams: newParams,
+              queryParams: { [param]: null },
+              queryParamsHandling: 'merge',
               relativeTo: this.route,
               replaceUrl: true
             })
