@@ -2,6 +2,7 @@ import { action, observable } from 'mobx-angular'
 import { Observable, of } from 'rxjs'
 import { App } from '../functions/types'
 import { getToken } from '../functions/local-storage'
+import { isStatic } from '../functions/helpers'
 
 export class AppStore {
   @observable array: App[] = [
@@ -32,6 +33,7 @@ export class AppStore {
   ]
 
   constructor() {
+    if (isStatic()) return
     if (getToken()) {
       this.array.splice(-1, 0, {
         title: 'Sites',

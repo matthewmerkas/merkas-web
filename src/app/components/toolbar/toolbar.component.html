@@ -86,20 +86,22 @@
     <mat-menu #optionsMenu="matMenu">
       <button
         *ngIf="getToken()"
-        (click)="openDialog(AccountDialogComponent)"
         mat-menu-item
+        [routerLink]="[]"
+        [queryParams]="{ account: true }"
       >
         <mat-icon>person</mat-icon>
         Account
       </button>
-      <button (click)="openDialog(ThemeDialogComponent)" mat-menu-item>
+      <button mat-menu-item [routerLink]="[]" [queryParams]="{ theme: true }">
         <mat-icon>palette</mat-icon>
         Theme
       </button>
       <button
         *ngFor="let option of extraOptions"
-        (click)="openDialog(option.component)"
         mat-menu-item
+        [routerLink]="[]"
+        [queryParams]="getQueryParams(option)"
       >
         <mat-icon>{{ option.icon }}</mat-icon>
         {{ option.label }}
@@ -109,7 +111,7 @@
         Log out
       </button>
       <ng-template #logIn>
-        <button (click)="openDialog(LoginDialogComponent)" mat-menu-item>
+        <button mat-menu-item [routerLink]="[]" [queryParams]="{ login: true }">
           <mat-icon>login</mat-icon>
           Log in
         </button>
@@ -119,7 +121,6 @@
 </mat-toolbar>
 
 <button
-  (click)="openDialog(AppsDialogComponent)"
   *ngIf="store.ui.fab && showToolbar"
   [@.disabled]="!store.ui.init"
   [@fade]
@@ -127,6 +128,8 @@
   matTooltip="Apps"
   matTooltipPosition="above"
   [matTooltipShowDelay]="TOOLTIP_DELAY"
+  [routerLink]="[]"
+  [queryParams]="{ apps: true }"
 >
   <mat-icon [inline]="true">apps</mat-icon>
 </button>

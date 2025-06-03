@@ -1,6 +1,18 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
+import { AppsDialogComponent } from './components/apps-dialog/apps-dialog.component'
+import { LoginDialogComponent } from './components/login-dialog/login-dialog.component'
+import { AccountDialogComponent } from './components/account-dialog/account-dialog.component'
+import { ThemeDialogComponent } from './components/theme-dialog/theme-dialog.component'
+import { DialogComponent } from './functions/types'
+
+export const dialogMap = new Map<string, DialogComponent>([
+  ['account', AccountDialogComponent],
+  ['apps', AppsDialogComponent],
+  ['login', LoginDialogComponent],
+  ['theme', ThemeDialogComponent]
+])
 const routes: Routes = [
   {
     path: 'converter',

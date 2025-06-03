@@ -20,10 +20,7 @@ export class SitesComponent implements OnInit {
   sites: Site[] = []
   protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
 
-  constructor(
-    public store: Store,
-    public router: Router
-  ) {
+  constructor(public store: Store, public router: Router) {
     // Listening to page visibility
     this.store.ui.hidden.subscribe((hidden) => !hidden && this.setValue())
   }

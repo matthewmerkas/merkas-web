@@ -3,11 +3,9 @@ import { Router } from '@angular/router'
 import { Store } from '../../stores/store'
 import { observable } from 'mobx-angular'
 import { getRealToken } from '../../functions/local-storage'
-import { MatDialog } from '@angular/material/dialog'
 import { DEFAULT_PATH } from '../../functions/constants'
 import { animations } from '../../functions/animations'
 import { LoginDialogComponent } from '../../components/login-dialog/login-dialog.component'
-import { DialogComponent } from '../../components/dialog/dialog.component'
 import { AppsDialogComponent } from '../../components/apps-dialog/apps-dialog.component'
 
 @Component({
@@ -25,11 +23,7 @@ export class HomeComponent implements OnInit {
   protected readonly AppsDialogComponent = AppsDialogComponent
   protected readonly LoginDialogComponent = LoginDialogComponent
 
-  constructor(
-    public dialog: MatDialog,
-    private router: Router,
-    public store: Store
-  ) {}
+  constructor(private router: Router, public store: Store) {}
 
   ngOnInit() {
     if (getRealToken()) {
@@ -38,12 +32,5 @@ export class HomeComponent implements OnInit {
     } else {
       this.showSplash = true
     }
-  }
-
-  openDialog = (component: { getData: () => any }) => {
-    this.dialog.open(DialogComponent, {
-      data: { component, ...component.getData() },
-      maxWidth: '100dvw'
-    })
   }
 }

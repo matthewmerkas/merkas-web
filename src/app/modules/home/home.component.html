@@ -7,14 +7,15 @@
   <h1>
     Merk
     <div class="apps">
-      <div (click)="openDialog(AppsDialogComponent)" matRipple></div>
+      <div matRipple [routerLink]="[]" [queryParams]="{ apps: true }"></div>
       a
     </div>
     s!
     <div
-      (click)="openDialog(LoginDialogComponent)"
       class="circle flex"
       matRipple
+      [routerLink]="[]"
+      [queryParams]="{ login: true }"
     >
       <mat-icon>login</mat-icon>
     </div>

@@ -13,10 +13,15 @@ export interface Colors {
   secondary?: string
 }
 
+export interface DialogComponent extends ComponentType<any> {
+  getData: () => object
+}
+
 export interface ExtraOption {
+  id: string
   icon: string
   label: string
-  component: ComponentType<any>
+  component: DialogComponent
 }
 
 export interface Jwt {
@@ -30,6 +35,10 @@ export interface MerkasFile {
   path?: string
   mimetype?: string
   size?: number
+}
+
+export interface RouteData {
+  options: ExtraOption[]
 }
 
 export interface Site {

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-import { MatDialog } from '@angular/material/dialog'
 import { ActivationStart, NavigationEnd, Router } from '@angular/router'
 import { map } from 'rxjs'
 
@@ -9,7 +8,6 @@ import { AppsDialogComponent } from '../apps-dialog/apps-dialog.component'
 import { ThemeDialogComponent } from '../theme-dialog/theme-dialog.component'
 import { DEFAULT_PATH, TOOLTIP_DELAY } from '../../functions/constants'
 import { getToken } from '../../functions/local-storage'
-import { DialogComponent } from '../dialog/dialog.component'
 import { animations } from '../../functions/animations'
 import { ExtraOption } from '../../functions/types'
 import { Store } from '../../stores/store'
@@ -32,11 +30,7 @@ export class ToolbarComponent implements OnInit {
   protected readonly LoginDialogComponent = LoginDialogComponent
   protected readonly ThemeDialogComponent = ThemeDialogComponent
 
-  constructor(
-    private dialog: MatDialog,
-    public store: Store,
-    private router: Router
-  ) {}
+  constructor(public store: Store, private router: Router) {}
 
   ngOnInit() {
     this.router.events
@@ -47,7 +41,7 @@ export class ToolbarComponent implements OnInit {
             this.extraOptions = data['options'] || []
           } else if (e instanceof NavigationEnd) {
             // Don't show the toolbar on the "Merkas!" splash screen
-            this.showToolbar = e.urlAfterRedirects !== '/'
+            this.showToolbar = e.urlAfterRedirects.split('?')[0] !== '/'
             // Reset toolbar to default color
             const exempt = ['/twenty']
             if (!exempt.includes(e.url)) {
@@ -59,12 +53,8 @@ export class ToolbarComponent implements OnInit {
       .subscribe()
   }
 
-  logout = () => this.store.ui.onLogout()
+  getQueryParams = (option: ExtraOption) =>
+    option?.id ? { [option.id]: true } : {}
 
-  openDialog = (component: any) => {
-    this.dialog.open(DialogComponent, {
-      data: { component, ...component.getData() },
-      maxWidth: '100dvw'
-    })
-  }
+  logout = () => this.store.ui.onLogout()
 }

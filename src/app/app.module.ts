@@ -3,7 +3,6 @@ import { NgOptimizedImage } from '@angular/common'
 import {
   HTTP_INTERCEPTORS,
   provideHttpClient,
-  withFetch,
   withInterceptorsFromDi
 } from '@angular/common/http'
 import {
@@ -18,6 +17,7 @@ import {
   MatCardHeader,
   MatCardTitle
 } from '@angular/material/card'
+import { MatRipple } from '@angular/material/core'
 import {
   MatDialogActions,
   MatDialogClose,
@@ -35,8 +35,8 @@ import {
   provideClientHydration
 } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { JwtModule } from '@auth0/angular-jwt'
 
+import { JwtModule } from '@auth0/angular-jwt'
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
 import { DialogComponent } from './components/dialog/dialog.component'
@@ -66,11 +66,15 @@ import { ServiceWorkerModule } from '@angular/service-worker'
         allowedDomains: [getHost()]
       }
     }),
+    MatButton,
     MatCard,
+    MatCardActions,
     MatCardContent,
     MatCardHeader,
     MatCardTitle,
+    MatDialogActions,
     MatDialogClose,
+    MatDialogContent,
     MatFabButton,
     MatFormField,
     MatIcon,
@@ -79,17 +83,14 @@ import { ServiceWorkerModule } from '@angular/service-worker'
     MatMenu,
     MatMenuItem,
     MatMenuTrigger,
+    MatProgressSpinner,
+    MatRipple,
     MatToolbar,
     MatTooltip,
     NgOptimizedImage,
+    PasswordFieldComponent,
     ReactiveFormsModule,
     SitesModule,
-    MatCardActions,
-    MatButton,
-    MatProgressSpinner,
-    PasswordFieldComponent,
-    MatDialogContent,
-    MatDialogActions,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable

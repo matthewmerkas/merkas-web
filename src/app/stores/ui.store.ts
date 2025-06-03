@@ -1,11 +1,12 @@
+import { DOCUMENT } from '@angular/common'
+import { EventEmitter, inject } from '@angular/core'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { Router } from '@angular/router'
 import { isUnauthorizedError } from '@thream/socketio-jwt/build/UnauthorizedError.js'
 import { action, observable } from 'mobx-angular'
+import { io, Socket } from 'socket.io-client'
 import store from 'store2'
 
-import { io, Socket } from 'socket.io-client'
-import { Store } from './store'
 import {
   getDecoded,
   getItem,
@@ -16,8 +17,7 @@ import { environment } from '../../environments/environment'
 import { applyTheme } from '../functions/colors'
 import { DEFAULT_COLORS } from '../functions/constants'
 import { isStatic } from '../functions/helpers'
-import { EventEmitter, inject } from '@angular/core'
-import { DOCUMENT } from '@angular/common'
+import { Store } from './store'
 
 export class UiStore {
   document = inject(DOCUMENT)
@@ -53,15 +53,15 @@ export class UiStore {
       this.hidden.emit(this.document.hidden)
     )
     // Set theme
-    this._setTheme()
+    this.setTheme()
     // Set flag to enable some animations after page load
-    setTimeout(() => (this.init = true), 100)
+    setTimeout(() => (this.init = true), 1000)
   }
 
   @action
   onLogin() {
     removeItem('colors')
-    this._setTheme()
+    this.setTheme()
     this.store.recreate('app')
   }
 
@@ -107,7 +107,7 @@ export class UiStore {
     this.toolbarTheme = theme
   }
 
-  _setTheme() {
+  private setTheme() {
     const colors = getDecoded()?.colors || getItem('colors') || DEFAULT_COLORS
     colors && applyTheme(colors.primary, colors.tertiary, colors.secondary)
   }
