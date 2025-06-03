@@ -68,8 +68,9 @@ export class AppComponent {
           .subscribe(() => {
             const { [param]: removed, ...newParams } = params
             this.router.navigate([], {
+              queryParams: newParams,
               relativeTo: this.route,
-              queryParams: newParams
+              replaceUrl: true
             })
           })
       }
