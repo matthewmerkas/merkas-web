@@ -123,5 +123,5 @@ export class ThemeDialogComponent {
     })
   }
 
-  _getColors = () => getDecoded()?.colors || getItem('colors') || DEFAULT_COLORS
+  _getColors = () => getItem('colors') || getDecoded()?.colors || DEFAULT_COLORS
 }
