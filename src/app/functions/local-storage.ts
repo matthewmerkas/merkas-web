@@ -5,7 +5,7 @@ import { isStatic } from './helpers'
 
 export const getDecoded = (): User | null => {
   const token = getToken()
-  return token ? jwtDecode(token) : null
+  return typeof token === 'string' ? jwtDecode(token) : null
 }
 
 export const getToken = (): string | null => {

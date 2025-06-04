@@ -108,7 +108,7 @@ export class UiStore {
   }
 
   private setTheme() {
-    const colors = getDecoded()?.colors || getItem('colors') || DEFAULT_COLORS
+    const colors = getItem('colors') || getDecoded()?.colors || DEFAULT_COLORS
     colors && applyTheme(colors.primary, colors.tertiary, colors.secondary)
   }
 }

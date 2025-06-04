@@ -49,10 +49,11 @@ export class DialogComponent implements OnInit {
   onEscapeKey = () => this.close()
 
   @ViewChild('dynamic') set set(dynamic: any) {
-    const component = dynamic.componentRef.instance
+    const component = dynamic.componentRef?.instance
+    if (!component || typeof window === 'undefined') return
     this.onSubmit = component.onSubmit
-    window.setTimeout(() => (this.valid = component?.formGroup?.valid))
-    component?.formGroup?.statusChanges.subscribe((status: FormControlStatus) =>
+    window.setTimeout(() => (this.valid = component.formGroup?.valid))
+    component.formGroup?.statusChanges.subscribe((status: FormControlStatus) =>
       this.validChange.emit(status === 'VALID')
     )
     this.validChange.subscribe((value) => (this.valid = value))
