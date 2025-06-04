@@ -6,23 +6,20 @@ import { TOOLTIP_DELAY } from '../../functions/constants'
 import { MatButton } from '@angular/material/button'
 import { MatIcon } from '@angular/material/icon'
 import { MatTooltip } from '@angular/material/tooltip'
-import { MatDialogClose } from '@angular/material/dialog'
+import { MatDialogRef } from '@angular/material/dialog'
+import { DialogComponent } from '../dialog/dialog.component'
 
 @Component({
   selector: 'app-apps-dialog',
-  imports: [
-    NgForOf,
-    SiteComponent,
-    MatIcon,
-    MatTooltip,
-    MatDialogClose,
-    MatButton
-  ],
+  imports: [NgForOf, SiteComponent, MatIcon, MatTooltip, MatButton],
   templateUrl: './apps-dialog.component.html',
   styleUrl: './apps-dialog.component.scss'
 })
 export class AppsDialogComponent {
-  constructor(public store: Store) {}
+  constructor(
+    protected dialogRef: MatDialogRef<DialogComponent>,
+    public store: Store
+  ) {}
 
   static getData = () => {
     return {

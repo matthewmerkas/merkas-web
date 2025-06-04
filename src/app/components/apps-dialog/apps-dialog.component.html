@@ -6,7 +6,7 @@
   ></app-site>
   <button
     class="close-button"
-    mat-dialog-close
+    (click)="dialogRef?.componentInstance.close()"
     mat-stroked-button
     matTooltip="Close"
     matTooltipPosition="above"
