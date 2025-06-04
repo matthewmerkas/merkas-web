@@ -1,13 +1,14 @@
+import { NgIf } from '@angular/common'
 import { Component } from '@angular/core'
 import { MatDialogRef } from '@angular/material/dialog'
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms'
 
-import { Store } from '../../stores/store'
+import { DialogComponent } from '../dialog/dialog.component'
+import { PasswordFieldComponent } from '../password-field/password-field.component'
 import { matchValidator } from '../../functions/forms'
 import { UserUpdate } from '../../functions/types'
 import { getDecoded } from '../../functions/local-storage'
-import { NgIf } from '@angular/common'
-import { PasswordFieldComponent } from '../password-field/password-field.component'
+import { Store } from '../../stores/store'
 
 @Component({
   selector: 'app-account-dialog',
@@ -27,7 +28,7 @@ export class AccountDialogComponent {
   user = getDecoded()
 
   constructor(
-    private dialogRef: MatDialogRef<AccountDialogComponent>,
+    private dialogRef: MatDialogRef<DialogComponent>,
     private fb: FormBuilder,
     public store: Store
   ) {}
@@ -45,9 +46,9 @@ export class AccountDialogComponent {
     } else {
       const data = this.formGroup.getRawValue() as UserUpdate
       delete data.confirmPassword
-      this.store.user.update(data).subscribe(() => {
-        this.dialogRef?.close()
-      })
+      this.store.user
+        .update(data)
+        .subscribe(() => this.dialogRef?.componentInstance.close())
     }
   }
 }

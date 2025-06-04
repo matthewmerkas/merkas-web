@@ -6,6 +6,7 @@ import { MatError, MatFormField } from '@angular/material/form-field'
 import { MatInput, MatLabel } from '@angular/material/input'
 import { Router } from '@angular/router'
 
+import { DialogComponent } from '../dialog/dialog.component'
 import { PasswordFieldComponent } from '../password-field/password-field.component'
 import { DEFAULT_PATH } from '../../functions/constants'
 import { Store } from '../../stores/store'
@@ -31,7 +32,7 @@ export class LoginDialogComponent {
   })
 
   constructor(
-    private dialogRef: MatDialogRef<LoginDialogComponent>,
+    private dialogRef: MatDialogRef<DialogComponent>,
     private fb: FormBuilder,
     private router: Router,
     public store: Store
@@ -51,10 +52,8 @@ export class LoginDialogComponent {
       const data = this.formGroup.getRawValue()
       this.store.user.login(data).subscribe(() => {
         this.store.ui.onLogin()
-        this.dialogRef?.close()
-        this.dialogRef?.afterClosed().subscribe(() => {
-          return this.router.navigate([DEFAULT_PATH])
-        })
+        this.dialogRef?.componentInstance.close()
+        return setTimeout(() => this.router.navigate([DEFAULT_PATH]))
       })
     }
   }

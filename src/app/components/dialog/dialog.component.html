@@ -5,9 +5,9 @@
   <mat-card-header>
     <mat-card-title>{{ title }}</mat-card-title>
     <button
+      (click)="close()"
       [disabled]="closeIsDisabled || loading"
       [matTooltipShowDelay]="TOOLTIP_DELAY"
-      mat-dialog-close
       mat-icon-button
       matTooltip="Close"
     >

@@ -1,10 +1,12 @@
+import { NgForOf, NgTemplateOutlet } from '@angular/common'
 import { Component } from '@angular/core'
+import { FormGroup } from '@angular/forms'
 import { MatButton } from '@angular/material/button'
+import { MatDialogRef } from '@angular/material/dialog'
 import deepEqual from 'fast-deep-equal'
 
+import { DialogComponent } from '../dialog/dialog.component'
 import { applyTheme } from '../../functions/colors'
-import { Store } from '../../stores/store'
-import { NgForOf, NgTemplateOutlet } from '@angular/common'
 import {
   getDecoded,
   getItem,
@@ -13,8 +15,7 @@ import {
   setTokens
 } from '../../functions/local-storage'
 import { DEFAULT_COLORS } from '../../functions/constants'
-import { MatDialogRef } from '@angular/material/dialog'
-import { FormGroup } from '@angular/forms'
+import { Store } from '../../stores/store'
 
 interface Colors {
   primary: string
@@ -43,9 +44,10 @@ export class ThemeDialogComponent {
   colorsFirst!: Colors
   colors!: Colors
   formGroup = new FormGroup({})
+  submitted = false
 
   constructor(
-    private dialogRef: MatDialogRef<ThemeDialogComponent>,
+    private dialogRef: MatDialogRef<DialogComponent>,
     public store: Store
   ) {
     const colors = [
@@ -66,8 +68,9 @@ export class ThemeDialogComponent {
     ]
     this.colorsArray = this.constructColors(colors)
     this.colorsFirst = this._getColors()
-    this.dialogRef.beforeClosed().subscribe((submitted) => {
-      if (submitted) {
+    this.dialogRef.beforeClosed().subscribe(() => {
+      if (this.submitted) {
+        this.submitted = false
         return
       }
       const colors = this.colorsFirst
@@ -78,7 +81,7 @@ export class ThemeDialogComponent {
   static getData = () => {
     return {
       title: 'Theme',
-      buttonLabel: 'Save'
+      buttonLabel: 'Save & Apply'
     }
   }
 
@@ -121,11 +124,13 @@ export class ThemeDialogComponent {
     if (getToken()) {
       this.store.user.patch({ colors }).subscribe((user) => {
         setTokens(user.tokens!)
-        this.dialogRef?.close(true)
+        this.submitted = true
+        this.dialogRef?.componentInstance.close()
       })
     } else {
       setItem('colors', colors)
-      this.dialogRef?.close(true)
+      this.submitted = true
+      this.dialogRef?.componentInstance.close()
     }
   }
 

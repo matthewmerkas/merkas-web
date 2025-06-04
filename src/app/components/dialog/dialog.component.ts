@@ -1,6 +1,8 @@
+import { Location } from '@angular/common'
 import {
   Component,
   EventEmitter,
+  HostListener,
   Inject,
   OnInit,
   ViewChild
@@ -33,6 +35,7 @@ export class DialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<any>,
+    private location: Location,
     public store: Store
   ) {
     this.buttonLabel = data.buttonLabel
@@ -41,6 +44,9 @@ export class DialogComponent implements OnInit {
     this.title = data.title
     this.valid = false
   }
+
+  @HostListener('document:keydown.escape')
+  onEscapeKey = () => this.close()
 
   @ViewChild('dynamic') set set(dynamic: any) {
     const component = dynamic.componentRef.instance
@@ -66,5 +72,9 @@ export class DialogComponent implements OnInit {
         this.closeIsDisabled = true
       }, 100)
     })
+    this.dialogRef.backdropClick().subscribe(() => this.location.back())
+    this.dialogRef.disableClose = true
   }
+
+  close = () => this.location.back()
 }

@@ -5,7 +5,6 @@ import { animations } from './functions/animations'
 import {
   ActivatedRoute,
   NavigationEnd,
-  NavigationStart,
   RouteConfigLoadEnd,
   RouteConfigLoadStart,
   Router
@@ -25,7 +24,6 @@ import { map, Subscription } from 'rxjs'
   standalone: false
 })
 export class AppComponent {
-  private loading = false
   protected readonly TOOLTIP_DELAY = TOOLTIP_DELAY
 
   constructor(
@@ -66,17 +64,7 @@ export class AppComponent {
           config.backdropClass = 'backdrop-init'
           config.enterAnimationDuration = 0
         }
-        this.dialog
-          .open(DialogComponent, config)
-          .afterClosed()
-          .subscribe(() => {
-            this.router.navigate([], {
-              queryParams: { [param]: null },
-              queryParamsHandling: 'merge',
-              relativeTo: this.route,
-              replaceUrl: true
-            })
-          })
+        this.dialog.open(DialogComponent, config)
       }
     })
   )
